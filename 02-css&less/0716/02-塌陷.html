@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .father{
+            width: 600px;
+            background-color: gold;
+            border: 5px solid purple;
+            /* 解决塌陷  */
+            /* 一、设置overflow属性 */
+            /* overflow: hidden;   */
+
+            /* 二、父元素也浮动 */
+            /* float: left; */
+
+        }
+         /* 四、最常用：  利用伪元素 */
+        /* .father::after{
+            display: block;
+            content: "";
+            clear: both;
+        } */
+        .son1{
+            width: 130px;height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .son2{
+            width: 180px;height: 100px;
+            background-color: green;
+            float: left;
+        }
+        .son3{
+            width: 200px;height: 120px;
+            background-color: blue;
+            /* float: left; */
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+        <!-- 兄弟元素间的塌陷解决办法：在受影响的元素中添加clear:both; -->
+        <div class="son3" style="clear: both">son3</div>
+        <!--三、 解决塌陷  最后一个子元素后面加一个空标签 -->
+        <!-- <div style="clear: both"></div> -->
+    </div>
+</body>
+</html>

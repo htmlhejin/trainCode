@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 权重  id:0100 (100元); class:0010（10元） ; 标签:0001（1元）*/
+        .item #id span{
+            color: red;
+        }   /*111*/
+        #box .item1 .item2{color: gold;}   /*120*/
+        #box .item1 #box2{color: pink;}    /*210*/
+    </style>
+</head>
+<body>
+    <div class="item" id="box">
+        <div class="item1" id="box1">
+            <span class="item2" id="box2">span</span>
+        </div>
+    </div>
+</body>
+</html>

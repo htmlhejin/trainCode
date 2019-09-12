@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 500px;
+            height: 500px;
+            border: 3px solid red;
+            display: flex;
+        }
+        .son1{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+        .son2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .son3{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="father">
+        <!-- 设置盒子排列顺序 -->
+        <!-- <div style="order: 1" class="son1">son1</div>
+        <div style="order: 3" class="son2">son2</div>
+        <div style="order: 2" class="son3">son3</div> -->
+
+            <!-- 盒子生长 -->
+        <!-- <div style="flex-grow: 1" class="son1">son1</div>
+        <div style="flex-grow: 2" class="son2">son2</div>
+        <div style="flex-grow: 4" class="son3">son3</div> -->
+
+        <!-- 盒子压缩 当项目足够多时能看出效果-->
+        <!-- <div style="flex-shrink: 9" class="son1">son1</div>
+        <div style="flex-shrink: 2" class="son2">son2</div>
+        <div style="flex-shrink: 4" class="son3">son3</div> -->
+        <!-- <div style="flex-shrink: 4" class="son3">son3</div>
+        <div style="flex-shrink: 4" class="son3">son3</div>
+        <div style="flex-shrink: 4" class="son3">son3</div>
+        <div style="flex-shrink: 4" class="son3">son3</div>
+        <div style="flex-shrink: 4" class="son3">son3</div>
+         -->
+
+        <!-- 盒子占空比 可以用百分比表示，也可以用像素表示-->
+        <!-- <div style="flex-basis: 50%" class="son1">son1</div>
+        <div style="flex-basis: 10%" class="son2">son2</div>
+        <div style="flex-basis: 90%" class="son3">son3</div> -->
+
+        <!-- 设置单个项目的对齐方式  -->
+        <div style="align-self:flex-end" class="son1">son1</div>
+        <div style="align-self:flex-end" class="son2">son2</div>
+        <div style="align-self:flex-end" class="son3">son3</div>
+    </div>
+</body>
+</html>

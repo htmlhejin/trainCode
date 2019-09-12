@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            position: relative;
+        }
+
+        .son1 {
+            width: 40px;
+            height: 40px;
+            background-color: gold;
+            /* 自身的相对定位 */
+            /* position: relative;
+            top: 10px;
+            right: 10px; */
+
+            /* 相对于父元素的绝对定位 */
+            position: absolute;
+            /* 如果子元素中设置了绝对定位，系统自动向上找相对定位，
+            如果父元素中没有设置相对定位，会继续向上找，直到body，
+            如果body也没有设置相对定位，则以body为参考点 */
+            top: 15px;
+            left: 10px;
+            /*  */
+            z-index: 300;
+        }
+
+        .son2 {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 200;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1">son1</div>
+        <div class="son2">son2</div>
+    </div>
+</body>
+
+</html>
