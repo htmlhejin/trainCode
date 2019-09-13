@@ -1,0 +1,51 @@
+<script>
+    // let arr=[1,2,3]
+    // for(let i=0;i<arr.length;i++){
+    //     console.log(arr[i])
+    // }
+
+    // let arra=[1,2,3]
+    // arra.forEach(function(item,index,arra){ //item、index、arra只是形参，其他单词或字母也可以表示
+    //     // console.log(item)    //1  2  3
+    //     // console.log(index)   // 0  1  2
+    //     console.log(`下标为${index}的值是${item}`)
+    //     console.info(arra)
+    // })
+
+    // let arra=[1,2,3]
+    // arra.forEach(function(a,b,c){ //item、index、arra只是形参，其他单词或字母也可以表示,只不过代表的意思还是tem、index、arra
+    //     // console.log(item)    //1  2  3
+    //     // console.log(index)   // 0  1  2
+    //     console.log(`下标为${b}的值是${a}`)
+    //     console.info(c)
+    // })
+
+    // let arra=[1,2,3]
+    // arra.forEach(function(a,b,c){ //item、index、arra只是形参，其他单词或字母也可以表示,只不过代表的意思还是tem、index、arra
+    //     // console.log(item)    //1  2  3
+    //     // console.log(index)   // 0  1  2
+    //     a=88;
+    //     console.log(`下标为${b}的值是${a}`)
+    //     // console.info(arra)   //1,2,3   修改item的值不影响原数组，前提是item是基本数据类型，如果item是引用数据类型，会影响原数组
+    // })
+
+    
+    // let arra={name:"haha"}
+    // arra.forEach(function(a){ //item、index、arra只是形参，其他单词或字母也可以表示,只不过代表的意思还是tem、index、arra
+    //     // console.log(item)    //1  2  3
+    //     // console.log(index)   // 0  1  2
+    //     a={name:"qqq"};
+    //     // console.log(`下标为${b}的值是${a}`)
+    //     console.info(arra)   //1,2,3   修改item的值不影响原数组，前提是item是基本数据类型，如果item是引用数据类型，会影响原数组
+    // })
+
+    
+    let arra=[1,2,3]
+    arra.forEach(function(item,index,arra){ //item、index、arra只是形参，其他单词或字母也可以表示,只不过代表的意思还是tem、index、arra
+        // console.log(item)    //1  2  3
+        // console.log(index)   // 0  1  2
+        arra[index]=99;      //改变索引会改变原数组
+        console.log(`下标为${index}的值是${item}`)
+        console.info(arra)   //1,2,99   修改item的值不影响原数组，前提是item是基本数据类型，如果item是引用数据类型，会影响原数组
+    })
+</script>

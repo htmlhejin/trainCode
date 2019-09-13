@@ -1,0 +1,21 @@
+<script>
+    let arr=[7,6,5,3,2,0]
+    let temp;
+    let minIndex;
+    // 每个数都要拿出来和其他元素比较比较
+    for(let i=0;i<arr.length;i++){
+        minIndex=i;   //先把第一个元素对应的索引定义为最小的元素对应的索引
+        // 第一个数拿出来后与其他元素相比，从第二个开始比，不与自身比
+        for(let j=i+1;j<arr.length;j++){
+            // 如果找到比第一个元素小的元素
+            if(arr[j]<arr[minIndex]){
+                // 交换这个元素和之前定义的最小的元素
+                temp=arr[j];
+                arr[j]=arr[i];
+                arr[i]=temp;
+            }
+        }
+    }
+    // 循环结束之后打印数组
+    console.log(arr)
+</script>

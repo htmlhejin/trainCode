@@ -1,0 +1,35 @@
+/* ------------------------
+@Description:
+@Author:
+@Contacts:
+@Update:
+时间：
+----------------------------
+*/
+/* 迅雷顶部logo部分  */
+.header{height:58px;padding-top:20px; position:relative;overflow:hidden;border:none;}
+.logo{width:225px; height:48px;position:absolute; left:23px; top:20px; background:url("../images/headerpage.png") no-repeat -68px -35px;}
+.logo a{display:block;width:225px; height:48px; text-indent:-9999em;}
+.logoswf{width:290px;height:98px;position:absolute;left:0;top:-10px;overflow:hidden;}
+.search{width:399px; position:absolute;z-index:99;left:297px; top:24px;} 
+.search form{width:393px; height:27px; border:3px solid #eee;overflow:hidden;}
+.search .keywords{width:319px;height:14px; padding:6px 0 5px 5px; border:1px solid #babebf;border-right:none; float:left;}
+.search .btn{width:68px;height:27px;border:none; float:left;background:url("../images/headerpage.png") no-repeat 0 -36px; font-size:14px; font-weight:bold; color:#fff; text-align:center;line-height:27px;}
+.search p{text-align:center;padding-top:3px;}
+.search p a{color:#a9a9a9; margin:0 3px;}
+.user{width:260px; position:absolute; right:0; top:39px;text-align:right;}
+.user p{margin-bottom:5px;color:#e6e6e6;}
+.user p a{color:#a9a9a9;margin:0 3px;}
+
+/*  迅雷菜单menu部分 */
+.menu{height:35px; background:url("../images/headerpage.png") repeat-x 0 0;}
+.menu ul{float:left;}
+.menu li{float:left;line-height:35px; margin:0 10px;}
+.main-menu li{font-size:14px;}
+.main-menu li.cur a{font-weight:bold; color:#0081C2;}
+.dp{background:url("../images/mainnav_list_2.png") no-repeat 0 5px;}
+.dp img{float:left;position:relative;left:-43px; top:0;}
+.menu ul.viewd{float:right;}
+
+
+/*  迅雷导航部分，包括图片轮播和tab选项 */

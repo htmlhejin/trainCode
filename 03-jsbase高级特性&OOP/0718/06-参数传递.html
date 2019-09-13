@@ -1,0 +1,52 @@
+<!-- <script>
+    function f(a){
+        // a=666    //改变a的值似乎否影响x？//console.log(x)结果还是110，因为实参x把值复制一份给a，
+        // 系统一共开辟了两块内存空间，a和x互不影响
+        console.log(a)
+    }
+    let x=110;
+    f(x)
+    console.log(x)  //110
+</script> -->
+
+<!-- <script>
+    function f(a){
+        a[0]=999;   //改变a的值是否影响x  答案是yes   x=[999,2,3]
+    }
+    let x=[1,2,3]
+    f(x)
+    console.log(x)  //[1,2,3]
+</script> -->
+
+<!-- <script>
+    function f(a){
+        a=[4,5]   //a指向新的地址，x的值仍然是[1,2]
+    }
+    let x=[1,2]
+    f(x)
+    console.log(x)
+</script> -->
+
+<!-- <script>
+    function f(a){
+        a[0]=[6,8]   //由于x和a同时指向[1，2，3],所以改变a的值会影响x的值
+    }
+    let x=[1,2]
+    f(x)
+    console.log(x)
+</script> -->
+
+<!-- <script>
+    function f(a){
+        a[100]=8;    //由于x和a同时指向[1，2，3],所以改变a的值会影响x的值
+    }
+    let x=[1,2,3]
+    f(x)
+    console.log(x)
+</script> -->
+
+<script>
+    let arr=[1,2,3]
+    arr[100]=666;
+    console.log(arr)
+</script>

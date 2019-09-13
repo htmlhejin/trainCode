@@ -1,0 +1,45 @@
+ <!-- let不能提升  ----报错 -->
+<!-- <script>
+    console.log(a)
+    let a=10;
+    // console.log(a)
+</script> -->
+
+<!-- let形成一个块级作用域，出了块级作用域无效  ----报错 -->
+<!-- <script>
+    function f(){
+        let a=20;
+        // console.log(a)
+    }
+    f()
+    console.log(a)
+</script> -->
+
+<!-- 如果要修改let声明的变量值，只能在let命令之后修改，否则报错 -->
+<!-- <script>
+    a=20;
+    let a=10;
+    console.log(a)
+</script> -->
+
+<!-- let不会成为window的对象 ，var可以-->
+<!-- <script>
+    // let a=11;
+    // console.log(window.a)  //undefined
+
+    var a=30;
+    console.log(window.a)  //打印出30
+</script> -->
+
+<!-- 暂存性死区，指在let命令声明变量之前不能使用该变量 -->
+<script>
+    // a=10;
+    // let a=100;
+    // console.log(a)
+
+    function f(){
+        console.log(a);
+        let a=10;
+    }
+    f()
+</script>

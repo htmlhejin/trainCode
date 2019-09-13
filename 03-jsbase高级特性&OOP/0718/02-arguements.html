@@ -1,0 +1,38 @@
+<!-- arguements的使用 -->
+<script>
+// <!-- 实参较多时，形参接收较麻烦，使用arguements接收较方便 -->
+    // function f(){
+    //     console.log(arguments)
+    // }
+    // f(1,2,3,4,5,6,7)
+
+     // 数组
+//    let arr=[1,2,3,"hello"]
+//    console.log(arr[3])
+
+    //对象
+    // let obj={name:"wangcai",age:10}
+    // console.log(obj.name)
+    // console.log(obj.age)
+
+    // 如果实参有特殊含义，需要一个特殊标识，可以使用形参来表示，如name，使用arguements
+    // function f(name,age){
+    //     console.log(arguments)
+    // }
+    // f("wangcai",100)
+
+        // 形参和arguements一一对应
+        // function f(a,b){
+        //     a=100;    //改变形参的值，arguements中的值也随之改变
+        //     console.log(arguments)  //1,2   //100，2
+        // }
+        // f(1,2)
+
+            // 改变arguments中的值，形参也随之改变
+        function f(){
+        arguments[0]=20;  //改变arguments中的值，形参的值也随之改变
+        console.log(arguments)   //20，2，3
+        }
+        f(1,2,3)
+</script>
+

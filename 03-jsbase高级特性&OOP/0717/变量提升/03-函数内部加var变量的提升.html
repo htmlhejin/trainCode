@@ -1,0 +1,12 @@
+<script>
+    // 函数的声明，如果只声明不调用，相当于没有这个函数
+    // 函数内部加var变量的提升，提升到函数内部最前面
+    function f(){
+        // var a;
+        console.log(a);
+        var a=100;
+
+        console.log(a);
+    }
+    f()
+</script>

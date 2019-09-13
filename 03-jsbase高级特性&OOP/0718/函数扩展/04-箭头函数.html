@@ -1,0 +1,54 @@
+<script>
+//   var f=function(a){
+//     console.log(a*a)
+//   }
+//   f(1)
+    //以上函数简写为箭头函数
+    // 1、关键字function省略，用=>(放在形参括号后)代替，
+    // f=(a)=>{console.log("g...")}
+    // 2、如果形参只有一个，（）省略；
+    // f=a=>{console.log("g...")}
+    // 3、如果函数体只有一条语句，{}省略，如果这条语句中有return，return也需一块省略
+    // let f=a=>console.log(a*a)
+    // f(4)
+
+    //不能使用arrguements对象，该对象不在函数体内
+    //  let a=(b,c)=>console.log(b+c)
+    //  a(3,4)
+
+
+    //  let f=a=>console.log(a)
+    //  f(10)
+
+    // function f(){
+    //     return {name:"wangcai"}
+    // }
+    // f()
+    // console.log(f())
+
+    // let f=()=> ({name:"wangcai"})
+    // f()
+    // console.log(f())
+
+
+    // function f(a){
+    //     console.log(a*a)
+    // }
+    // f(3)
+    // 箭头函数
+    // let f=a=>console.log(a*a)
+    // f(6)
+
+        // let res=0;
+        // function f(a){
+        //     res+=a;
+        //     return res;
+        // }
+        // f(3)
+        // console.log(res)
+            //箭头函数
+        let res=0;
+        let f=a=>{res+=a;return res}
+        f(7)
+        console.log(res)
+</script>

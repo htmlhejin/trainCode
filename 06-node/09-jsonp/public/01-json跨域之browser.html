@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+</body>
+
+<script>
+    $("#btn").on("click",function(){
+        // 比较老的请求方式
+        $.ajax({
+            // 请求地址
+            url:"http://localhost:3333/newsList",
+            type:'get',
+            // dataType:'json',
+            dataType:'jsonp',
+            success:function(res){
+                console.log(res)
+            }
+        })
+    })
+</script>
+</html>
+<!-- 
+    开启html页面，去请求http://localhost:3333/newsList，会产生跨域问题，
+    客户端：file:///D:/huashantrain/1907--1912/06-node/09-jsonp/01-json跨域之browser.html
+    服务器端：http://localhost:3333/newsList
+
+
+    通过dataType:'jsonp', 去请求数据，不会产生跨域问题
+ -->
+
+ <!-- 
+    开启html页面，去请求客户端自己开启的服务，也会产生跨域问题，
+    客户端：file:///D:/huashantrain/1907--1912/06-node/09-jsonp/01-json跨域之browser.html
+    服务器端：http://localhost:4444
+
+  -->
+
+  <!-- 
+    右击  open with Live server (vscode的一个插件)，vscode自己会产生一个服务，这样也会产生跨域
+
+   -->
+
+   <!-- 
+       Request URL: http://localhost:3333/newsList?callback=jQuery111309474602978520825_1567341818032&_=1567341818033
+    -->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+<script>
+    let div = document.getElementsByTagName("div")[0];
+    console.log(div);
+    div.addEventListener("mousemove", function () {
+        console.log("鼠标移动了" + Date.now())
+    })
+    // function k() {
+    //     let now = Date.now();
+    //     function m() {
+    //         if (Date.now() - now > 3000) {
+    //             console.log("鼠标移动了" + Date.now())
+    //             now = Date.now()
+    //         } else {
+    //             console.log("时间还没到...")
+    //         }
+    //     }
+    //     return m;
+    // }
+    // let g=k();
+    // div.addEventListener("mousemove",g);
+</script>
+
+</html>

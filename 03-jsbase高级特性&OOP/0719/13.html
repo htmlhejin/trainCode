@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+        // 应用1：实现节流函数
+        let div = document.getElementsByTagName("div")[0]
+        // console.log(div)
+        // 绑定事件： div.onclick = function(){}    div.addEventListener("onclick",function(){})
+        // div.addEventListener("mousemove",function(){
+        //     console.log("鼠标移动了"+Date.now())
+        // })
+        function k(){
+            let now = Date.now()
+            function m(){
+                if(Date.now() - now > 2000){
+                    console.log("鼠标移动了"+Date.now())
+                    now = Date.now();
+                }else{
+                    console.log("时间还没到...")
+                }
+            }
+            return m;
+        }
+        var m =  k();
+        // 节流：2000ms内只能执行一次
+        div.addEventListener("mousemove",m)
+    </script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+
+</html>
+<script>
+    // let lis=document.getElementsByTagName("li")
+    // for(var i=0;i<lis.length;i++){  //for循环立即执行
+    //     lis[i].onclick=function(){
+    //         console.log(i)   //点击时会出现四个4，不是我们要的0，1，2，3的效果  ，有三种解决方案
+    //     }
+    // }
+
+
+    // 方案1：var换为let 
+    // let lis=document.getElementsByTagName("li")
+    // for(let i=0;i<lis.length;i++){
+    //     lis[i].onclick=function(){
+    //         console.log(i)  
+    //     }
+    // }
+
+    // 方案2：  保存i的值，每循环一次打印i的值
+    // let lis=document.getElementsByTagName("li")
+    // for(var i=0;i<lis.length;i++){   //使用var或let 都行
+    //     let a=i   //  也可以写lis[i].index=i; 保存i的值，每循环一次打印出来
+    //     lis[i].onclick=function(){
+    //         console.log(a)    //console.log(this.index)   监听器中事件源需要使用this代替
+    //     }
+    // }
+
+    // 方法3  使用闭包
+    let lis = document.getElementsByTagName("li")
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].onclick = (function (a) {
+            return function () {   //嵌套在上面这个函数里面，可以访问上面函数中的变量
+                console.log(a)
+            }
+        }(i))
+    }
+</script>

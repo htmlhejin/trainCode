@@ -1,0 +1,20 @@
+<script>
+    let arr=[9,8,6,5,3,1]; 
+    let temp; 
+    function maopao(arr){
+        // 每个元素都要拿出来进行比较
+        for(i=0;i<arr.length;i++){
+            // 每个元素和其他元素比较的次数，减去与自身相比的1次，减去比较过（已经确定的元素的顺序）的次数
+            for(j=0;j<arr.length-i-1;j++){
+                if(arr[j]>arr[j+1]){
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        return arr;
+    }
+    let newarr=maopao(arr);
+    console.log(newarr)
+</script>

@@ -1,0 +1,50 @@
+<!-- var a 声明的变量提升到当前代码段的最前面 -->
+<!-- <script>
+    console.log(a)
+    var a=10;  //  var a 提升到所在代码块最前面，undefined
+</script> -->
+
+
+<!-- 全局变量和局部变量 -->
+<!-- <script>
+    var a=66;  //全局变量
+    function f(){
+        var b=99;  //局部变量
+        console.log(a)
+        // console.log(b)
+    }
+    console.log(b)
+    f()
+</script> -->
+
+<!-- var可以是window 的对象 -->
+<!-- <script>
+    var a="abc"
+    console.log(window.a)
+</script> -->
+
+<!-- 一次声明一个变量 -->
+<!-- <script>
+    var a=5;  //一个变量a
+    var b=6;  //一个变量b 
+    console.log(b)
+</script> -->
+
+<!-- 一次声明多个变量 -->
+<!-- <script>
+    var a=1,b=2,c=3;
+    console.log(c);
+</script> -->
+
+<!-- 重复声明，后面的变量值会覆盖前面的  ！避免使用 -->
+<!-- <script>
+    var p="aaa";
+    var p=111;
+    console.log(p)
+</script> -->
+
+<!-- 遗漏声明,避免使用 -->
+<script>
+    c=999;
+    console.log(c)
+</script>

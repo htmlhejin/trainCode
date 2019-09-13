@@ -1,0 +1,37 @@
+<script>
+    function add(a,b){
+        return a+b
+    }
+    // function sub(a,b){
+    //     return a-b
+    // }
+    // function compute(f,a,b){  //f是形参，只不过函数调用时实参传递给f的是一个函数，传递给a,b的是基本数据类型
+    //     return f(a,b)
+    // }
+    // let q=compute(sub,1,2)
+    // console.log(q)
+
+    // 函数表达式
+    // var add=function (a,b){
+    //     return a+b
+    // }
+    // function com(f,a,b){
+    //     return f(a,b)
+    // }
+    // console.log(com(add,1,2))
+
+
+    // 案例  计算函数执行消耗的时间
+    let d1=new Date();   //日期对象
+    let startTime=d1.getTime()   //开始时间
+    var add=function (a,b){
+        return a+b
+    }
+    function com(f,a,b){
+        return f(a,b)
+    }
+    console.log(com(add,1,2))
+    let endTime=new Date().getTime();  //结束时间
+    let time=endTime-startTime;   //消耗时间
+    console.log(time)
+</script>

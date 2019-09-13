@@ -1,0 +1,41 @@
+/*user.css
+新手指引页所特有的样式
+
+*/
+.user{background-color:#eee;padding-bottom:50px;}
+.user .nav{line-height:55px;font-size:14px;}
+.user .nav .current{color:#c33;}
+.user .main{border-radius: 15px;background-color:#fff;}
+.user .main .leftlinks{width:161px;padding: 25px 0 0 25px;color:#000;}
+.user .leftlinks dl {margin-bottom:40px;}
+.user .leftlinks dt {font-size:20px;margin-bottom:20px;}
+.user .leftlinks dd {line-height:36px;margin:5px 0;text-indent:1em;cursor: pointer;}
+.user .leftlinks dd:hover{background-color:#eee;} 
+.user .leftlinks dd.current{background-color:#f66;color:#fff;position:relative;}
+.user .leftlinks dd.current .tri{position:absolute;right:-12px;top:10px;width:0;height:0;line-height:0;border:6px solid transparent;border-left-color: #f66;}
+.user .leftlinks dt span{display:inline-block;width:28px;height:28px;border-radius:14px;font-size:20px;margin-right:10px;text-align:center;line-height:28px;border:1px solid #ccc;}
+
+/**右侧的内容部分*/
+.user .main .content{width:730px;padding:25px 25px 70px 54px;border-left:1px solid #ccc;} 
+
+.user .content h3{font-size:28px;padding-bottom: 12px;border-bottom:1px solid #e4e4e4;margin-bottom:20px;}
+.user .content dl{line-height:1.8;}
+.user .content dt{border-top:1px dashed #ccc;margin-top:20px;padding-top:20px;}
+.user .content dt.first{border-top:none;padding-top:0px;}
+.user .content dd{padding-left:30px;font-size:14px;color:#666;}
+.user .content table{width:100%;text-align:center;}
+.user .content table tr{height:40px;}
+.user .content table,td,th{border:1px solid #ccc;border-collapse:collapse;}
+
+.user .content .icon-que{
+	width:20px;
+	height:20px;
+	display:inline-block;
+	border-radius:10px; /*正圆效果*/
+
+	text-align:center;/*让?号水平居中*/
+	line-height:20px; /* line-height == height ,让?号垂直居中*/
+	background-color:#f99;
+	color:#fff;
+	margin-right:10px;
+}

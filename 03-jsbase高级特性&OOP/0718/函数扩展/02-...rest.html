@@ -1,0 +1,24 @@
+<script>
+    // function f(a,...rest){   //你们不要了都给我
+    //     console.log(rest)   //2，3，4  rest是一个变量名，可以修改
+    // }
+    // f(1,2,3,4)
+
+
+    // function f(a,...b){   //你们不要了都给我
+    //     console.log(b)   
+    // }
+    // f(6,4,6,23,9,0)
+
+
+    // function f(...pq){
+    //     console.log(pq)
+    // }
+    // f("a","f","r","u","p")
+
+
+    function d(a,...rest,b){   //rest必须是最后一个形参
+        console.log(rest)
+    }
+    d(1,2,3,4,5)  // Uncaught SyntaxError: Rest parameter must be last formal parameter
+</script>

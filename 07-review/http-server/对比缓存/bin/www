@@ -1,0 +1,10 @@
+#! /usr/bin/env node   
+// node表示用node命令执行
+
+// console.log("create server")
+
+//  es6中的导入方式，但是node不认识，需要babel把es6高级语法转成node可以识别的低级语法,则需要babel模块
+// import commander from ("commander")
+// 在www文件中写js代码比较别扭，需要创建一个js文件，然后在此文件中引入即可
+
+require("../dist/main.js")

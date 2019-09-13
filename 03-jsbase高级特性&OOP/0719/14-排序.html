@@ -1,0 +1,44 @@
+<script>
+    // 冒泡排序 第一轮比较出一行中最大的数，放在最后，然后每个数都要比较一次
+    // let arr=[4,6,9,3,1,0,5,8]
+    // for(let i=0;i<arr.length;i++){  //每个数都要比较一下
+    //     for (let j=0;j<arr.length-1-i;j++)   //每个数比较的次数,减去与自身相比的次数，减去排好序的数据的个数
+    //     if(arr[j]>arr[j+1]){  //如果一轮下来前一个数大于后一个数，则两个数交换位置
+    //         let temp=arr[j];
+    //         arr[j]=arr[j+1]
+    //         arr[j+1]=temp
+    //     }
+    // }
+    // console.log(arr)
+
+
+    // 选择排序  第一轮时先把第一个定为最小，然后与后面的比比较，如果后面的更小，则交换位置
+    // let arr=[4,6,9,3,1,0,5,8]
+    //     for(let i=0;i<arr.length;i++){   //分别定义每个数为最小，一共比较（arr.length）轮
+    //         let minIndex=i;
+    //         for(let j=i+1;j<arr.length;j++){   //每个数分别和其他数比较
+    //             if(arr[j]<arr[minIndex]){
+    //                 let temp=arr[j];
+    //                 arr[j]=arr[i]
+    //                 arr[i]=temp;
+    //             }
+    //         }   
+    //     }
+    //     console.log(arr)
+
+
+        // 插入排序  定义一张牌current，一次与前一个相比pre，如果前一个比这张牌大，交换位置
+        let arr=[4,6,9,3,1,0,5,8]
+        let current;
+        let preindex;
+        for(let i=0;i<arr.length;i++){    //每个数都当成一张牌，依次与前面的数比较
+             current=arr[i];   //定义一张牌
+             preindex=i-1;     //定义这张牌前面的索引
+            while(preindex>=0 && arr[preindex]>current){
+                arr[preindex+1]=arr[preindex];   //索引向后移
+                preindex--;    //继续与前面的数比较
+            }
+        arr[preindex+1]=current;    //把这张牌插入到索引后面
+        }
+        console.log(arr)
+</script>

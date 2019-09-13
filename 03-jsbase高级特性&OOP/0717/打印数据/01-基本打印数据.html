@@ -1,0 +1,42 @@
+<!-- <script>
+    var b=10;    //十进制（默认）
+    var a=0xff   //十六进制，0X开头
+    var c=089;   //八进制，0开头
+    console.log(a)  //255
+    console.log(b)  //10
+    console.log(c)  //89
+    // 打印出来的都是十进制
+</script> -->
+
+<!-- js中溢出和除以0不会报错 ..特殊性 -->
+<!-- <script>
+    var a=10/0;   //Infinity
+    var b=(Number.MAX_VALUE*10);  //Infinity
+    console.log(a)
+    console.log(b)
+</script> -->
+
+
+<!-- 特殊的NaN--not a number -->
+<!-- <script>
+    console.log(9.9*10)    //99
+    console.log("aaa"*10)  //NaN
+</script> -->
+
+<!-- 比较小数的不精准性，要化成整数时才能比较 -->
+<script>
+    // var a=0.3;
+    // var b=0.3;
+    // console.log(a==b)   //true
+
+    // var a=0.3;
+    // var b=1-0.7;
+    // console.log(a==b)    //false
+
+    //小数化成整数，精准比较
+    // var p=0.3*10;
+    // var q=1*10-0.7*10;
+    // console.log(p==q)    //true
+
+    // ""==="先比较数据类型，再比较数值，类型不一样结果是false，类型一样再比较数值
+</script>

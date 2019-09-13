@@ -1,0 +1,55 @@
+<!-- <script>
+    let a = 1
+    function f() {
+        function f1() {
+            let b = 2
+            let c = 3
+            function f2() {
+                console.log(a, b, c)
+            }
+            f2()
+        }
+        f1()
+        console.log(a)
+    }
+    f()
+</script> -->
+
+<!-- 作用域链 -->
+<script>
+    var a = 1;
+    var f = function () {
+        var a = 2;
+        var b = 1;
+        var f1 = function () {
+            var c = 1;
+            var f11 = function () {
+                console.log(a, b, c)   // 2,1,1
+            }
+            f11();
+        }
+        f1();
+        console.log(a, b)   //2,1
+        console.log(a)   //2
+        console.log(c)    //报错
+    }
+    f()
+</script>
+
+
+
+<!-- 函数内的变量在函数外不能访问 -->
+<!-- <script>
+    function f(){
+        function g(){
+            let b=6;
+        }
+        g()
+    }
+    f()
+    console.log(b)   //Uncaught ReferenceError: b is not defined
+
+    // 从执行上下文的角度分析函数内的变量在函数外不能访问：
+    // console.log(b)语句位于f代码块内，只能由f执行上下文提供数据（变量、函数），
+    // 但是我们发现f执行上下文中：变量（无）、函数g;父是全局执行上下文，没有变量c，找不到，所以报错
+</script> -->

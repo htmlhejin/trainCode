@@ -1,0 +1,113 @@
+<script>
+    //谁调用了包含this的方法，this就指向谁
+    // 如果没有明确的对象调用了一个方法，则方法中的this指向window
+
+    //1、this出现在普通函数中(不在对象中)，则this指向window
+    // function f(){
+    //     console.log(this)
+    // }
+    // f()
+
+    // 2、this出现在对象a的方法中，this可能指向window,也可能指向对象a
+    // let a={
+    //     name:"haha",
+    //     age:10,
+    //     say:function f(){
+    //         console.log(this)  //包含this的方法是say，
+    //     }
+    // }
+    // a.say()   //a调用了say，所以this指向say   //{name: "haha", age: 10, say: ƒ}
+
+    let a={
+        name:"haha",
+        age:10,
+        say:function f(){
+            console.log(this.age)  //包含this的方法是say   //undefined
+        }
+    }
+    let t=a.say; ////a调用了say,赋给了变量t , t是window调用了，所以t指向的方法中this指向window
+    t()   //Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+
+    // 3、在调用函数之前加new的话，会创建并返回一个新的对象，则这个函数的内部的this就指向这个对象
+    // function f(){
+    //     console.log(this)
+    // }
+    // let res=new f()   //f {}
+
+    // 4、可以通过function对象的call、apply方法改变this的指向
+    // function f(a, b) {
+    //     console.log(this)
+    //     console.log(a + b)
+    // }
+    // let obj = { name: "jhha" }
+    // f.call(obj, 1, 2)   //obj借用f这个方法，并且给f传递了两个参数1  2 ，this指向obj,打印出 {name: "jhha"}，，// 用call借用时后面的实参的写法
+
+    // function f(a,b){
+    //     console.log(a,b)  //没有this
+    // }
+    // let a1=[4,5,6]
+    // f.call(a1,1,3)   //1 3  ,用call借用时后面的实参的写法
+
+    // function f(a,b){
+    //     console.log(this)  
+    // }
+    // let a1=[4,5,6]
+    // f.apply(a1,[8,9])   //[4, 5, 6]    // 用apply借用时后面的实参的写法
+
+
+    // 练习
+    // function Person(a,b){
+    //     this.a=a,
+    //     this.b=b
+    // }
+    // let a1=new Person("haha",10)
+    // console.log(a1.a)  //haha
+
+    // var obj = {
+    //     myname: "six",
+    //     getname: function () {
+    //         return this.myname
+    //     }
+    // }
+    // console.log(obj.getname)      //{return this.myname}
+    // console.log(obj.getname())   //six
+    // let gg=obj.getname()
+    // console.log(gg)      //six
+
+
+    // 原型链与this的综合应用
+    // 在数组中找指定的元素,如果找到，返回下标
+    // let arr=[1,2,3,66,78,9,0,3]
+    // Array.prototype.getarrs=function(x){
+    //     var index;
+    //     for(let i=0;i<arr.length;i++){
+    //         if(x==arr[i]){
+    //             index=i
+    //         }
+    //     }
+    //     return index;
+    // }
+    // console.log(arr.getarrs(3))
+
+    // 删除数组中的指定元素，如果有就删除，没有就不做操作
+    // let arr = [1, 2, 3, 66, 78, 9, 0, 3]
+    // Array.prototype.getarrs = function (x) {
+    //     var index;   //找不到
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (x == arr[i]) {
+    //             index = i
+    //         }
+    //     }
+    //     return index;
+    // }
+    // Array.prototype.deletearrs = function (x1) {
+    //     var index1 = this.getarrs(x1)
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (index1 != -1) {   //找到了指定元素
+    //             this.splice(index1, 1)
+    //         }
+    //     }
+    // }
+    // arr.deletearrs(9)
+    // console.log(arr)   //[1, 2, 3, 66, 78]
+</script>

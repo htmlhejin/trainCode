@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch("http://localhost:3030/api",{
+            method:'GET',
+
+            // 请求接口时也可以带着头去请求
+            headers:{
+                token:'xxx'
+                // 但是会产生跨域：Access-Control-Allow-Headers，解决方案是在后端配置一下，设置哪些头可以访问
+
+            },
+            // 表示客户端请求接口时带着cookie
+            credentials:'include'
+        })
+        .then(function(response){
+            // 把响应数据返回，这里返回到了下一个.then中
+            return response.json();
+        })
+        .then(function(myJson){
+            // 把响应的数据打印出来
+            console.log(myJson)
+            // 这样右击运行会产生跨域:Access-Control-Allow-Origin，因为本地地址http://127.0.0.1:5500/index.html，请求地址http://localhost:3030/
+            // 解决跨域，利用cors,在后端配置一个头,头里面可以设置那些客户端可以访问http://localhost:3030/这个接口
+        })
+    </script>
+</body>
+</html>

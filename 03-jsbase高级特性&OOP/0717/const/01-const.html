@@ -1,0 +1,31 @@
+<!-- 不能重复声明 -->
+<!-- <script>
+    const PI=3.14;
+    const PI=3.33;  //  Uncaught SyntaxError: Identifier 'PI' has already been declared
+    console.log(PI)
+</script> -->
+
+
+<!-- 定义完后不能修改数值(可能是数据类型，也可能是地址) -->
+<script>
+    // const A=100;
+    // A=200;  Uncaught TypeError: Assignment to constant variable.
+    // console.log(A)
+
+    const A={name:"wangcai"};
+    A={age:100}  //改变了地址
+    console.log(A);
+
+</script>
+
+<!-- 声明时必须赋值 -->
+<!-- <script>
+    const Q;
+    console.log(Q)  //Uncaught SyntaxError: Missing initializer in const declaration
+</script> -->
+
+<!-- 常量不能提升 -->
+<!-- <script>
+    console.log(A)
+    const A=888;   //Uncaught ReferenceError: Cannot access 'A' before initialization at 01-const.html:23
+</script> -->

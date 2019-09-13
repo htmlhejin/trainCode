@@ -1,0 +1,37 @@
+<!-- return语句 --> 
+<script>
+    // function f(a,b){
+    //     return a+b;   //用return返回函数值,且return 语句只能写在函数内
+    //     // console.log(a,b)   //return 之后的任何语句都不执行
+    // }
+    // console.log(f(1,2))   //
+
+    // 一次只能返回一个值
+        // function f(){
+        //     return 1;
+        //     return 2;
+        //     return 3;
+        // }
+        // console.log(f())   //1  return之后的任何语句都不执行
+
+// 一次return多个值，只能返回最后一个值
+        // function g(){
+        //     return 1,2,3
+        // }
+        // console.log(g())   //3
+
+// 一次返回多个值
+// 数组
+    // function f(){
+    //     return [1,2,3]
+    // }
+    // console.log(f())
+
+// 对象
+    function f(){
+        return {name:"haha",age:10}
+    }
+    let obj=f()
+    console.log(obj.name)  //haha
+    console.log(obj.age)   //10
+</script> 

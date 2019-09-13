@@ -1,0 +1,22 @@
+<!-- <script>
+    function f(){
+        let a=100;
+        function g(){
+            console.log(a)   f函数里面嵌套了一个g函数，且g函数引用了f函数里面的变量，称g函数是一个闭包
+        }
+        g()
+    }
+    f()
+</script> -->
+
+<script>
+    function f() {
+        debugger;
+        let a = 1000;
+        function g(){
+            console.log(a)
+        }
+        return g;     //<!-- //返回g,g传递给f(),然后下面相当于g(),调用g函数，打印a -->
+    }
+    f()();     //在函数内部把闭包返回，可以实现在函数外部访问函数内部的变量
+</script>
