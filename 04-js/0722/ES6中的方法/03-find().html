@@ -1,0 +1,10 @@
+<!-- 找到符合条件的数组中的元素 ，只找一个，找到就返回，找不到就是undefined-->
+<script>
+    let arr=[1,2,3]
+    let newarr=arr.find(function(item,index){
+        // return item>0;  //1
+        // return item>=2   //2
+        return item>3    //undefined
+    })
+    console.log(newarr)
+</script>

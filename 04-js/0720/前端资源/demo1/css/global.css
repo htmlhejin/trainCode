@@ -1,0 +1,11 @@
+/* ------------------------
+@Description: 迅雷看看整站通用样式
+@Author:wcp
+@Contacts: 46388723@qq.com	
+@Update:2012年3月6日
+----------------------------
+*/
+body{font-size:12px;font-family: "宋体",sans-serif;}
+a{color:#414141; text-decoration:none;}
+a:hover{color:#0081C2; text-decoration:underline;}
+.w970{width:968px; border:1px solid #ddd;}

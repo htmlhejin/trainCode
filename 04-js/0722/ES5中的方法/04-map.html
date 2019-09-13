@@ -1,0 +1,23 @@
+<script>
+    // let arr=[1,2,3]
+    // // let newarr=arr.map(function(item,index,arr){
+    // //     return item+=10;
+    // // })
+    //     // 简写成箭头函数
+    // let newarr=arr.map(item=>item+10)
+    // console.log(newarr)
+
+    let arr=[
+        {name:"hh",score:10},
+        {name:"yy",score:68},
+        {name:"gg",score:90}
+    ]
+    let newarr=arr.map(function(item){
+        console.log(`${item.name}考了${item.score}分`)
+        return item.score+=10;   //由于每个元素是引用数据类型，改变了引用数据类型的值会影响原数组
+        // 如果17行放在16行前面，则打印不出数组  //同reduce一样，先打印再返回
+
+    })
+
+    console.log(newarr)   //(3) [20, 78, 100]0: 201: 782: 100length: 3__proto__: Array(0)
+</script> 

@@ -1,0 +1,21 @@
+
+<script>
+    // let str="dfhj";
+    // console.log(str.length)    ///4，使用.就是对象；
+    // // 自动创建的包装类型对象只在一瞬间；因为str要调用length方法，所以js会把它包装成一个对象，让它去完成这个方法，
+    // // 但使用完后立即取消这个包装，恢复成原来的基本数据类型
+    // console.log(str.name)   //undefined
+
+    // instanceof  查看数据是否是指定类型
+    // console.log(str instanceof Object)   //false
+
+    // str.name="ffff"
+    // console.log(str);   //dfhj,包装类型对象不能直接赋值(不能给包装类型对象挂属性或方法)，
+                            // 但是真正的数组中可以挂类型或方法，见“ 数组是对象”
+    // var str=new String("hello")
+    // console.log(typeof str)  //object,只要new,返回的都是对象
+
+    let a=[1,2,3]
+    a.name="ggg";
+    console.log(a)   //[1, 2, 3, name: "ggg"]
+</script>

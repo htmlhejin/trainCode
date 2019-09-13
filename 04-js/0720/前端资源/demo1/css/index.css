@@ -1,0 +1,556 @@
+/* ------------------------
+@Description: 迅雷首页样式
+@Author: 王超平
+@Contacts:46388723@qq.com	
+@Update:
+----------------------------
+*/
+/* 迅雷顶部logo */
+.header{width:970px;height:58px;padding-top:20px;position:relative; overflow:hidden;}
+.logo{width:225px;height:48px;position:absolute;left:23px;top:20px; background:url("../images/headerpage.png") no-repeat -69px -35px;}
+.logo a{display:block;width:225px;height:48px;text-indent:-9999em;}
+.logoswf{width:290px; height:98px; position:absolute; left:0;top:-10px;}
+.search{width:399px;position:absolute;left:297px; top:24px;}
+.search form{width:394px; height:27px; border:3px solid #eee;}
+.search .keywords{width:319px;height:14px; padding:6px 0 5px 5px; border:1px solid #babebf;border-right:none;float:left;color:#b2b2b2;}
+.search .btn{width:68px;height:27px;border:none; background:url("../images/headerpage.png") no-repeat 0 -36px;float:left; font-size:14px; font-weight:bold; color:#fff;}
+.search p{text-align:center; margin-top:5px;}
+.search p a{margin:0 3px; color:#a9a9a9;}
+.user{width:258px;position:absolute;right:0;top:39px;text-align:right;}
+.user p{margin-bottom:5px;color:#e6e6e6;}
+.user p a{color:#a9a9a9;margin:0 3px;}
+.user .rss{background:url("../images/dy.png") no-repeat 0 1px; padding-left:17px;}
+
+/*  迅雷菜单menu */
+.menu{height:35px; background:url("../images/headerpage.png") repeat-x 0 0; position:relative;z-index:99;}
+.menu ul{float:left;}
+.menu li{float:left; display:inline; line-height:35px; margin:0 10px;}
+.main-menu li a{font-size:14px;}
+.main-menu li.cur a{color:#0081C2;font-weight:bold;}
+.dp{background:url("../images/mainnav_list_2.png") no-repeat 0 7px;}
+.dp img{position:relative;left:-45px;top:0; float:left;}
+ul.viewd{float:right;margin-right:10px;display:inline;}
+ul.viewd .arrow{display:inline-block;width:5px;height:3px;font-size:0;background:url("../images/headerpage.png") no-repeat 0 -64px; position:absolute;top:16px; right:7px;}
+
+/*---下拉菜单样式--*/
+ul.viewd li{position:relative;}
+ul.viewd li span{padding:8px 15px 15px 5px;position:relative;}
+ul.viewd li.on span{cursor:pointer;background:#fff;border:1px solid #e4e4e4;border-bottom-color:#fff; 
+	padding:7px 14px 15px 4px;
+}
+
+#my_history{width:256px; background:#fff; border:1px solid #e4e4e4;border-top:none; 
+	padding:5px 0 0; position:absolute;right:-109px;top:36px;z-index:999;
+}
+.clear_history{text-align:right;color:#a9a9a9;}
+.clear_history a{margin:0 7px;}
+.clear_history a.off{color:#f00;}
+.my_hitory_list{color:#999;text-align:center;padding:15px 0;}
+#my_history dl{margin:0 0 30px 8px;}
+#my_history dt{color:#999;line-height:24px;}
+#my_history dd{line-height:24px;}
+#my_history p{height:33px;line-height:33px; background:#fbfbfb;
+	border-top:1px solid #e2e2e2;text-align:center;
+}
+#my_history p a{color:#f00;}
+
+#down_xl{width:240px; background:#fff; border:1px solid #e4e4e4;border-top:none; 
+	padding:5px 8px 0; position:absolute;right:-21px;top:36px;z-index:999;
+}
+#down_xl dl{clear:both;border-bottom:1px solid #e6e6e6;padding-bottom:5px;
+	margin-bottom:5px;color:#d3d3d3; line-height:21px;
+}
+#down_xl dl dt{color:#08A3DC;}
+#down_xl dd a{margin:0 10px;color:#999;}
+#down_xl dd a.first{margin-left:0;}
+#down_xl dl.other dt{color:#414141;}
+#down_xl dl.other a{color:#08A3DC; display:inline-block;width:72px;margin:0 0 0 6px;}
+#down_xl dl.other a.first{margin-left:0;}
+#down_xl p{height:20px;line-height:20px;text-align:right;}
+#down_xl p a{color:#06B906;}
+#down_xl p b{display:inline-block;width:4px;height:7px;font-size:0;margin-right:3px;
+	background:url("../images/headerpage.png") no-repeat -6px -65px; 
+}
+
+/*  迅雷导航部分，包括图片轮播和tab选项 */
+.nav{width:970px; height:380px; background:#000; position:relative; z-index:9;}
+	/* 左边的图片轮播 */
+.pic-round{width:740px;margin-top:8px;}
+.panel{width:740px;height:310px;position:relative;overflow:hidden;}
+.bigPic{width:740px;height:3720px;position:absolute;left:0;top:0;}
+.bigPic a{display:block;width:740px;height:310px;position:relative;}
+.bigPic a span{display:block; width:730px; padding-left:10px;height:30px; line-height:35px;
+overflow:hidden; position:absolute; left:0; bottom:0; background:#000; color:#fff; 
+font-size:14px; opacity:0.5; filter:Alpha(opacity=50);
+}
+.smallPic{margin-top:8px;}
+.smallPic li{float:left; display:inline; margin:0 1px 0 2px;width:59px; 
+	height:48px;overflow:hidden;background:url("../images/foucerank.png") no-repeat -228px -52px;}
+.smallPic li.on{background-position:-228px 0; width:58px; height:51px; position:relative;top:-4px; }
+.smallPic li img{display:inline-block;width:56px;height:45px; position:relative;top:1px; left:1px;}
+.smallPic li.on img{width:54px; height:43px;position:relative;top:6px;left:2px;}
+  
+  /* 右边的选项卡 */
+.tab{width:227px; height:363px;margin-top:8px;border:1px solid #4a4a4a; background:url("../images/foucerank.png") no-repeat 0 0; }
+.tab .option{margin:10px 0 3px 4px;  height:24px;}
+.tab .option span{float:left;width:34px;height:19px; text-align:center; line-height:19px; border:1px solid #545454; border-right:none; color:#989898;}
+.tab .option span.on{cursor:pointer;border:none;height:24px;line-height:22px;background:url("../images/foucerank.png") no-repeat -233px -111px; color:#fff;}
+#option_tv.on{background-position:-229px -111px;}
+.tab ol{margin-left:4px;clear:both;width:221px; height:260px;}
+.tab ol li{padding:5px 0;position:relative;clear:both;vertical-align:middle;}
+.tab li strong{display:inline-block;width:18px;height:14px;line-height:14px;text-align:center;border:1px solid #4d4d4d;color:#848484;font-size:11px;}
+.tab li a{color:#bfbfbf;margin:0 6px;}
+.tab li span{color:#5f5f5f;}
+.tab li a.pic-link{display:inline-block;width:8px;height:10px;text-indent:-9999em;
+	font-size:0; /* 解决IE6中高度小于15px，设置高度无效的方法 */
+	background:url("../images/foucerank.png") no-repeat -228px -100px;position:absolute;right:0px;top:7px;}
+.tab li em{color:#d0d0d0;margin:0 2px 0 20px;position:absolute;right:17px;top:4px;}
+.tab li.top3 strong{border:none;width:20px;height:16px;line-height:16px;background:url("../images/foucerank.png") no-repeat -228px -136px;color:#fff;font-weight:bold;}
+.tab ul{margin-top:15px;}
+.tab ul li{ line-height:20px;padding-left:10px;vertical-align:middle;background:url("../images/foucerank.png") no-repeat -280px -109px;}
+.tab ul a{color:#DF7E0D;}
+.tab ul a:hover{color:#DF7E0D;text-decoration:underline;}
+
+/* 热门大片部分，包括6个div  */
+.top-movie{border:none; height:449px;overflow:hidden;}
+.top-movie div{width:160px;height:444px;	border:1px solid #ddd;
+border-right:none;float:left;display:inline;text-align:center;}
+.top-movie a:hover{color:#0081C2; text-decoration:underline;}
+.top-movie .hot{border-top:3px solid #E188C2;}
+.top-movie  h2{width:61px;height:17px;text-indent:-9999em;
+background:url("../images/hot.jpg") no-repeat 0 0;margin:15px auto;}
+
+.top-movie dl{margin-bottom:12px;position:relative;}
+.top-movie dl dd{text-align:left;padding:5px 0 0 9px;}
+.top-movie dl dd.info{width:95px;height:20px;	text-align:center;padding-right:5px;position:absolute;right:3px;top:78px;color:#fff;background:url("../images/update.png") no-repeat 0 0;opacity:0.6;filter:alpha(opacity=60);}
+.top-movie dl .pic-link2{width:8px;height:10px;font-size:0;overflow:hidden;padding:0;position:absolute;right:12px;top:113px;background:url("../images/foucerank.png") no-repeat -237px -100px;}
+.top-movie dl .pic-link2 a{display:inline-block;width:8px;height:10px;text-indent:-9999em;}
+.top-movie dt a{display:inline-block;width:136px;height:96px;border:1px solid #ddd;padding:1px;}
+.top-movie dt a:hover{border-color:rgb(2,161,217);}
+.top-movie dl img{width:136px;height:96px;}
+.top-movie dd a{font-size:14px;color:#3d3d3d;}
+.top-movie ul{width:140px;border-top:1px dashed #dcdcdc;margin:0 8px;padding-top:15px;line-height:25px;text-align:left;color:#aaa;}
+.top-movie ul a{color:#3d3d3d;font-size:14px;}
+.top-movie  .male{border-top:3px solid #879AC5;}
+.top-movie  .male h2{background:url("../images/male.jpg") no-repeat 0 0;}
+.top-movie  .weishi{border-top:3px solid #A6A6A6;}
+.top-movie  .weishi h2{background:url("../images/weishi.jpg") no-repeat 0 0;}
+.top-movie  .tvb{border-top:3px solid #7EC0DA;}
+.top-movie  .tvb h2{background:url("../images/tvb.jpg") no-repeat 0 0;}
+.top-movie  .abroad{border-top:3px solid #E18786;}
+.top-movie  .abroad h2{background:url("../images/abroad.jpg") no-repeat 0 0;}
+.top-movie .zongyi{border-top:3px solid #E4CD6F;border-right:1px solid #ddd;	}
+.top-movie  .zongyi h2{background:url("../images/renqizongyi.jpg") no-repeat 0 0;}
+
+/* 猜您喜欢看 */
+.guess{position:relative;height:171px;}
+#close{display:block;width:43px;height:19px;line-height:21px;padding-left:5px;
+	background:url("../images/foucerank.png") no-repeat -228px -306px;
+	position:absolute;top:0;right:0;
+}
+.guess h2{width:90px;height:18px;position:absolute;left:15px;top:18px;
+background:url("../images/title.png") no-repeat 0 -322px;text-indent:-9999em;}
+		
+.guess_left{width:710px;float:left;display:inline;}
+.guess_left .change{color:#6f6f6f;float:right;display:inline-block;margin:18px 0 0 0;}
+.guess_left .change p{float:left;}
+.guess_left .change div{float:left;display:inline-block;margin-left:10px;}
+.guess_left .change ul{float:left;}
+.guess_left .page-num li{float:left;display:inline;margin:0 2px;}
+.guess_left .page-num li a{display:inline-block;width:8px;height:8px;
+	background:url("../images/foucerank.png") no-repeat -227px -289px;}
+.guess_left .page-num li.on a{display:inline-block;width:8px;height:8px;
+	background:url("../images/foucerank.png") no-repeat -227px -298px;}
+.change li span{display:none;}
+.guess_left .page-op{margin-left:4px;}
+.guess_left .page-op li{float:left;display:inline;}
+.guess_left .page-op li a{display:inline-block;width:24px;height:15px;
+	background:url("../images/foucerank.png") no-repeat -235px -290px;}
+#down{background-position:-259px -290px;}
+
+.guess_left .picture{width:695px; height:110px;clear:both;margin:10px 0 0 15px; 
+	position:relative; overflow:hidden;
+}
+.guess_left .picture ul{width:2085px; height:110px;position:absolute; left:0; top:0; }
+
+.guess_left .picture li{float:left;display:inline;margin-right:30px;}
+.guess_left .picture li p{text-align:center;color:#aaa;line-height:20px;}
+.guess_left .picture li a{color:#3d3d3d;}
+
+.guess_right{width:230px;float:right;display:inline;margin:18px 10px 0 0;}
+.guess_right div{border-bottom:1px dashed #c7c7c7;padding-bottom:7px;}
+.guess_right h3{color:#5b5b5b;font-weight:bold;margin-bottom:5px;}
+.guess-label li{float:left;display:inline;margin-right:10px;}
+.guess_right .history{clear:both;margin-top:10px;	}
+.guess_right .history li{line-height:18px; vertical-align:middle;}
+.guess_right .history a.clear{diaplay:block;position:absolute;right:10px;top:74px;}
+
+
+/* 今日快报部分样式，包括娱乐头条，搞笑视频，看看原创 */
+.bulletin{height:240px;clear:both;}
+.bulletin_l{width:716px;border-right:1px solid #ddd;height:240px;}
+.bulletin_title{height:34px;border-bottom:1px solid #ddd;}
+.bulletin_title ul{float:left;display:inline;}
+.bulletin_title  li{float:left;width:102px;height:34px;border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;background:url("../images/title.png") no-repeat 0 -557px;
+	position:relative;_bottom:-1px;_margin-top:-1px;cursor:pointer;
+}
+.bulletin_title ul span{display:none;}
+.bulletin_title  #yu{background-position:0 -592px;}
+.bulletin_title  #gao{background-position:0 -627px;}
+.bulletin_title  #kan{background-position:0 -662px;}
+.bulletin_title  #jin.on{background-position:0 -417px;border-bottom:1px solid #fff;}
+.bulletin_title  #yu.on{background-position:0 -452px;border-bottom:1px solid #fff;}
+.bulletin_title  #gao.on{background-position:0 -487px;border-bottom:1px solid #fff;}
+.bulletin_title  #kan.on{background-position:0 -522px;border-bottom:1px solid #fff;}
+.bulletin_title p{float:right;margin-right:10px;line-height:34px}
+.bulletin_content{clear:both;margin:20px 0 0 17px;}
+.bulletin_content dl{float:left;display:block;width:125px;height:120px;
+margin-right:15px;position:relative;}
+.bulletin_content ul{clear:both;width:695px;height:50px;margin-top:13px;}
+.bulletin_content dd{text-align:center;height:23px;line-height:23px;background:#f3f3f3;}
+.bulletin_content dt a{display:inline-block;	width:122px;
+height:90px;border:1px solid #ddd;padding:1px;}
+.bulletin_content dt a:hover{border-color:rgb(2,161,217);}
+.bulletin_content dt img{width:122px;height:90px;}
+.bulletin_content dd.info{position:absolute;right:2px;top:70px;width:95px;
+	height:20px;line-height:20px;text-align:center;color:#fff;
+	background:url("../images/update.png") no-repeat 0 0;
+	opacity:0.6;filter:alpha(opacity=60);
+}
+.bulletin_content ul li{float:left;display:inline;width:126px;
+height:15px;line-height:15px;margin-bottom:7px;margin-right:15px;}
+.bulletin_content li a{padding-left:18px;
+background:url("../images/foucerank.png") no-repeat -300px -248px;}
+.bulletin_r{width:250px;text-align:center;}
+.bulletin_r h3{width:243px; height:30px; margin-top:7px;}
+#_player{width:243px;height:169px;}
+.bulletin_r  p{width:241px;height:30px; line-height:30px;background:#f5f5f5;border:1px solid #ddd;border-top:none;}
+
+
+/* 今日模块，包括今日电视剧，今日电影，今日动漫，今日综艺，今日纪录片 */
+.today{height:730px;}
+
+.today dl{float:left;display:inline;width:104px;height:188px;
+	position:relative;color:#aaa;margin:10px 0 10px 15px;}
+.today dt a{display:inline-block;width:100px;height:140px;
+	border:1px solid #ddd;padding:1px;}
+.today dt a:hover{border-color:rgb(2,161,217);}
+.today dt img{width:100px;height:140px;}
+.today dl dd{line-height:22px;}
+.today  dl dd.bg{position:absolute;right:2px;top:122px;width:95px;height:20px;
+	line-height:20px;background:url("../images/update.png") no-repeat 0 0;
+	opacity:0.6;filter:alpha(opacity=60);
+	color:#fff;text-align:right;padding-right:5px;}
+.today dd a{color:#3d3d3d;font-size:14px;}
+.today dd a.pic-link{display:inline-block;width:8px;height:10px;
+	background:url("../images/foucerank.png") no-repeat -237px -100px;
+	text-indent:-9999em;font-size:0;overflow:hidden;float:right;
+	position:absolute;right:2px;top:150px;}
+
+.today p{float:right;margin:17px 0px 0 15px;	color:#b7b7b7;}
+.today p  a{margin-left:5px;}	
+
+.today_tv{width:955px;}
+.today_tv h2{width:89px;height:18px;float:left;display:inline;
+	background:url("../images/title.png") no-repeat 0 -19px;
+	text-indent:-9999em;margin:15px 0 0 15px;}
+.today_movie,.today_cartoo,.today_zy,.today_record{width:476px;float:left;}
+.today_movie h2,.today_cartoo h2,.today_zy h2{width:72px;height:18px;float:left;
+	display:inline;background:url("../images/title.png") no-repeat 0 0;
+	text-indent:-9999em;margin:15px 0 0 15px;}
+.today_cartoo h2{background-position:0 -57px;}
+.today_zy h2{background-position:0 -38px;}
+.today_record h2{width:89px;height:18px;float:left;display:inline;
+	background:url("../images/title.png") no-repeat 0 -398px;
+	text-indent:-9999em;margin:15px 0 0 15px;}
+
+/*-------------movie 电影模块---------------- */
+.movie{height:676px;}
+.box{position:relative;}
+.box .side_l,.box .content,.box .side_r{float:left;display:inline;}
+
+.box h2{width:72px;height:17px;
+	background:url("../images/title.png") no-repeat 0 -76px;
+	position:absolute;left:15px;top:15px;text-indent:-9999em;	
+}
+
+.box .side_l{width:200px;margin:50px 0 0 15px;}
+
+.box .recommend dt a{display:inline-block;width:195px;
+	height:183px;padding:1px;border:1px solid #ddd;}
+.box .recommend dt a:hover{border-color:#06a3dd;}
+.box .recommend dt img{width:195px;height:183px;}
+.box .recommend dd{text-align:center;	font-size:14px;line-height:24px;}
+.box .recommend dd a{color:#3d3d3d;}
+.box .recommend dd  span{color:#7b7b7b;}
+.box  .recommend ul{margin-top:8px;}
+.box  .recommend li{line-height:22px;color:#989898;}
+.box  .recommend li a{color:#3d3d3d;margin-left:3px;}
+.box  .recommend li.year{float:left;margin-right:25px;}
+.box  .recommend  p{line-height:22px;color:#989898;}
+.box h3{color:#414141;font-size:14px;font-weight:bold;margin-bottom:10px;}
+
+.box .satisfy{margin-top:15px;}
+.box .satisfy div{width:130px;height:124px;padding-left:60px;
+border:1px solid #ddd;position:relative;}
+.box .satisfy ul{position:absolute;top:0;left:0;}
+.box .satisfy  ol{padding:8px 0 0 8px;}
+.box .satisfy ul li{width:60px;height:24px;line-height:24px;text-align:center;
+	border-bottom:1px solid #ddd;border-right:1px solid #ddd;}
+.box .satisfy ul li.on{width:67px;border:none;color:#fff;cursor:pointer;
+	background:url("../images/foucerank.png") no-repeat -228px -264px;}
+.box .satisfy  ol li{line-height:22px;}
+.box .satisfy  ol strong{color:#05A4DC;}
+.box .satisfy  ol strong,.box .satisfy  ol em{font-size:11px;margin-right:2px;}
+
+.box .next_show{margin-top:20px;}
+.box .next_show li{line-height:22px;}
+
+/*-----中间部分content-----*/
+.box .content{width:484px;position:relative;margin-left:15px;}
+
+.box .content ul{margin:10px 10px 12px 15px;border-bottom:1px solid #e6e6e6;
+height:28px; /* 这个高度很重要 */
+}
+.box .content ul li{float:left;
+	height:27px; /*这个高度也很重要，注意它的高度要比ul少一个像素   */
+	line-height:27px;margin-right:2px;padding:0 10px;font-size:14px;
+	color:#424242;border:1px solid #e6e6e6;cursor:pointer;
+	margin-bottom:-1px; /* 这是最经典的一笔   */
+	position:relative; /* 专门解决IE6 的bug */	
+}
+.box .content ul li.on{
+	border-bottom:1px solid #fff;  /*--  下边框变成白色，而不是直接去掉-- */
+	font-weight:bold;
+}	
+.box .content .more{position:absolute;right:10px;top:17px;}
+
+
+.box .content dl{width:104px;height:188px;float:left;display:inline;
+	margin:0 0 20px 15px;position:relative;}
+.box .content dt a{display:inline-block;width:100px;height:140px;
+	padding:1px;border:1px solid #ddd;}
+.box .content dt a:hover{border-color:#06a3dd;}
+.box .content dt img{width:100px;height:140px;}
+.box .content a.pic-link{display:block;width:8px;height:10px;
+	font-size:0;overflow:hidden;text-indent:-9999em;
+	background:url("../images/foucerank.png") no-repeat -237px -100px;
+	position:absolute;right:0;top:150px;}
+.box .content dd{line-height:20px;color:#aaa;vertical-align:middle;}
+.box .content dd a{font-size:14px;color:#3d3d3d;}
+
+/*---side_r部分----*/
+.box .side_r{width:230px;height:676px;margin-left:15px;}
+
+.box .side_r .category{margin-top:17px;}
+.box .side_r .category  dl{clear:both;}
+.box .side_r .category dt{color:#5B5B5B;font-weight:bold;float:left;
+	margin-right:11px;line-height:24px;height:24px;
+}
+.box .side_r .category dd{float:left;height:24px;margin-right:13px;line-height:22px;}
+
+.box .top10{margin-top:20px;}
+.box .top10  h3{float:left;}
+/* 定义一个公共的样式，tab02  */
+ul.tab02{display:inline;float:right;margin-right:5px;border:1px solid #dbdbdb;}
+ul.tab02 li{height:18px;line-height:19px;float:left;border-right:1px solid #dbdbdb;
+	padding:0px 6px;color:#989898;}
+ul.tab02 li.on{background:#06A1DA;color:#fff;cursor:pointer;}
+/*----------------*/
+.box .top10 ol{width:220px;clear:both;}
+.box .top10 ol  li{position:relative;padding:7px 0;vertical-align:middle;clear:both;}
+.box .top10 ol strong{display:inline-block;width:18px;text-align:center;height:14px;
+	line-height:14px;border:1px solid #eee;color:#929292;font-size:11px;}
+.box .top10 li.top3 strong{border:none;width:20px;height:16px;line-height:16px;
+	background:url("../images/foucerank.png") no-repeat -228px -136px;
+	color:#fff;font-weight:bold;}
+.box .top10 li a{color:#3d3d3d;margin:0 6px;}
+.box .top10 li  span{color:#989898;}
+.box .top10 li em{color:#ff3c00;font-family:"Tahoma";font-size:11px;
+	position:absolute;top:5px;right:8px;}
+.box .top10 li a.pic_link{display:inline-block;width:8px;height:10px;
+	background:url("../images/foucerank.png") no-repeat -237px -100px;
+	text-indent:-9999em;font-size:0;overflow:hidden;position:absolute;
+	top:8px;right:-12px;}
+.box .category p{clear:both;margin-top:5px;}
+
+
+/*----全球抢先看-----*/
+.global{position:relative;height:200px;}
+.global h2{	width:137px;height:18px;position:absolute;top:15px;left:15px;
+	background:url("../images/title.png") no-repeat 0 -379px;text-indent:-9999em;
+}
+	
+.global_l{width:710px;}
+.global_l ul{clear:both; margin:15px 0 0 0;;float:right;color:#b7b7b7;}
+.global_l ul li{float:left; }
+.global_l  li a{margin:0 7px;}
+.global_l  li span{color:#b7b7b7;margin:0 2px;}
+.global_l dl{width:126px;height:134px; float:left;display:inline;margin:0 0 0 15px; 
+	text-align:center; position:relative; color:#aaa; margin-top:20px;}
+.global_l dt {margin-bottom:5px;}
+.global_l dt a{display:block;width:122px;height:90px;padding:1px; border:1px solid #ddd;}
+.global_l dt a:hover{border-color:rgb(2,161,217);}	
+.global_l dd.info{width:95px;height:20px;text-align:right;position:absolute;
+	right:3px;top:73px;background: url("../images/update.png") no-repeat 0 0;
+	padding-right:5px;color:#fff;opacity:0.7;filter:alpha(opacity=70);
+}
+
+.global_r{width:232px;margin:17px 0 0 20px;}
+.global_r  h3{color:#414141;font-size:14px;font-weight:bold;
+	margin-bottom:10px;float:left;}	
+.global_r  ol li{padding:8px 0 3px;vertical-align:center; position:relative;}	
+.global_r  ol li a{margin:0 6px;}	
+.global_r  ol li  strong{
+	display:inline-block;width:20px;height:16px;line-height:16px;
+	background:url("../images/foucerank.png") no-repeat -228px -136px;
+	color:#fff;font-weight:bold;font-size:11px;text-align:center;}
+.global_r  ol li em{display:inline-block;width:18px;text-align:center;
+	height:14px;line-height:14px;border:1px solid #eee;color:#929292;font-size:11px;}	
+.global_r  ol li span{position:absolute; right:5px;top:6px; color:#989898;}
+	
+/*----电视剧tv-----*/
+.tv{height:676px;}
+.tv h2{background-position:0 -114px;}
+.box .content dd.info{position:absolute;right:2px;top:122px;width:95px;
+	height:20px;line-height:20px;text-align:right;color:#fff;
+	background:url("../images/update.png") no-repeat 0 0;
+	opacity:0.6;filter:alpha(opacity=60);}
+.tv .satisfy table{width:190px;border:1px solid #ddd;}
+.tv .satisfy table th,.tv .satisfy table td{border:1px solid #ddd; padding:5px 6px;}
+.tv .satisfy table span{color:#989898; margin-left:2px;}
+
+/*----综艺 zy-----*/
+.zy{height:676px;}
+.zy h2{background-position:0 -133px;}
+.zy  .content p{float:right;margin:12px 0 13px 7px;line-height:25px;	color:#b7b7b7;}
+.zy  .content p a{margin:0 8px;}
+.zy  .content p span{color:#b7b7b7; margin:0 3px;}
+
+
+/*----动漫 dm-----*/
+.dm{height:676px;}
+.dm h2{background-position:0 -152px;}
+.dm .content p{margin-top:30px;line-height:20px;}
+
+/*----纪录片 record-----*/
+.record{height:470px;overflow:hidden;}
+.record h2{background-position:0 -170px;}
+.record  .content p{margin:12px 0 13px 7px;line-height:25px;	float:right;color:#b7b7b7;}
+.record  .content p a{margin:0 8px;}
+.record  .content p  span{color:#b7b7b7; margin:0 3px;}
+.record  .side_l div a{display:block;width:200px;text-align:center;font-size:14px;}
+.record  .side_l div img{width:195px; height:116px;padding:1px;
+	border:1px solid #ddd;margin-bottom:8px;}
+.record  .side_l div a:hover img{border-color:rgb(2,161,217);}
+.record  .side_l div span{color:#7b7b7b;}
+.record  .side_l ul{margin:2px 0 18px;}
+.record  .side_l li{ background:url("../images/foucerank.png") no-repeat -280px -130px;
+	line-height:20px; padding-left:10px;}
+.record  .top10 ol  li{padding:5px 0;}
+
+/*---------视频快报，娱乐爆料部分--------*/
+.vedio{height:660px;}
+.vedio_content{width:958px;height:330px;position:relative;}
+.vedio_content h2{width:72px;height:17px;position:absolute;left:15px;top:15px;
+	text-indent:-9999em;background:url("../images/title.png") no-repeat 0 -189px;
+}
+
+.vedio_l{width:710px;}
+.vedio_l ul{float:right;color:#d7d7d7;margin:15px 0;}
+.vedio_l ul li{float:left;}
+.vedio_l li a{margin:10px; color:#3d3d3d;}
+.vedio_l dl{width:105px;height:118px;float:left;display:inline;margin:0 0 25px 13px;}
+.vedio_l dl dt{margin-bottom:5px;}
+.vedio_l dl dd{line-height:20px;}
+.vedio_l dt a{display:block;width:100px;height:75px;border:1px solid #ddd; padding:1px;}
+.vedio_l dt img{width:100px;height:75px;}
+.vedio_l dt a:hover{border-color:rgb(2,161,217);}
+
+.vedio_r{width:232px;margin:17px 0 0 15px;}
+.vedio_r h3{font-size:14px;font-weight:bold;margin-bottom:10px;float:left;color:#414141;}
+.vedio_r ol li{padding:6px 0 5px; width:220px; white-space:nowrap;overflow:hidden;
+	text-overflow:ellipsis;}
+.vedio_r li a{padding-left:5px;}
+.vedio_r li em{display:inline-block;width:18px;text-align:center;height:14px;
+	line-height:14px;border:1px solid #eee;color:#929292;font-size:11px;}
+.vedio_r li strong{display:inline-block;width:20px;height:16px;line-height:16px;
+	background:url("../images/foucerank.png") no-repeat -228px -136px;
+	color:#fff;font-weight:bold;font-size:11px;text-align:center;}
+.vedio_r p{float:right;margin:2px 7px 0 0;}
+
+/* 娱乐爆料标题 */
+.bl h2{background-position:0 -208px;}
+
+/* 超清下载 */
+.vip{height:250px;}
+.vip .hd{height:248px;float:left;display:inline;position:relative;width:355px; color:#aaa;}
+.vip .hd dl{float:left;display:inline;width:104px;height:188px;margin:47px 0 0 12px;}
+.vip .hd dt {margin-bottom:5px;}
+.vip .hd dt a{display:block; width:100px;height:140px; border:1px solid #ddd; padding:1px;}
+.vip .hd dt a:hover{border-color:rgb(2,161,217);}
+.vip .hd dd{line-height:18px;}
+.vip .hd h2{width:72px;height:17px;position:absolute;left:15px;top:15px;	
+	background:url("../images/title.png") no-repeat 0 -284px;text-indent:-9999em;}
+.vip .region h2{background-position:0 -360px;}
+.vip .hd a.more{position:absolute;right:5px;top:17px;}
+.vip .rank{width:232px;float:left;display:inline;margin:17px 0 0 10px;}
+.vip .rank h3{font-size:14px;font-weight:bold;margin-bottom:10px;float:left;color:#414141;} 
+.vip .rank ol li{position:relative;padding:4px 0;vertical-align:middle;clear:both;}
+.vip .rank ol strong{display:inline-block;width:18px;text-align:center;height:14px;
+	line-height:14px;border:1px solid #eee;color:#929292;font-size:11px;}
+.vip .rank li.top3 strong{border:none;width:20px;height:16px;line-height:16px;color:#fff;
+	background:url("../images/foucerank.png") no-repeat -228px -136px;font-weight:bold;}
+.vip .rank li a{color:#3d3d3d;margin:0 6px;}
+.vip .rank li em{color:#ff3c00;font-family:"Tahoma";font-size:11px;
+	position:absolute;top:5px;right:17px;}
+.vip .rank li a.pic-link{display:inline-block;width:8px;height:10px;text-indent:-9999em;
+	background:url("../images/foucerank.png") no-repeat -237px -100px;
+	font-size:0;overflow:hidden;position:absolute;top:7px;right:0px;}
+	
+/*---------合作专区-----------*/
+.hz{height:210px; position:relative;}
+.hz h2{width:72px;height:17px;background:url("../images/title.png") no-repeat 0 -303px;
+	position:absolute;left:15px;top:15px;	text-indent:-9999em;}
+.hz_l{width:710px;}
+.hz_l dl{width:151px;height:93px;float:left;display:inline;
+	margin:45px 0 10px 15px;text-align:center;}
+.hz_l dt a{display:block;width:147px;height:70px;border:1px solid #ddd;padding:1px;}
+.hz_l dt img{width:147px;height:70px;}
+.hz_l dt a:hover{border-color:rgb(2,161,217);}
+.hz_l dl dd{line-height:25px;}
+.hz_l ul {margin-left:8px;clear:both;}
+.hz_l ul li{float:left;display:inline;margin-left:8px;color:#e4e4e4; line-height:20px;}
+.hz_l ul li a{margin-right:8px;}
+.hz_r {width:240px;margin:20px 0 0 10px;}
+.hz_r h3{font-size:14px;font-weight:bold;margin-bottom:10px;float:left;color:#414141;}
+.hz_r ul li{line-height:24px;}
+
+/* 底部导航部分 */
+.bottom-nav{height:140px;padding-top:25px;}
+.bottom-nav fieldset{width:700px;margin-left:260px;}
+.bottom-nav form{width:394px; height:27px;float:left;}
+.bottom-nav form .txt{width:319px;height:14px; padding:6px 0 5px 5px; 
+	border:1px solid #babebf;border-right:none;float:left;color:#b2b2b2;}
+.bottom-nav form .subbtn{width:68px;height:27px;border:none; 
+	background:url("../images/headerpage.png") no-repeat 0 -36px;
+	float:left; font-size:14px; font-weight:bold; color:#fff;}
+.bottom-nav ul{float:left;}
+.bottom-nav ul li{float:left; line-height:27px; margin:0 7px;}
+.bottom-nav ul li a{color:#a9a9a9;}
+.bottom-nav dl{width:180px;height:82px;float:left;display:inline;
+border-right:1px solid #ddd; padding:0 5px 0 15px;margin-top:15px;color:#989898;}
+dl.bottom-nav1{width:192px;}
+dl.bottom-nav3{width:235px;}
+dl.bottom-nav4{width:60px;}
+dl.bottom-nav5{border:none;}
+.bottom-nav dl dt{color:#666;font-weight:bold; margin:0 0 5px 5px;}
+.bottom-nav dl dd{float:left;display:inline;margin:0 5px;line-height:22px;white-space:nowrap;}
+
+
+/**--- 迅雷底部版权部分 --*/
+.footer{width:970px;border:none;text-align:center;}
+.footer p{line-height:20px;color:#898888;}
+
+

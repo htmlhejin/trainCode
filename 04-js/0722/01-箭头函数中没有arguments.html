@@ -1,0 +1,19 @@
+<script>
+    // function f(...rest){
+    //     console.log(rest)
+    // }
+    // f(1,2,3)  //[1, 2, 3]   真实数组
+
+    function f(a,b,c){
+        a=110;
+        console.log(arguments)
+    }
+    f(1,2,3)  //伪数组（类数组） Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]  伪数组（类数组）
+
+    // let f=()=>console.log(arguments)
+    // f(1,2,3)     //Uncaught ReferenceError: arguments is not defined
+    // at f (01-  // 箭头函数中没有arguments.html:7)
+
+    // let f=()=>console.log(this.arguments)   //undefined  ,箭头函数中没有this
+    // f(1,2,3)
+</script>

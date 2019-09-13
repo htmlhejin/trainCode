@@ -1,0 +1,86 @@
+/*主页上特有样式*/
+
+/****************轮播图*********************/
+.slider{height:360px;}
+.slider .item{
+	height:360px;
+	background:url(../img/20170328144936PC-BANNER.jpg) center center;
+}
+
+/****************平台数据*********************/
+.data{background-color: #eee;padding-top:50px;padding-bottom:60px;}
+.data h2{border-bottom:1px solid #ccc;text-align:center;margin-bottom:20px;}
+.data h2 span{position: relative;top:10px;background-color:#eee;padding:0 45px;font-size:30px;color:#000;}
+.data li{box-shadow: 1px 1px 1px #ccc; border-radius: 10px;position:relative;float:left;background-color:#fff;height:120px;width:310px;margin-right:35px;}
+.data li.last{margin-right:0;}
+.data li p{color:#000;position: absolute;top:30px;left:94px;}
+.data li .p2{top:70px;left:94px;}
+.data li:hover p{color:#c33;}
+.icon-data1,
+.icon-data2,
+.icon-data3{
+	background:url(../img/index-sp2.png) no-repeat -3px -126px; width:47px;height:41px;position: absolute;top:23px;left:25px;
+}
+.icon-data2{background-position:-133px -126px;}
+.icon-data3{background-position:-250px -126px;}
+.data li:hover .icon-data1{background-position:-3px -246px;}
+.data li:hover .icon-data2{background-position:-133px -246px;}
+.data li:hover .icon-data3{background-position:-250px -246px;}
+/****************平台数据 end*********************/
+
+/****************安全保障*********************/
+.safe{background-color:#eee;padding-bottom:60px;}
+.safe h2{border-bottom:1px solid #ccc;text-align:center;margin-bottom:60px;}
+.safe h2 span{position: relative;top:10px;background-color:#eee;padding:0 150px;font-size:30px;color:#000;}
+.safe ul{border-radius:10px;box-shadow: 1px 1px 1px #ccc;background-color:#fff;height:160px;line-height:2;}
+.safe li{ display:inline-block;width:33%;vertical-align:top;margin-top:32px;}
+.safe .p1{font-size:24px;}
+.safe .p2{font-size:14px;}
+.icon-safe1,
+.icon-safe2,
+.icon-safe3{
+	float:left;margin-left:32px;margin-right:20px;background:url(../img/index-sp2.png) no-repeat -2px -322px; width:96px;height:96px;
+}
+/*还少了hover之后的变化效果  自己去完成*/
+/****************安全保障 end*********************/
+
+/****************app下载  *********************/
+.app .w1000{
+	height:475px;
+
+	background: url("../img/index_bg.png") no-repeat right bottom;
+}
+.app h3{font-size:32px;padding-top:60px;color:#000;}
+.app ul{margin:46px 0px 40px 140px;}
+.app li{display:inline-block;}
+.app li p{font-size:14px;margin-top:13px;text-align:center;}
+.app .appInfo{width:630px;line-height:24px;}
+
+/****************app下载  end*********************/
+
+
+/****************about  *********************/
+.about{
+	background-color:#eee;
+	padding-top:50px;
+	padding-bottom:50px;
+}
+.about .w1000{
+	width:950px;
+	height:540px;background-color:#fff;border-radius:10px;box-shadow: 1px 1px 1px #ccc;
+	padding:0 25px;
+}
+.about h3{border-bottom:1px solid #ccc;font-size:30px;color:#000;padding-top:25px;padding-bottom:10px;}
+.about h4{color:#000;font-size:20px;line-height:2;margin:10px 0 ;}
+.about h4 a{font-size:14px;}
+.about .news li{line-height:2;width:430px;float:left;margin-right:40px;}
+.about .news a {float:left;width:300px; overflow:hidden;text-overflow:ellipsis;white-space: nowrap;}
+.about .news a:hover{color:#c33;}
+.about .news li span{float:right;}
+.about .news li i{float:left;width:6px;height:6px;background-color:#c66;border-radius:3px;margin-top:13px;}
+.about .honor li{float:left;width:25%;text-align:center;}
+.about .honor li img{height:132px;}
+.about .honor li p{line-height:2;}
+/****************about  end*********************/
+
+

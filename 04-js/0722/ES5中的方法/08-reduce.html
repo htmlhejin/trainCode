@@ -1,0 +1,42 @@
+<!-- 前一项与后一项的值相加 -->
+<script>
+    // let arr=[1,2,3,4,5,6]
+    // let newarr=arr.reduce(function(prev,next){
+    //     return prev+next;
+    // },100)
+    // console.log(newarr);
+
+    // 求总分
+    // let arr=[10,34,78,90,59]
+    // let sum;
+    // sum=arr.reduce(function(prev,next){
+    //     return prev+next;
+    // });
+    // console.log(sum)
+
+    // 再来一遍
+    // let arr=[10,20,30,40,50]
+    // let sum=arr.reduce(function(prev,next){
+    //     return prev+next
+    // })
+    // console.log(sum)   //150
+
+    // let arr=[10,20,30,40,50]
+    // let sum=arr.reduce(function(prev,next){
+    //     return prev+next
+    // },100)   //带初始值
+    // console.log(sum)   //250
+
+    // 数组元素是对象
+    let arr=[
+        {name:"xx",age:10},
+        {name:"yy",age:20},
+        {name:"zz",age:30}
+    ]
+    let i=1;
+    let {age}=arr.reduce(function(prev,next){
+        console.log(`第${i++}轮：上一个年龄是${prev.age},下一个年龄是${next.age}`)  //写在return上一行
+        return {age:prev.age+next.age};   //同map一样，先打印再返回
+    })
+    console.log(age)
+</script>

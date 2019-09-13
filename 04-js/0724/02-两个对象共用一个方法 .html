@@ -1,0 +1,32 @@
+<!-- 两个对象共用一个方法 -->
+
+<!-- <script>
+    let a={
+        name:"hhh",
+        age:10,
+        say:function(){
+            console.log(`我是${this.name},年龄${this.age}`)
+        }
+    }
+    let b={
+        name:"ggg",
+        age:30,
+        say:function(){
+            console.log(`我是${this.name},年龄${this.age}`)
+        }
+    }
+    a.say();
+    b.say();
+</script> -->
+<!-- 上述方法较麻烦 -->
+
+
+<!-- <script> 
+    var f=function(){   定义共同的方法
+        console.log(`我是${this.name},年龄是${this.age}`)
+    }
+    let obj1={name:"haha",age:10}
+    let obj2={name:"hello",age:20}
+    f.call(obj1)   谁调用，谁就借用这个方法
+    f.apply(obj2)  谁调用，谁就借用这个方法
+</script> -->

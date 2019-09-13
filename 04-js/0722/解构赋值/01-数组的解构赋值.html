@@ -1,0 +1,40 @@
+<script>
+    // 一一对应
+    // let arr=[1,2,3];
+    // [a,b,c]=arr;
+    // console.log(a,b,c)  //1 2 3
+
+
+    // 左右数量不等
+    // let arr=[1,2,3,4];
+    // [a,b,c]=arr;
+    // console.log(a,b,c)   //1 2 3
+
+    // let arr=[1,2,3];
+    // [a,b,c,d]=arr;
+    // console.log(a,b,c,d)   //1 2 3 undefined
+
+    
+    // let arr=[1,2,3];
+    // [a,,c]=arr;
+    // console.log([a,,c])  //[1, empty, 3]
+    
+
+    //  let[a,b,c,d=10]=[1,2,3]
+    // console.log(a,b,c,d)    //1 2 3  10
+
+    // 有默认值
+    // let [a,b,c=10]=[1,2]
+    // console.log([a,b,c])   //[1, 2, 10]
+
+    // 覆盖默认值
+    // let [a,b,c=10]=[1,2,3]
+    // console.log([a,b,c])   //1 2 3  覆盖默认值
+
+    // 嵌套
+    // let [a,b,c]=[1,2,[3]]
+    // console.log([a,b,c])  //[1, 2, Array(1)]
+
+    let [a,b,[c]]=[1,2,["n"]]
+    console.log(a,b,c)   //1 2 "n"
+</script>

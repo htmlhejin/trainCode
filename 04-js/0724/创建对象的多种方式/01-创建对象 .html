@@ -1,0 +1,103 @@
+<!-- 字面量创建对象 -->
+<script>
+    // let obj={
+    //     name:"kk",
+    //     age:10,
+    //     say:function (){
+    //         // console.log(obj.name)  在一个方法内部访问一个对象属性，要用this
+    //         console.log(this.name)   //kk
+    //     }
+    // }
+    // obj.say()
+
+    // var a = {
+    //     hello: function () {
+    //         console.log("hello")
+    //     },
+    //     name: "pp",
+    //     say: function () {
+    //         this.hello();
+    //         console.log(this.name)
+    //     }
+    // }
+    // a.say()
+
+    // 字面量创建对象的例子
+    // 创建一个矩形对象，属性有宽度和高度，方法有求周长和面积
+    // let rect = {
+    //     width: 10,
+    //     height: 20,
+    //     getC: function () {
+    //         return (this.width + this.height) * 2
+    //     },
+    //     getS: function () {
+    //         return this.width * this.height 
+    //     }
+    // }
+    // let a=rect.getC
+    // console.log(a());   //NaN  ,,  注意区与下面的区分
+    // // console.log(window.width)
+    // let b=rect.getS()
+    // console.log(b)   //200
+    // console.log(rect.getS())    //200
+    // 上述方法的不足是：不能批量生产对象
+
+
+    // 工厂模式创建对象，工厂利用一个函数来模拟
+    // 可以批量生产对象，但是对象的来源未知
+    // function factory(w,h){
+    //     let obj={}
+    //     obj.width=w,
+    //     obj.height=h,
+    //     obj.getC=function(){
+    //         return (this.width+this.height)*2
+    //     }
+    //     obj.getS=function(){
+    //         return this.width*this.height
+    //     }
+    //     return obj
+    // } 
+    // let r1=factory(1,2)
+    // console.log(r1.getC())  //6
+    // console.log(r1.getS())  //2
+    // let r2=factory(3,2)
+    // console.log(r2.getC())    //10
+    // console.log(r2.getS())  //6
+
+    // 构造器创建对象，可以批量生产对象，对象的来源可知    new
+    // function factory(w,h){
+    //     let obj={}
+    //     obj.width=w,
+    //     obj.height=h,
+    //     obj.getC=function(){
+    //         return (this.width+this.height)*2
+    //     }
+    //     obj.getS=function(){
+    //         return this.width*this.height
+    //     }
+    //     return obj
+    // } 
+    // let t1=new factory(1,2)
+    // console.log(t1.getC())  //6
+    // let t2=new factory(2,2)
+    // console.log(t2.getC())  //8
+    // let t3=new factory(3,2)
+    // console.log(t3.getS())  //6
+
+    // 原型+构造器模式   属性写在构造器中，方法写在原型上
+    function Rect(w,h){
+        this.width=w;
+        this.height=h
+    }
+    Rect.prototype.getC=function(){
+        return (this.width+this.height)*2
+    }
+    Rect.prototype.getS=function(){
+        return this.width*this.height
+    }
+    let a1=new Rect(1,2)
+    console.log(a1.getC())   //6
+    console.log(a1.width)    //1
+    let a2=new Rect(3,4)
+    console.log(a2.getS())    //12
+</script>

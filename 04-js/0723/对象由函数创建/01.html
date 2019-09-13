@@ -1,0 +1,33 @@
+<script>
+    // // 对象中有一个属性constructor，指向创建这个对象的函数（构造器）
+
+    // 1、数组由函数创建,这个函数的名字叫Array
+    // let arr=[1,2,3]
+    // console.log(arr.constructor==Array)  //true
+
+    // let arr=new Array(1,2,3)
+    // console.log(typeof arr)   //object
+    // console.log(typeof Array)   //function
+    // 所有数组都是通过Array创建
+
+
+    // 2、函数由函数创建，这个函数的名字叫Function
+    // function f(){}
+    // console.log(f.constructor==Function)   //true
+
+     // 3、基本数据类型由函数创建，这个函数的名字叫Number
+    //  let a=new Number(10)  //通过new构造器的方式创建“基本数据类型”的变量
+    // console.log(a.constructor==Number)   //true
+    // console.log(a)   //Number {10}
+
+    // let a=110;
+    // console.log(a.constructor)   //ƒ Number() { [native code] }
+
+    // let a="haha";
+    // console.log(a.constructor)    //ƒ String() { [native code] }
+
+
+    // 4、对象由函数创建，这个函数的名字叫Object
+    let a={}
+    console.log(a.constructor==Object)   //true
+</script>

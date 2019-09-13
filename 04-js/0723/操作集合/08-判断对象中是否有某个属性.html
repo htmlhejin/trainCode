@@ -1,0 +1,14 @@
+<script>
+    let a={
+        name:"haha",
+        age:10,
+        say:function(){
+            console.log("hello")
+        }
+    }
+    // console.log("__proto__" in a)    //in在原型对象上找    //true
+    // console.log(a.hasOwnProperty("hhhh"))   //flase  在对象内部找
+
+    console.log("age" in a)
+    console.log(a.hasOwnProperty("age"))
+</script>
