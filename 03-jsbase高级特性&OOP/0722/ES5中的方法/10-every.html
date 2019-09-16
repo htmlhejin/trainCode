@@ -1,0 +1,24 @@
+<script>
+    // let a=[1,2,3,7,9]
+    // let newa=a.every(function(abc,index,a){
+    //     return abc>=1   //每一个都满足条件结果才为true
+    // })
+    // console.log(newa) 
+
+    //   let a=[1,2,3,7,9]
+    // let newa=a.every(function(abc,index,a){
+    //     return abc>=6   //有一个不满足条件结果就为false
+    // })  
+    // console.log(newa)   //false
+
+    let arr=[
+      {name:"ee",score:20},
+      {name:"ss",score:60},
+      {name:"hh",score:80}
+    ]
+    let newarr=arr.every(function(item){
+      console.log(item)
+      return item.score>=20;
+    })
+    console.log(newarr)   //true
+</script>

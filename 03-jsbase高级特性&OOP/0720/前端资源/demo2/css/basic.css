@@ -1,0 +1,26 @@
+/*所有的网站都够通用的。包括：样式重置类 和 工具类*/
+
+/* ----------------------------- 样式重置类------------------ */
+body,h1,h2,h3,h4,p,ul,li,dl,dt,dd{margin:0;}
+h1,h2,h3,h4{font-weight: normal;}
+ul{padding:0; list-style: none;}
+a{text-decoration: none;}
+img{vertical-align: middle;}
+em{font-style: normal;}
+input{padding:0;}
+
+
+
+/* ----------------------------- 工具类------------------ */
+.fl{float: left;}
+.fr{float: right;}
+.clearfix:after{content:"";display:block;height:0;overflow:hidden;clear:both;}
+.clearfix{*zoom:1}/*照顾ie兼容性 */
+.mr87{margin-right:87px;}
+.mt10{margin-top:10px;}
+.mb20{margin-bottom:20px;}
+.mb15{margin-bottom:15px;}
+.mr35{margin-right:35px;}
+.pl67{padding-left: 67px;}
+.pl86{padding-left:86px;}
+.pl90{padding-left:90px;}

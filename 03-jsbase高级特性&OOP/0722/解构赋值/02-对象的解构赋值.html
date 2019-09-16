@@ -1,0 +1,64 @@
+<script>
+    // let obj={name:"haha",age:10}
+    // // let {name:name,age:age}=obj;
+    // let {name,age}=obj;   //如果键和值一样，可以只写一个
+    // console.log(name,age)  //haha 10
+
+    // let obj={name:"haha",age:10}
+    // let {name,age1}=obj; 
+    // console.log(name,age1)  //haha undefined
+
+    // let {lastname:a,age:b}={lastname:"faf",age:10}
+    // console.log(a,b)  //打印的是属性值
+
+    // 对象是属性的无序集合
+    // var {name,age}={age:10,name:"hello"}
+    // console.log(name)   //hello 
+    // console.log(age)     //10
+
+    // var {name:name,age2:age}={name:"hed",age:10}
+    // console.log(age2)   // age2 is not defined,()里是属性值
+
+    // var {name:name,age2:age}={name:"hed",age:10}
+    // console.log(age)   //undefined
+
+    // var {name:name,age2:age}={name:"hed",age2:10}
+    // console.log(age)  //10
+
+    // 后面的会覆盖默认值
+    // let {name:name,age=1}={name:"hh",age:10}
+    // console.log(age)
+
+    // 将现有对象的属性，赋值到某个变量
+    // let {max,min,abs}=Math;
+    // console.log(max(1,2))   //2
+    
+    // console.log(Math.ceil(1.1))  //2
+    // console.log(Math.floor(1.1))    //1
+    // console.log(Math.random())   //随机数
+
+    // // 沿着原型链
+    // let {push} = []  // push
+    // console.log(push)  //ƒ push() { [native code] },数组的隐式对象中有Push属性
+
+
+    // 函数参数的赋值
+    // function f(a){
+    //     console.log(a)   //{name: "hh", age: 10}
+    // }
+    // f({name:"hh",age:10})
+
+    // function f(a){
+    //     console.log(a.age)   // 10
+    // }
+    // f({name:"hh",age:10})
+
+
+    function f(){
+        return {name:"wangcai",age:100}
+    }
+    // let obj = f()
+    let {name,age} = f()
+    console.log(name)
+    console.log(age)
+</script> 

@@ -1,0 +1,27 @@
+/*
+用户注册页上特有的样式
+ */
+.register{background-color: #eee;padding:34px 0 50px 0;}
+.register .w1000{width:950px;height:500px;border-radius: 15px;box-shadow: 1px 1px 1px #ccc;padding:15px 25px;
+background:#fff url(../img/login_banner.jpg) no-repeat  25px 80px;}
+.register h3{font-size:24px;color:#000;padding-bottom: 15px;border-bottom:1px solid #ccc;margin-bottom:25px;}
+.register form{font-size:14px;float:right;width:340px;}
+.register form a{color:#c33;}
+.register form label{margin-right:20px;height:35px;width:70px;text-align:right;display:inline-block;}
+.register form input{outline:none;}
+.register .txt-phone{
+	padding-left:30px;height:33px;border:1px solid #ccc;width:218px;
+	background: url(../img/login-sp.png) no-repeat 8px 6px;
+}
+
+.register .txt-code{padding-left:30px;height:33px;border:1px solid #ccc;width:98px;margin-right:9px;
+background: url(../img/login-sp.png) no-repeat 8px -73px;}
+.register .chbox{background: url("../img/login-sp.png") no-repeat 0px -199px;
+vertical-align:-7px; width:19px;height:19px;
+-webkit-appearance: none;
+outline: none;
+cursor: pointer;
+}
+
+.register .chbox:checked{background-position:0px -236px;}
+.register .btn{width:250px;height:38px;background-color:#f66;font-size:20px;text-align:center;color:#fff;border:none;border-radius:5px;margin-top:5px;}

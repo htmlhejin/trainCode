@@ -1,0 +1,36 @@
+<script>
+    // 继承原型对象上面的方法
+    // function Parent(yourname){
+    //     this.name=yourname
+    // }
+    // Parent.prototype.say=function(){  //原型对象中定义方法
+    //     return this.name
+    // }
+    // let p=new Parent("hello")
+    // console.log(p.say())     //hello
+
+
+    // 继承父构造器上面的属性
+    function Parent(yourname){
+        this.name=yourname
+    }
+    Parent.prototype.say=function(){  //原型对象中定义方法
+        return this.name
+    }
+    function Son(yourname){
+        Parent.call(this,yourname)    //this 值得是Son    //继承父构造器中的name属性  ---固定写法
+    }
+        // 继承方法
+    Son.prototype=Parent.prototype
+    Son.prototype.constructor=Son    //手动修改constructor指向，还有一种方法，27--30行          //浅拷贝
+
+    // for(let i in Parent.prototype){    //循环对象用for 键 in 对象，循环数组用forEach
+    //     Son.prototype[i]=Parent.prototype[i]  // 还可以把父的原型对象copy一份 让Son继承copy过来的方法，----方法的继承
+    // }
+    // Son.prototype.constructor=Son                                                          //深拷贝
+
+    let p=new Parent("hello")   //继承了父构造器上的属性
+    console.log(p.say())        //hello   //继承了父构造器中的方法
+
+
+</script>

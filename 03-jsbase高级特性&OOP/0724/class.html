@@ -1,0 +1,82 @@
+<script>
+    // function NBAPlayer(name,age,height){
+    //     //属性扔到对象中
+    //     this.name=name
+    //     this.age=age
+    //     this.height=height
+    // }
+    // // 方法扔到原型上
+    // NBAPlayer.prototype.say=function(){
+    //     return `我是${this.name},年龄${this.age},身高${this.height}` //console.log(`我是${this.name},年龄${this.age},身高${this.height}`) 
+    // }
+    // let p=new NBAPlayer("kuli",30,180)          
+    // console.log(p.say())        
+    //p.say()
+
+
+    // 这种写法还是ES5中的构造器与原型的语法糖
+    // class NBAPlayer {
+    //     constructor(name, age, height) {    //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         this.name = name
+    //         this.age = age
+    //         this.height = height
+    //     }
+    //     say() {    //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         console.log(`我是${this.name},年龄${this.age},身高${this.height}`)
+    //     }
+    //     jump() {        //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         console.log("junp···")
+    //     }
+    // }
+    // let p = new  NBAPlayer("hh",29,200)
+    // p.say()
+
+
+
+    // class NBAPlayer {
+    //     constructor(name, age, height) {    //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         this.name = name
+    //         this.age = age
+    //         this.height = height
+    //     }
+    //     say() {    //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         console.log(`我是${this.name},年龄${this.age},身高${this.height}`)
+    //     }
+    //     jump() {        //其实是son：function(){}的简写，省略了:function----记住这种简写
+    //         console.log("junp···")
+    //     }
+    // }
+    // class MVP extends NBAPlayer{
+    //     constructor(name,age,height,year){
+    //         super(name,age,height)  //等价于this.name = name  this.age = age  this.height = height
+    //         this.year=year
+    //     }
+    //     showMVP(){
+    //         console.log(`我是${this.name},年龄${this.age},身高${this.height},球龄${this.year}`)
+    //     }
+    // }
+    // let p=new MVP("tt",29,190,10)
+    // p.say()
+    // p.showMVP()
+
+
+    //不只一个对象可以调方法，一个类也可以调方法，如果一个类去调用的方法，叫静态方法  只有类能调用静态方法
+    // class  Animal{
+    //     static eat(){
+    //         console.log("eat...")
+    //     }
+    // }
+    // // Animal.eat()    //eat...  类调用了eat方法
+    // let p=new Animal()
+    // p.eat()     // p.eat is not a function  ，只有类能调用这个静态方法
+
+
+    class Animal{       //Animal是类名
+        // m就不能叫变量 ,是属性
+        static m = 1;    //这句指令相当于this.name=name
+    }
+    // console.log(Animal.m)    //1
+
+    let a = new Animal()
+    console.log(a.m)  // undefined
+</script>

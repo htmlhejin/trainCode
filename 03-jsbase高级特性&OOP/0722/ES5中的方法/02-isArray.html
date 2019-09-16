@@ -1,0 +1,21 @@
+<!-- isArray   判断一组数是否是一个数组 -->
+<script>
+    // let array=[1,2,3]
+    // let a=12375;
+    // console.log(array)
+    // console.log(Array.isArray(array))     //true  //Array.isArray固定写法
+    // console.log(Array.isArray(a))  //false
+
+    function f(){
+        console.log(arguments)
+        console.log(Array.isArray(arguments))  //false, arguments是伪数组
+
+    }
+    f("a","b",9)
+
+    // function f(...rest) {
+    //     console.log(rest)
+    //     console.log(Array.isArray(rest))
+    // }
+    // f(1, 2, "p")
+</script>

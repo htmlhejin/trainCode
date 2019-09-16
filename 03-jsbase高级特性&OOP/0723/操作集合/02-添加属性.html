@@ -1,0 +1,20 @@
+
+    <!-- 给对象添加新属性 -->
+<script>
+    // let obj={}
+    // obj.name="haha";    //对象名.属性名=属性值
+    // obj.sge=10;
+    // console.log(obj)    //{name:"haha",age:10}
+
+    // let obj={}
+    // obj["name"]="ggg";  //对象名["属性名"]=属性值
+    // obj["score"]=90;
+    // console.log(obj)    //{name: "ggg", score: 90}
+
+    // 增加同名属性，前面的会被覆盖
+    let obj={}
+    obj["name"]="ggg";  //对象名["属性名"]=属性值
+    obj["score"]=90;
+    obj["score"]=100;
+    console.log(obj.score)    //100
+</script>
