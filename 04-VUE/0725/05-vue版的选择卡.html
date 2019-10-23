@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="tabLink">
+            <span>js</span>
+            <span>html</span>
+            <span>css</span>
+        </div>
+        <div class="tabBody">
+            <p v-show="currentTabName==='js'">js的内容</p>
+            <p v-show="currentTabName==='html'">html的内容</p>
+            <p v-show="currentTabName==='css'">css的内容</p>
+        </div>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+            currentTabName:"css",
+        }
+    })
+    let spans=document.querySelectorAll("span")  //得到一个真实的数组
+    console.log(spans)
+    spans.forEach(abc=>{
+        abc.addEventListener("click",()=>{
+            a.currentTabName=abc.innerHTML;
+        })
+    })
+</script>
+</html>

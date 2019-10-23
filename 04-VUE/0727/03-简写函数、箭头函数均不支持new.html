@@ -1,0 +1,30 @@
+<script>
+    // function f(){
+    //     console.log(1)
+    // }
+    // new f()
+
+        // var a=function(x){
+        //     return (x+1)
+        // }
+        // console.log(a(8))
+        // 箭头函数---不支持new
+        // var a=x=>x+1;
+        // var b=new a(6)
+        // console.log(b)    a is not a constructor
+ 
+        var s={
+            a:function(){
+                console.log(this)
+            },
+            // 方法简写 ---不支持new
+            b(){
+                console.log(this)
+            }
+        }
+        var f=s.a.bind(this)
+        var obj=new f()    //a {}
+
+        var h=s.b.bind(this)
+        new h()     //h is not a constructor
+</script>

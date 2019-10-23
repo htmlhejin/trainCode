@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <son @jianting="addmsg"></son>
+    </div>
+    <template id="abc">
+        <div>
+            <p>子组件</p>
+            <button @click="fashe">点击</button>
+        </div>
+    </template>
+</body>
+<script>
+    //子中添加一个监听事件，子会发射一个事件且带值发射（传值），发射后父就会监听到，
+    // 然后就可以调用自己内部的函数且接收子传递过来的值
+    let son={
+        template:"#abc",
+        methods:{
+            fashe(){
+                this.$emit("jianting",111)
+            }
+        }
+    }
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        components:{
+            son
+        },
+        methods:{
+            addmsg(a){
+                console.log(a)
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+     <aaa></aaa>
+     <my-head></my-head>
+     <kkk></kkk>
+    </div>
+</body>
+<script>
+    // 定义一个组件对象
+    let abc={
+        template:"<div>我是一个组件</div>"
+    }
+    var a=new Vue({
+        el:"#app",
+    //    注册一个组件-- components
+        components:{
+            aaa:abc,  //键和值名字一样的话，可以只写一个
+            "my-head":{
+                template:"<div>我也是一个组件</div>"
+            },
+            "kkk":{
+                template:"<div>又来一个组件</div>"
+            }
+        }
+    })
+</script>
+</html>

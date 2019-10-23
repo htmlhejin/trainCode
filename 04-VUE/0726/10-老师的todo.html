@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .container{width: 500px;border: 1px solid #ddd;margin:50px auto;}
+        .list p{display: flex;padding:0 10px;justify-content: space-between;align-items: center;}
+        .txt{flex:1 1 auto;}
+        .checkbox{margin-right: 10px;cursor: pointer;}
+        .input{width: 450px;height: 30px;line-height: 30px;font-size: 26px;}
+        .done{color:#C8C7CC; text-decoration: line-through;}
+        .txt{cursor: pointer;}
+        .del{margin:0 5px;position: absolute;top:0;right:100px;display:none;cursor: pointer;}
+        .item-wrap{position: relative;}
+        .item-wrap:hover .del{display: block;}
+        .item{padding:10px;margin-right:30px;line-height:30px;height:30px;border-bottom: 1px solid #333;}
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <h2>我的工作列表  已办[3] 待办[4]</h2>
+        <div>
+            <input @keyup.enter="add($event)" class="input" placeholder="请输入待办事项..." type="text" />
+        </div>
+        <div class="list">
+            <div   class="item-wrap">
+                <p class="item" :class="{'done':todo.done}" v-for="(todo,index) in todoList" >
+                    <input v-model="todo.done" class="checkbox" type="checkbox"  />
+                    <!-- <span class="txt" @click="todo.done = !todo.done">{{todo.text}}</span>   -->
+                    <span class="txt">{{todo.text}}</span>  
+                    <span class="stut">{{todo.done ? "已办" : "待办"}}</span>
+                </p>
+                <span class="del" @click=del(index)>删除</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data: {
+                todoList:[
+                    {text:"学习",done:false},
+                    {text:"睡觉",done:true},
+                ]
+            },
+            methods: {
+                add(e){
+                    // 通过事件对象得到输入框中输入的数据
+                    let txt = e.target.value.trim()
+                    if(txt){
+                        this.todoList.push({text:txt,done:false})
+                        e.target.value = ""
+                    }
+                },
+                del(index){
+                    this.todoList.splice(index,1)
+                }
+            }
+        })    
+    </script>
+</body>
+</html>

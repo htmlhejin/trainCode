@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .abc{color:red}
+        .g-h{background-color:gold;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <p :class="className">p标签</p> -->
+        <!-- <p :class="abc">p标签</p>   //无效 -->
+        <p :class="{abc:true}">p标签</p>
+        <p :class="{abc:2>1}">p1标签</p>
+        <p :class="{abc:isShow}">p2标签</p>
+        <p :class="age >10 ? className : ''">p3标签</p>
+        <p :class="{'g-h':true}">p4标签</p>
+        <p :class="className2">p5标签</p>
+        <p :class="['abc','g-h']">p6标签</p>
+        <p :style="myStyle">p7标签</p>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+            className:"abc",
+            isShow:false,
+            age:30,
+            className2:"g-h",
+            myStyle:{color:"green",backgroundColor:"blue"}
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Document</title>
+<script src="./js/vue.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .abc {
+            color: red
+        }
+        .def{background-color: blue}
+        .g-h{color:pink}  
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 给字体设置颜色，有多种方法 -->
+        <!--1、 绑定style中的类对应的data中的属性名 -->
+        <p v-text="msg" :class="className"></p>
+
+        <!-- 2、""中用{},{}中写类名，并判断类名的true  or false -->
+        <p :class="{abc:true}">p标签</p>
+        <p :class="{abc:2>1}">又是一个p标签</p>
+        <p :class="{abc:isPass}">再来一个p标签</p>
+        <p v-for="(value,key,index) in num"  :class="{abc:key%2==0,def:key%2!=0}" >{{value}}</p>
+
+        <!-- 类名中含-，把类名用''引起来 -->
+        <p :class="{'g-h':true}">类名中有-</p>
+
+        <!-- 想同时引用多个类 -->
+        <p :class="['abc','def']">想同时引用多个类</p>
+
+        <p :style="myStyle">调用自己的属性</p>
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+            name: "hello",
+            msg: "world",
+            className: "abc",
+            isPass:true,
+            num:10,
+            className2:"def",
+            myStyle:{color:'purple',backgroundColor:"gold"}    //''  或""都可以
+        },
+    })
+</script>
+
+</html>

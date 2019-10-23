@@ -1,0 +1,76 @@
+<script>
+    // console.log("start")    //同步任务
+    // window.setTimeout(function(){
+    //     console.log("耗时任务")     //耗时任务
+    // },2000)
+    // console.log("end")   //同步任务   //打印结果为 start end 耗时任务
+    // 同步任务执行完后再执行异步任务
+
+
+    // 有三个任务console.log(1)console.log(2)console.log(3)
+    // 过2s执行任务1，任务1执行完后，再过2s执行任务2.....
+    // window.setTimeout(function(){
+    //     console.log(1)
+    //     window.setTimeout(function(){
+    //         console.log(2)
+    //         window.setTimeout(function(){
+    //             console.log(3)
+    //         },2000)
+    //     },2000)
+    // },2000)
+    // 这样会产生异步地狱，代码太繁琐
+
+
+    // promise解决异步
+    // console.log(Promise)        //ƒ Promise() { [native code] }
+
+    // let p=new Promise()
+    // console.log(p)      //Promise resolver undefined is not a function
+
+    // 默认情况下Promise处于等待状态
+    // let p=new Promise(function(resolve,reject){
+
+    // });
+    // console.log(p)      //Promise {<pending>}
+
+    // 对于异步任务，要么resolve,要么reject
+    // resolve:pendingfullFilled -->
+    // reject:pendingrejected -->
+    // let p=new Promise(function (resolve,reject){
+    //     reject("没钱")
+    //     // resolve("包")
+    // })
+    // console.log(p)      //Promise {<resolved>: "包"}
+    // console.log(p)
+
+
+    // let p = new Promise(function (resolve, reject) {
+    //     let n = Math.random()
+    //     console.log(n)
+    //     if (n > 0.5) {
+    //         resolve("包")
+    //     } else {
+    //         reject("没钱")
+    //     }
+    // })
+    // console.log(p)          //1、Promise {<resolved>: "包"}     2、Promise {<rejected>: "没钱"}
+    // p.then(function (res) {
+    //     //res是终值
+    //     console.log(res)    //   1、包          2、没钱
+    // }, function (err) {
+    //     // //err是拒因
+    //     console.log(err)
+    // })
+        // 简写
+        let p=new Promise((resolve,reject)=>{
+            let n=Math.random()
+            console.log(n)
+            if(n>0.5){
+                resolve("包")
+            }else{
+                reject("没钱")
+            }
+        })
+        console.log(p)
+        p.then((res)=>console.log(res),(err)=>console.log(err))
+</script>

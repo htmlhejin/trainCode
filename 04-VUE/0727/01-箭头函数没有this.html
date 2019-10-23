@@ -1,0 +1,11 @@
+<script>
+    // 箭头函数没有this,里面的this.x,x会捕获其所在上下文的this,该题捕获var test 之外的this
+    this.a = 20;
+    var test = {
+        a: 40,
+        init: () => {
+            console.log(this.a)
+        }
+    }
+    test.init()
+</script> 

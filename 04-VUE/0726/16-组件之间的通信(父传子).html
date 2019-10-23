@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 通过属性绑定绑定父中的数据，子接收这个属性，父中有num,则可以打印出来 -->
+        <aaa :sonvalue="num" :sonname="name"></aaa>
+        我是父组件，我要使用父组件中的数据{{num}},我的名字是{{name}}
+        <hr>
+    </div>
+    <template id="son">
+        <div>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <p>{{say}}</p>
+            <h3>我是子组件--->{{sonvalue}}</h3>
+            <h4>父中有name：{{sonname}}</h4>
+            <!-- 我们无法修改父中的数据，且会报错 -->
+            <!-- <button @click="sonvalue=20">修改数据为20</button> -->
+            <!-- 我们可以把父中的数据存到自己内部的数据中，修改这个数据 -->
+            <p>{{myvalue}}</p>
+            <button @click="myvalue=20">修改数据为20</button>
+            
+        </div>
+    </template>
+</body>
+<script>
+    // 定义组件
+    let aaa = {
+        template: "#son",
+        data() {
+            return {
+                say: "我是子组件",
+                myvalue:this.sonvalue
+            }
+        },
+        props: {
+            sonvalue: {
+                // type:String,   //会显示，但是会报错
+                type: Number,   //会显示，不会报错
+                // required:true,  //会显示，不会报错
+                // required:false,  //会显示，不会报错
+                // default:100   //默认值
+            },
+            sonname: {
+                type: String,
+                // default:"huahua"   不显示
+            }
+
+        },
+        methods: {
+            show() {
+                alert(this.sonvalue)
+            }
+        }
+    }
+    let vm=new Vue({
+            el: "#app",
+            data: {
+                num: 10,
+                name: "hello"
+            },
+            // 注册组件
+            components: {
+                aaa,   //同名了
+            }
+        })
+</script>
+
+</html>

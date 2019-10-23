@@ -1,0 +1,74 @@
+<!-- 修饰符可以简写冒泡事件、阻止冒泡事件等 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<style>
+    .father {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+    }
+
+    .son {
+        width: 50px;
+        height: 50px;
+        border: 1px solid green;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <!-- 阻止默认事件   .prevent -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="f1">百度</a> -->
+
+        <!-- 阻止冒泡事件,相关事件都要.stop -->
+        <!-- <div @click.stop="f2" class="father">
+            <div @click.stop="f3" class="son"></div>
+        </div> -->
+
+        <!-- 把冒泡事件改为捕获 -->
+        <!-- <div @click.capture="f2" class="father">
+            <div @click.capture="f3" class="son"></div>
+        </div> -->
+
+        <!-- self事件 ,处理自己内部事件，不理会冒泡，捕获等事件，某个元素设置了self事件，那么在触发和他相关的事件时该元素不受影响-->
+        <!-- <div @click.self="f2" class="father">
+            <div @click="f3" class="son"></div>
+        </div> -->
+
+        <!-- once--只执行一次,当点击多次时只执行一次命令 -->
+        <!-- <div @click.once="f3" class="son">son</div> -->
+
+        <!-- 同时使用多个修饰符 直接 . .-->
+        <a href="http://www.baidu.com" @click.prevent.once="f1">百度</a>
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+            f1() {
+                console.log("百度")
+            },
+            f2() {
+                console.log("father")
+            },
+            f3() {
+                console.log("son")
+            },
+
+        }
+    })
+</script>
+
+</html>

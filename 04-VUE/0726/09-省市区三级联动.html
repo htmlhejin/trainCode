@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/city-data.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        省
+        <select v-model="currentP">
+            <option :value="item" v-for="(item) in getP">{{item}}</option>
+        </select>
+        市
+        <select v-model="currentC">
+            <!-- <option value="" >-请选择-</option> -->
+            <option :value="item" v-for="(item) in getC">{{item}}</option>
+        </select>
+        区/县
+        <select>
+            <!-- <option value="">{{currentC}}</option> -->
+            <option :value="item" v-for="(item) in getX">{{item}}</option>
+        </select>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            city: cityInfo,
+            currentP: "请选择",
+            currentC: "请选择",
+        },
+        computed: {
+            getP() {
+                let rs = this.city.map(item => item.name)
+                rs.unshift("-请选择-")
+                return rs;
+            },
+            getC() {
+                let result = []
+                let rs = this.city.find(item => item.name == this.currentP)
+                // return rs
+                if (rs) {
+                    result = rs.sub.map(item => item.name)
+                    // this.currentC="-请选择-"
+                }
+                return result
+            },
+            getX() {
+                let result2 = []
+                    results= this.city.find(item => item.name == this.currentP)
+                if (results) {
+                    let rs2 = results.sub.find(item => item.name == this.currentC)
+                    if (rs2) {
+                        result2 = rs2.sub.map(item => item.name)
+                        return result2;
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>

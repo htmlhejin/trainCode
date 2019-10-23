@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <p><label for="">姓名:</label><input type="text" value="" v-model="info.name"></p>
+            <p >
+                性别: <input type="radio" name="sex" value="男" v-model="info.sex">男
+                      <input type="radio" name="sex" value="女" v-model="info.sex">女
+            </p>
+            <p> 同意:<input type="text" v-model="info.isagree"></p>
+            <p >兴趣爱好1: <input  type="checkbox" value="book" v-model="info.favorate">看书
+                         <input  type="checkbox" value="game" v-model="info.favorate"> 游戏
+                         <input  type="checkbox" value="sleep" v-model="info.favorate">睡觉
+            </p>
+            <p>兴趣爱好2: 
+                <!-- 单标签不能循环，要用template标签， -->
+                <template v-for="(item,key,index) in allfavorate">
+                    <input type="checkbox" :value="item.value">{{item.value}}
+                </template>
+            </p>
+            <p>
+                教育:
+                <select name="" id="" v-model="info.edu">
+                    <option value="-请选择">-请选择-</option>
+                    <option :value="item" v-for="(item) in eduOption">{{item}}</option>
+                </select>
+            </p>
+            <p>你的信息是：</p>
+            {{info}}
+        </form>
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            allfavorate:[
+                {
+                    "name":"book",
+                    "value":"看书"
+                },
+                {
+                    "name":"travel",
+                    "value":"旅行"
+                },
+                {
+                    "name":"sleep",
+                    "value":"睡觉"
+                },
+                {
+                    "name":"study",
+                    "value":"学习"
+                }
+            ],
+            eduOption:["重点","一本","二本","三本"],
+            info:{
+                name:"",
+                sex: "",
+                isagree:false,
+                favorate:["book"],
+                edu:"-请选择-"
+            }
+        }
+    })
+</script>
+</html>

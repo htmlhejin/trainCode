@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .container{width: 500px;border: 1px solid #ddd;margin:50px auto;}
+        .list p{display: flex;padding:0 10px;justify-content: space-between;align-items: center;}
+        .txt{flex:1 1 auto;}
+        .checkbox{margin-right: 10px;cursor: pointer;}
+        .input{width: 450px;height: 30px;line-height: 30px;font-size: 26px;}
+        .done{color:#C8C7CC; text-decoration: line-through;}
+        .txt{cursor: pointer;}
+        .del{margin:0 5px;position: absolute;top:0;right:100px;cursor: pointer;color:gray;font-size: 10px;}
+        .item-wrap{position: relative;}
+        .item-wrap:hover .del{display: block;}
+        .item{padding:10px;margin-right:30px;line-height:30px;height:30px;border-bottom: 1px solid #333;}
+    </style>
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <h2>我的工作列表  已办 待办</h2>
+        <div>
+            <!-- 按回车添加，@keyup.enter  也可以是@keyup.alt -->
+            <input @keyup.alt="add($event)" type="text" class="input" placeholder="请输入待办事项...">
+        </div>  
+        <div class="list" style="border: 1px solid red">
+            <div class="item-wrap" v-for="(todo,key,index) in todoList">
+                <p class="item" :class="{'done':todo.done}" >
+                    <input  type="checkbox" class="checkbox" v-model="todo.done">
+                    <span class="txt">{{todo.text}}</span>
+                    <span class="stu">{{todo.done ? "已办" : "待办"}}</span>
+               </p>
+                <span class="del" @click="del(xingcan)">删除</span>
+            </div>
+        </div>      
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            todoList:[
+                {text:"sleep",done:false},
+                {text:"game",done:true},
+                {text:"study",done:true}
+            ]
+        },
+        methods:{
+            add(e){
+                let txt=e.target.value.trim()
+                if(txt){
+                    this.todoList.push({text:txt,done:false})
+                    e.target.value=""
+                }
+            },
+            del(f){
+                this.todoList.splice(f,1),
+                alert("你确定删除吗?")
+            }
+        }
+    })
+</script>
+</html>

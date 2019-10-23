@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-on:click="f1('abc')">p标签</p>
+        <button v-for="(value) in 3" @click="f2(value)">按钮{{value}}</button>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+            f1(a){
+                alert("f函数")
+                console.log(a)
+            },
+            f2(item){
+                console.log(item)
+            }
+        }
+    })
+</script>
+</html>

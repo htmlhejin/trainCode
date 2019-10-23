@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-on:click="f1">p1标签</p>
+        <p v-on:click="f2">p2标签</p>
+        <!-- v-on 简写 -->
+        <p @click="f2">p3标签</p>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+           
+        },
+        methods:{
+            f1(){
+                console.log("f...")
+            },
+            f2(){
+                alert("f2")
+        }
+        }
+    })
+</script>
+</html>

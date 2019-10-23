@@ -1,0 +1,9 @@
+<script>
+    function Person(age, name) {
+        this.age = age;
+        this.name = name
+        console.log(this)  // 此处 this 分别指向 Person 的实例对象 p1 p2
+    }
+    var p1 = new Person(18, 'zs')
+    var p2 = new Person(18, 'ww')
+</script>

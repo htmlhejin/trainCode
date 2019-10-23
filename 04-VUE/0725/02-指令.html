@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-text="msg"></h1>
+        <!-- //v-text 等价于{{}}插值表达式，不会解析html标签 -->
+        <p v-text="name"></p>
+        <!-- //<strong>haha<strong></strong> -->
+
+        <!-- v-html==数据绑定，会解析html标签 -->
+        <p v-html="name"></p>
+        <!-- haha -->
+
+        <!-- v-model=== 双向数据绑定，不会解析html标签, -->
+        <input type="text" v-model="name">
+
+        <!-- 对于标签的属性值，不能使用插值表达式 -->
+        <!-- <a href="{{hrefname}}">百度</a> -->
+        <!-- v-bind:    绑定html属性名 -->
+        <!-- <a v-bind:href="hrefname">百度</a> -->
+        <a :href="hrefname">百度</a>
+
+        <!-- v-if== 判断数据是否显示  0、-0、false、4>9此种表达式都表示false，内容不显示； 1 、true 、4>1此种表达式都表示true，内容显示-->
+        <p v-if="-0">这是一个p标签</p>
+        <p v-if="1">这是一个p标签</p>
+        <p v-if="4>2">这是一个p标签</p>
+        <p v-if="1>9">这是一个p标签</p>
+        <p v-if="isShow">这是一个p标签</p>
+
+        <!-- 对于数组来说，第三个参数没用 -->
+        <p v-for="(value,key,index) in obj">
+            第一个参数是{{value}},
+            第二个参数是{{key}},
+            第三个参数是{{index}}
+        </p>
+        // 对于对象来说，index起作用
+        <p v-for="(value,key,index) in abc">
+            第一个参数是{{value}},
+            第二个参数是{{key}},
+            第三个参数是{{index}},
+        </p>
+
+        <p v-if="score>=60">及格</p>
+        <p v-else>不及格</p>
+
+        <p v-if="score1>90">A</p>
+        <p v-else-if="score1>80">B</p>
+        <p v-else-if="score1>70">C</p>
+
+
+    </div>
+    <script>
+        var a = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello world",
+                name: "<strong>haha<strong>",
+                hrefname: "http://www.baidu.com",
+                // isShow:true     //32行显示
+                isShow: false,        //32行不显示
+                // 对象中是数组，index不起作用
+                obj: [
+                    { name: "haha", age: 10 },
+                    { name: "kkkk", age: 20 },
+                    { name: "tttt", age: 30 },
+                ],
+                score: 12,
+                score1: 98,
+                
+                abc: {
+                    name: "haha",
+                    age: 10
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

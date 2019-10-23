@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 根组件中使用根组件里注册的组件 -->
+        <aaa></aaa>
+    </div>
+    <template id="abc">
+        <div>
+            <p>定义组件</p>
+            <p>{{info}}</p>
+        </div>
+    </template>
+</body>
+<script>
+    // /定义组件
+    let a = {
+        template: "#abc",  //内容很多，另写一个template标签，内容写在这里面
+            // 除了根组件之外，其他的data都是一个函数，且必须return 一个对象
+            data() {
+                return {
+                    info: "hello world~"
+                }
+            }
+        
+    }
+    // 根组件
+    var vm = new Vue({
+        el: "#app",
+        // data不是一个函数
+        data: {
+
+        },
+        // 局部注册
+        components: {
+           aaa:a      //注册时给组件新起了个名叫aaa      
+        }
+    })
+</script>
+
+</html>

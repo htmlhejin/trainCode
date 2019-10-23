@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{computedAge()}}</p>
+        <p>{{computedAge()}}</p>
+        <p>{{computedAge()}}</p>
+        <h2>{{computedAge1}}</h2>
+        <h2>{{computedAge1}}</h2>
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+            age: 38
+        },
+        // 方法属性，用的时候需要调用，没有缓存（有多少就打印多少）
+        methods: {
+            computedAge() {
+                console.log("中年")  //没有缓存，打印多个
+                if (this.age > 30) {
+                    return "中年"
+                }
+            }
+        },
+        // 计算属性，用的时候不需要调用
+        computed: {
+            computedAge1() {
+                console.log("30而立")
+                if (this.age > 30) {
+                    return "30而立"
+                }
+            }
+        }
+    })
+</script>
+
+</html>

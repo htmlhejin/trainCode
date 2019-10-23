@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<!-- 子传父，给子组件添加一个监听事件，子组件会发射一个事件，并有值的传递，
+     当这个事件发生时父监听到这个事件，然后会触发一个函数，该函数是父中的函数 --> 
+<body>
+    <div id="app">
+        <h1>父组件</h1>
+        <!-- submitmsg是一个事件，addmsg是父中的函数 -->
+        <son @submitmsg="addmsg"></son>
+        <h4>{{a}}</h4>
+    </div>
+    <template id="son">
+        <div>
+            <h3>子组件</h3>
+            <button @click="fashe">点击</button>
+        </div>
+    </template>
+</body>
+<script>
+    // 定义一个子组件
+    let son={
+        template:"#son",
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            fashe(){
+                this.$emit("submitmsg",6666)  //固定写法
+            }
+        }
+    }
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            a:0
+        },
+        components:{
+            son,
+        },
+        methods:{
+            addmsg(info){
+                this.a=info
+                // console.log(info)
+            }
+        }
+    })
+</script>
+</html>

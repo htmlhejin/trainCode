@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件，用注册时的名字 -->
+        <!-- //使用时写法是小写字母 加 - -->
+        <ab-cdef></ab-cdef>   
+    </div> 
+</body>
+<script>
+    // 定义一个组件，abc是定义组件时的名字
+    let abc={
+        template:"<div>定义组件</div>"
+    }
+    var vm=new Vue({
+        el:"#app",
+        components:{
+            "AbCdef":abc    //注册上面定义的组件，ABCDEF是注册组件时的名字
+        }
+    })
+</script>
+</html>

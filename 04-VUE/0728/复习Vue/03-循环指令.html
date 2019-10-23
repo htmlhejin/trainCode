@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table action="" border="1">
+            <tr>
+                <th>姓名</th>
+                <th v-for="value in subjects">{{value}}</th>
+                <th>总分</th>
+            </tr>
+            <tr v-for="value in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(s) in value.score">{{s}}</td>
+                <td>{{getAll(value.score)}}</td>
+            </tr>
+            <!-- <tr>
+                <td>平均分</td>
+                <td v-for="( item,key,index) in value">{{}}</td>
+            </tr> -->
+            <p>{{getTotalAll(scores)}}</p>
+        </table>
+    </div>
+</body>
+<script>
+    let a = new Vue({
+        el: "#app",
+        data: {
+            scores: [
+                { name: "z3", score: [18, 23, 33] },
+                { name: "l4", score: [15, 27, 43] },
+                { name: "w5", score: [19, 20, 30] },
+                { name: "z6", score: [11, 29, 81] }
+            ],
+            subjects: ["语文", "数学", "英语"]
+        },
+        methods:{
+            // 求每个同学的总分
+            getAll(arr){
+                return arr.reduce((prev,next)=>prev+next)
+            },
+            // 求所有同学的总分
+            getTotalAll(){
+                let total=0;
+                this.scores.forEach(item=>{
+                    total += this.getAll(item.score)
+                })
+                return total
+            }
+        },
+    })
+</script>
+
+</html>

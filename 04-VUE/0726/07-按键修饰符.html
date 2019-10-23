@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>实现回车录入</p>
+        <input type="text" @keyup.alt="f($event)">
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            
+        },
+        methods:{
+            f(e){
+                if(e.keyCode==13){
+                    alert("录入成功")
+                }
+            }
+        }
+    })
+</script>
+</html>

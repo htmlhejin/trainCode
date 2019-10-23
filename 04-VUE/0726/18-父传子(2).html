@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <son :bangding="num" :bangname="name"></son>
+    </div>
+    <template id="abc">
+        <!-- template标签中的内容必须放在一个div中 -->
+        <div>
+            <p>我是子组件--{{bangding}}--{{bangname}}</p>
+            <!-- 点击改变数据 ,把父中的数据存到自己的数据中，自己的数据是可以修改的-->
+            <p>{{myvalue}}</p>
+            <button @click="myvalue=200">点击</button>
+            <p>{{myname}}</p>
+            <button @click="myname='hello'">点击改变名字</button>
+        </div>   
+    </template>
+</body>
+<script>
+    // 子通过属性绑定接收父中的数据
+    // 定义一个子组件
+    let son={
+        template:"#abc",
+        data(){
+            return {
+                myvalue:this.bangding,
+                myname:this.bangname
+            }
+        },
+        props:{
+            bangding:Number,
+            // bangname:String
+            bangname:{
+                type:String,        //如果类型错误会报错,但也会显示
+                required:false   //不会显示不会报错
+            }
+        }
+    }
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            num:100,
+            name:"haha"
+        },
+        // 注册组件
+        components:{
+            son,
+        },
+    })
+</script>
+</html>

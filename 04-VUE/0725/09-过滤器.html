@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{pi}}</p>
+        <p>{{pi | fixed }}</p>
+        <p>{{pi | fixed2(5) }}</p>
+        <p>{{pi | insertBefore }}</p>
+        <p>{{pi | insertBefore2( "q")}}</p>
+
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+            pi: 3.1415916
+        },
+        methods: {},
+        filters: {
+            fixed(d) {    //不带参数
+                return d.toFixed(2)
+            },
+            fixed2(d, n) {   //带参数
+                return d.toFixed(n)
+            },
+            insertBefore(d) {   //不带参数
+                return "$" + d
+            },
+            insertBefore2(d, s) {      //带参数
+                return s + d
+            }
+        }
+    })
+</script>
+
+</html>

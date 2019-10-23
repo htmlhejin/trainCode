@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <h1>{{msg}}</h1>
+        <my-head></my-head>
+        <template id="lis">
+            <div>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </template>
+        <!--注意使用组件时的写法，小写，且有下划线  -->
+        <your-head></your-head>  
+    </div>
+</body>
+<script>
+    // 定义全局组件
+    Vue.component("my-head", {   //my-head是定义组件时的名字
+        //如果内容很多，可以把内容写在全局的div中的template中，用#引用
+        template: "#lis" ,
+        // template:"<div>我是头部<div>",  //简单的放后面
+    })
+    // 定义一个组件对象
+    
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "hello"
+        },
+        // 注册局部组件
+        components:{
+            "your-head":{
+                template:"<div>这是子组件</div>"
+            }
+        }
+    })
+</script>
+
+</html>

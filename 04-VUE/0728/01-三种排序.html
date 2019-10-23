@@ -1,0 +1,44 @@
+<script>
+    // 冒泡排序
+    // let arr=[9,8,6,5,3,2,0,7,1]
+    // for(let i=0;i<arr.length;i++){
+    //     for(let j=0;j<arr.length-1-i;j++){
+    //         if(arr[j]>arr[j+1]){
+    //             let tem=arr[j]
+    //             arr[j]=arr[j+1]
+    //             arr[j+1]=tem
+    //         }
+    //     }
+    // }
+    // console.log(arr)
+
+    // 选择排序
+    // let arr = [9, 8, 6, 5, 3, 2, 0, 7, 1]
+    // let minIndex;
+    // for (let i = 0; i < arr.length; i++) {
+    //     minIndex = i;
+    //     for (let j = i+1; j < arr.length  ; j++) {
+    //         if (arr[j] < arr[minIndex]) {
+    //             let tem = arr[j]
+    //             arr[j] = arr[i]
+    //             arr[i] = tem
+    //         }
+    //     }
+
+    // }
+    // console.log(arr)
+
+        // 插入排序
+    let arr = [9, 8, 6, 5, 3, 2, 0, 7, 1]
+    let current,preIndex;
+    for(let i=1;i<arr.length;i++){
+        current=arr[i]
+        preIndex=i-1
+        while(preIndex>=0 && arr[preIndex]>current){
+            arr[preIndex+1]=arr[preIndex]
+            preIndex--;
+        }
+        arr[preIndex+1]=current
+    }
+    console.log(arr)
+</script>

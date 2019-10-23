@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <!-- $event就是事件对象 ， 点击按钮时弹出事件对象和hello,下面函数接收实参-->
+        <button @click="f1($event,'hello')">点击</button>
+
+        <!-- 阻止默认事件 preventDefault-->
+        <a href="http://www.baidu.com" @click="f2($event)">百度</a>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+          
+        },
+        methods:{
+            f1(abc,def){   //abc用来接收$event，def用来接收hello
+              console.log(abc,def)
+          },
+          f2(gh){
+              console.log(gh)
+              gh.preventDefault()    
+          }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th v-for="(value,key,index) in subjects">{{value}}</th>
+                <th>总分</th>
+                <th>平均分</th>
+            </tr>
+            <tr v-for="(value,key,index) in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(value,key,index) in value.score">{{value}}</td>
+                <td>{{getTotalScore(value.score)}}</td>
+                <!-- <td v-for="(value,key,index) in scores">{{totalScoreAvg(value.score)}}</td>     -->
+                <!-- NaN -->
+            </tr>
+            <p>{{getTotalScoreAll(scores)}}</p>
+        </table>
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+            subjects: ["语文", "数学", "英语"],
+            scores: [
+                { name: "z3", score: [20, 30, 60] },
+                { name: "w5", score: [80, 56, 78] },
+                { name: "l4", score: [94, 39, 82] },
+                { name: "z6", score: [70, 66, 60] }
+            ]
+        },
+        methods: {
+            // 求每位同学的总分
+            getTotalScore(arr) {
+                return arr.reduce((prev, next) => prev + next)
+            },
+            // 求每位同学的平均分
+            // totalScoreAvg(index) {
+            //     let arr = this.scores.map(item => item.score[index]);
+            //     return this.getTotalScore(arr)/this.score.length;
+            // },
+            // 求所有同学的总分
+            getTotalScoreAll(){
+                total=0;
+                this.scores.forEach(item=>{
+                    total+=this.getTotalScore(item.score)
+                })
+                return total;
+            }
+        }
+    })
+</script>
+
+</html>

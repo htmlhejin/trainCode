@@ -1,0 +1,48 @@
+<script>
+    // 冒泡排序,比较相邻的元素，如果前一个比后一个大，交换位置
+    // let arr=[1,2,7,6,8,3,9,0]
+    // // 所有的元素都要进行比较
+    // for(let i=0;i<arr.length-1;i++){
+    //     // 每个元素比较的次数,减去与自身相比的，减去已经比较好的，大的放后面
+    //     for(let j=0;j<arr.length-1-i;j++){
+    //         if(arr[j]>arr[j+1]){
+    //             let tem=arr[j]
+    //             arr[j]=arr[j+1]
+    //             arr[j+1]=tem
+    //         }
+    //     }
+    // }
+    // console.log(arr)
+
+    // 选择排序,先定义第一个为最小，依次向后找，如果找到比前面元素小的，交换位置
+    // let arr = [1, 2, 7, 6, 8, 3, 9, 0]
+    // let minIndex;
+    // for (let i = 0; i < arr.length-1; i++) {
+    //     minIndex = i
+    //     for (let j = i + 1; j < arr.length ; j++) {
+    //         if (arr[j] < arr[minIndex]) { 
+    //             minIndex=j    //保存最小索引
+    //         }
+    //     }
+    //     //一轮比较完后，交换之前定义的最小的索引对应的数 和 向后找到的最小的索引对应的数
+    //     let temp=arr[i]
+    //         arr[i]=arr[minIndex]
+    //         arr[minIndex]=temp
+    // }
+    // console.log(arr)
+
+    // 插入排序，先找到一张牌，依次向前找，如果前面的比他大，则插入到该张牌前面
+    let arr = [1, 2, 7, 6, 8, 3, 9, 0]
+    let preIndex;
+    let current;
+    for (var i = 1; i < arr.length; i++) {
+        current = arr[i]
+        preIndex = i - 1
+        while (preIndex >= 0 && current < arr[preIndex]) {
+            arr[preIndex + 1] = arr[preIndex]
+            preIndex--;
+        }
+        arr[preIndex + 1] = current
+    }
+    console.log(arr)
+</script>

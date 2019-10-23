@@ -1,0 +1,207 @@
+<script>
+    // 重复声明  ，不建议这么写
+    // var a=10;
+    // var a=20;
+    // console.log(a)      //20  后面的覆盖前面的
+
+
+    // 关于全局变量和局部变量
+    // var a=10;
+    // function f(){
+    //     var b=20;
+    //     console.log(a)      //10
+    //     // console.log(b)      //20
+    // }
+    // f()
+    // console.log(b)      //b is not defined
+
+
+    // js在真正执行之前都有一个预编译过程，这个过程可能是提升变量或函数
+    // 加var变量的提升
+    // console.log(b)
+    // var b=10;       //undefined
+
+    // 函数内部的变量提升 ，提升到函数代码段最前面
+    // function f(){
+    //     // var a
+    //     console.log(a)         //undefined
+    //     var a=10;
+    // }
+    // f()
+
+    // 循环变量的提升
+    // console.log(i)      //undefined
+    // for(var i=0;i<10;i++){
+    //     console.log(i)  // 0 1 2 3 4 5 6 7 8 9
+    // }
+
+    // f()     //函数整体提升到代码段最前面
+    // function f() {
+    //     console.log("f...")
+    // }
+
+    // console.log(a)      //undefined
+    // console.log(b)      //undefined
+    // if (true) {
+    //     var a = 1       //var a提升到代码段最前面
+    // } else {
+    //     var b = 2        //var b也会提升到代码段最前面
+    // }
+    // console.log(a)      //1
+    // console.log(b)      //undefined
+
+
+    // 数据存储
+    // 基本数据类型存放在栈区
+    // let a=1
+    // let b=a;
+    // console.log(a,b)        //1 1
+    // b=20
+    // console.log(b)      //20
+    // 引用数据类型存放在堆区
+        // let arr=[1,2,3]
+        // b=arr;
+
+        // console.log(b)       //[1,2,3]
+
+        // arr[0]=10
+        // console.log(arr,b)       //[10,2,3]
+
+        // b[0]=100
+        // console.log(arr,b)      //[100,2,3]
+
+        // b=[6,7,8]
+        // console.log(b)      //[6, 7, 8]
+
+
+        // ==只判断数据
+        // var a=1
+        // var b="1"
+        // console.log(a==b)   //true
+        // // ===先判断类型，类型一致再判断数据
+        // var a=11;       //number类型
+        // var b="11"      //字符串类型
+        // console.log(a===b)      //false
+
+        // let不会挂在window上,var 会
+        // let a=110;
+        // console.log(window.a)       //undefined
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head> -->
+<!-- <body>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body> -->
+<script>
+    // let lis=document.getElementsByTagName("li")
+    // console.log(lis)        //HTMLCollection(3) [li, li, li]  伪数组
+    // lis[0].onclick=function(){
+    //     console.log(0)
+    // }
+    // 还有一种写法
+    // lis[0].addEventListener("click",function(){ //lis[0]是事件源，必须有[]
+    //     console.log(0)
+    // })
+//     for(let i=0;i<lis.length;i++){
+//         lis[i].onclick=function(){
+//         console.log(i)            
+//     }
+// }
+</script>
+
+</html>
+
+<script>
+    // let a=10;
+    // a=20;
+    // console.log(a)      //20,  不能在 let声明变量之前使用变量，之后可以
+
+    // let a=10;
+    // let a=20;       //不能重复声明，但var可以，只不过后面的值会覆盖前面的
+    // console.log(a)      //Identifier 'a' has already been declared
+
+    // const用来定义常量，不能重复定义  'PI' has already been declared
+    // 常量不会提升
+    // console.log(a)
+    // const a=10      //Cannot access 'a' before initialization
+
+    // 定义之后不能修改
+    // const a=10;
+    // a=20;
+    // console.log(a)     //Assignment to constant variable.
+
+    // 声明的同时必须赋值
+    // const PI
+    // console.log(PI)     //Missing initializer in const declaration
+
+    // const定义的引用数据类型可以修改，因为const中保存引用数据类型的指针，仅保证引用数据类型的指针不会改变，
+    // 改变对象并不会改变指针，所以const定义的对象的属性可以改变
+    // const obj = { name: "wangcai" };
+    // console.log(obj)
+    // obj.age = 100;
+    // console.log(obj)
+</script>
+
+
+    <!-- 语句 -->
+<script>
+    // 求0到100的和
+    // let sum=0;
+    // for(let i=0;i<100;i++){
+    //     sum+=i
+    // }
+    // console.log(sum)
+
+    // 操场一圈是400m   跑10圈   一共跑了多少m？
+    // let one=400;
+    // let sum=0;
+    // for(let i=1;i<=10;i++){
+    //     sum+=one
+    // }
+    // console.log(sum)
+    // 第二种写法
+    // var one=400;
+    // let sum=0;
+    // for(var i=1;i<=9;i++){ 
+    // }
+    // one=one*i
+    // sum+=one;
+    // console.log(sum)
+
+    // 九九乘法表
+    // let str=""
+    // for(let i=1;i<=9;i++){
+    //     for(j=1;j<=i;j++){
+    //         str+=j+"*"+"i"+"="+i*j
+    //         str+="  "
+    //     }
+    //     str+="\n"
+    // }
+    // console.log(str)
+
+
+    // 百钱买百鸡
+    // 百钱买百鸡  今有鸡翁一，值钱伍；鸡母一，值钱三；鸡鶵三，值钱一。凡百钱买鸡百只，问鸡翁、母、鶵各几何？
+    for(let gongji=0;gongji<=20;gongji++){
+        for(muji=0;muji<=33;muji++){
+            for(let xiaoji=0;xiaoji<=100;xiaoji++){
+                if(gongji+muji+xiaoji==100 && gongji*5+muji*3+xiaoji/3==100){
+                    console.log(gongji,muji,xiaoji)
+                }
+            }
+    }
+    }       //结果有四种情况  0 25 75  ，4 18 78，8 11 81，12 4 84。
+</script>

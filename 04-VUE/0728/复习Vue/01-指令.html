@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .abc{color: red}
+        .g-h{background: green}
+    </style>
+</head>
+<body>
+    <div class="abc">
+        <div class="g-h"></div>
+    </div>
+    <div id="app">
+        <p>{{name}}</p>
+
+        <p v-text="num"></p>
+        <p v-html="hobby"></p>
+        <input  v-model="num" >
+
+        <a  v-bind:href="hrefname">百度</a>
+        <p v-if="score>82">pppp</p>
+        <p v-show="show">hhhhh</p>
+        <p v-for="(value,key,index) in obj">{{key}}</p>
+
+        <p :class="className">哈哈</p>
+        <p :class="{abc:true}">hehe</p>
+        <p :class="{abc:3>1}">hehe</p>
+        <p :class="ispass ? {abc:true} : ''">hehe</p>
+        <p :class="ispass ? className : ''">hehe</p>
+
+        <p :class="{'g-h':true}">p1</p>
+        <p :class=['abc','g-h']>p3</p>
+
+        <p :style="mystyle">style</p>
+    </div>
+</body>
+<script>
+    var a=new Vue({
+        el:"#app",
+        data:{
+            num:10,
+            name:"hello",
+            hobby:"<strong>music</strong>",
+            hrefname:"http://www.baidu.com",
+            score:90,
+            show:true,
+            obj:{
+                name:"hello",
+                age:10
+            },
+            className:"abc",
+            ispass:true,
+            mystyle:{color:"yellow"}
+        }
+    })
+</script>
+</html>

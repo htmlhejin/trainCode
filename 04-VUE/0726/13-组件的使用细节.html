@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <template id="abc">
+            <p>注册组件</p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </template>
+        <my-footer></my-footer>
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        // 注册组件
+        components:{
+            "my-header":{     //my-header是注册组件时的名字
+                template:"#abc"
+            } ,
+            "my-footer":{       //my-footer是注册组件时的名字
+                template:"<div>这是footer组件</div>"
+            }
+        },
+    })
+</script>
+</html>

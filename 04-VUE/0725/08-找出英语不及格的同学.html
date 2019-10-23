@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th v-for="(value,key,index) in subject">{{value}}</th>
+                <th>总分</th>
+                <th>平均分</th>
+            </tr>
+            <tr v-for="(value,key,index) in scores">
+                <td>{{value.name}}</td>
+                <td v-for="(value,key,index) in value.score">{{value}}</td>
+                <td>{{getEveryAll(value.score)}}</td>
+                <td>{{getAvg(value.score)}}</td>
+            </tr>
+        </table>
+        <p>所以同xue的总分是:{{getAll(value)}}</p>
+        <p>英语成绩不及格的是:</p>
+        <p v-for="(value,key,index) in getYYFail">
+            {{value.name}} -英语分数- {{value.score[2]}}
+        </p>
+    </div>
+</body>
+<script>
+    var a = new Vue({
+        el: "#app",
+        data: {
+            subject: ["语文", "数学", "英语"],
+            scores: [
+                { name: "z3", score: [40, 34, 78] },
+                { name: "l4", score: [48, 40, 90] },
+                { name: "w5", score: [90, 90, 47] },
+                { name: "z6", score: [38, 66, 55] }
+            ]
+        },
+        computed: {
+            getYYFail() {
+                return this.scores.filter(item => item.score[2] < 60)
+            }
+        },
+        methods: {
+            // 每一个同学总分
+            getEveryAll(x) {
+                return x.reduce((prev, next) => prev + next)
+            },
+            // 所有同学总分
+            getAll(y) {
+                let total = 0;
+                this.scores.forEach(item => {
+                    total += this.getEveryAll(item.score)
+                })
+                return total;
+            },
+            getAvg(tt) {
+                return this.getEveryAll(b) / this.score.length
+            }
+        }
+    })
+</script>
+
+</html>
