@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 报错--tempalte上不能有key -->
+        <!-- v-for支持template -->
+        <!-- <template v-for="i in 3" :key="i">  key=1,2,3,  不唯一
+            <div>{{i}}</div>
+        </template> -->
+
+        <!--  报错--key要唯一   -->
+        <!-- <template v-for="i in 3">
+            <div :key="i">{{i}}</div>       这里key=1，2，3
+            <div :key="i">{{i}}</div>       这里key=1，2，3  不唯一
+        </template> -->
+
+        <!-- 加标识，把key变成唯一的 -->
+        <template v-for="i in 3">
+            <div :key="i+'_1'">{{i}}</div>    
+            <div :key="`${i}_2`">{{i}}</div>
+        </template>
+    </div>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

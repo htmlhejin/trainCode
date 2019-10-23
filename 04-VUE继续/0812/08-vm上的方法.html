@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{info}}
+    </div>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+               info:{xx:"xxx"} 
+            }
+        })    
+        vm.info.xx="hello"
+        vm.$watch("info.xx",function(oldValue,newValue){    //在控制面版中改变数据，可以得到旧值和新值
+            console.log(oldValue,newValue)
+        })
+
+            // 视图中的数据更新完后自动调用这个方法，打印出来是新值
+        // vm.$nextTick(()=>{
+        //     console.log(vm.$el.innerHTML)
+        // })
+
+        // 打印原来的innerHTML
+        // console.log(vm.$el.innerHTML)
+
+        // console.log(vm.$el) //<div></div>
+        // console.log(vm.$el.innerHTML)   //标签中的内容
+        // // 打印出vm上面所有的挂载项
+        // console.log(vm.$options)    //{components: {…}, directives: {…}, filters: {…}, _base: ƒ, el: "#app", …}
+    </script>
+</body>
+</html>

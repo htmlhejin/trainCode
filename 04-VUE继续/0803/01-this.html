@@ -1,0 +1,167 @@
+<!-- <script>
+    this.a = 20;
+    var test = {
+        a: 40,
+        init: function () {
+            console.log(this.a)     //20
+        }
+    }
+    var s = test.init.bind(this)   //this借用了test.init方法，这个this是全局的，所以第6行this也是全局的
+    s();
+</script> -->
+
+<!-- <script>
+    var s = {
+        a:function(){
+            console.log(1)
+        },
+        b(){
+            console.log(this)
+        }
+    }
+    s.b()       //{a: ƒ, b: ƒ}
+</script> -->
+
+<!-- <script>
+    var s={
+        a:function(){
+            console.log(1)
+        },
+        b(){
+            console.log(2)
+        }
+    }
+    // var f=s.a.call(this)        //1
+    // console.log(this)   //Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+    
+    // var f=s.a.bind(this)
+    // f()     //1
+    // new f() //1
+    // console.log(f())        //undefined
+
+    var g=s.b.bind(this)
+    g()     //2
+    // 简写函数不支持new
+    new g()     //g is not a constructor
+</script> -->
+
+
+<!-- <script>
+    this.test=11;
+    var s={
+        a:function(){
+            console.log(this)
+        }
+    }
+    // var f=s.a.bind(this)        //Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+    // // f()
+    // new f()     //a {}
+    // s.a()       //{a: ƒ}
+</script> -->
+
+<!-- <script>
+    this.test = 11;
+    var s = {
+        a: function () {
+            console.log(1+this.test)
+        }
+    }
+    var f = s.a.bind(this)  
+    new f();        //NaN  new f()表示创建了一个新对象，是s={}这一块，这一块中没有this.test
+</script> -->
+
+<!-- <script>
+    // this.test = 11;
+    // var s = {
+    //     a: () => {
+    //         console.log(1 + this.test)
+    //     }
+    // }
+    // var f = s.a.bind(this)
+    // new f();   //f is not a constructor，箭头函数不支持new
+
+    this.test = 11;
+    var s = {
+        a(){
+            console.log(1 + this.test)
+        }
+    }
+    var f = s.a.bind(this)
+    new f();        // f is not a constructor, 简写函数不支持new
+</script> -->
+
+<!-- <script>
+    function C2(a) {
+        this.a = a;
+    }
+    C2.prototype.a = "lao";
+    console.log((new C2().a))       //undefined
+    console.log(((new C2()).a))
+</script> -->
+
+<!-- <script>
+        function test(a){
+            this.a = a;
+        }
+        test.prototype.a = 20;
+        test.prototype.init = function(){
+            console.warn(this.a)
+        }
+        var s = new test();
+        s.init();       //undefined
+    </script> -->
+
+<!-- <script>
+    function C1(name) {
+        if (name) this.name = name;     //name不存在，if(0),打印时去原型找
+    }  
+    function C2(name) {
+        this.name = name;   //没有给name传值，但是内部有一个name属性，只是值为Undefined
+    }
+    function C3(name) {
+        this.name = name || 'fe';   
+    }
+    C1.prototype.name = "aaa";
+    C2.prototype.name = "bbb";
+    C3.prototype.name = "ccc";
+    console.log((new C1().name) + (new C2().name) + (new C3().name));  //aaaundefinedfe
+</script> -->
+
+<!-- <script>
+    function test(m){
+        m = {v:5}  //m是局部变量
+    }
+    var m = {k:30}
+    test(m);
+    alert(m.v)      //undefined
+</script> -->
+
+<script>
+    // --------------------------over
+    // 三种结果？？？？  老式浏览器 函数提升--->2   
+    // function f() {
+    //     console.log(1)
+    // }
+    // (function () {
+    //     // var f  现在浏览器
+    //     if (false) {  
+    //     //false，后面的语句不执行，跳到 console.log(typeof f)语句
+    //         function f() {
+    //             console.log(2)
+    //         }
+    //     }
+    //     console.log(typeof f)   //undefined
+    //     // f();
+    // })();
+</script>
+
+<!-- 请用一句话算出0~100之间学生的学生等级，如90~100输出1，80~90为2，以次类推，不允许使用if switch等 -->
+<!-- <script>
+    let score=88;
+    console.log(Math.ceil(10-score/10))
+</script> -->
+
+<script>
+    //  请用一句话遍历变量a   a="abc"
+    // Array.from(a) [...new Set(a)] Array.prototype.slice.call
+</script>

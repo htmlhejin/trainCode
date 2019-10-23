@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-if,v-for支持tempalte,v-show不支持tempalte -->
+    <div id="app">
+        <!-- v-if控制是否有DOM元素 -->
+        <!-- <template v-if="flag">{{mag}}</template> -->
+
+        <!-- <template v-for="i in arr">{{i}}</template> -->
+
+        <!-- v-show控制样式，可以在控制面板element中证明 -->
+        <!-- <div style="display: none;">hello</div> -->
+        <div v-show="flag">{{mag}}</div>        
+    </div>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3],
+                // flag:true,
+                flag:false,
+                mag:"hello"
+            }
+        })
+    </script>
+</body>
+</html>

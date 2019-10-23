@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 没有key,两个Input一样，改变flag，input框中的值不会变，自动忽略 -->
+        <!-- <div v-if="flag">
+            <span>张三</span>
+            <input type="text" >
+        </div>
+        <div v-else>
+            <span>李四</span>
+            <input type="text" >
+        </div> -->
+        <!-- 但是如果加上key,改变flag，input框中的值也会变 -->
+        <div v-if="flag">
+            <span>张三</span>
+            <input type="text" key="1">
+        </div>
+        <div v-else>
+            <span>李四</span>
+            <input type="text" key="2">
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                flag: false
+            }
+        })
+    </script>
+</body>
+
+</html>

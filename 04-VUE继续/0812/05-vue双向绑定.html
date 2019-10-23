@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1 -->
+        <!-- v-bind:value简写为:value    v-on:"input"简写为@input -->
+        <!-- <input type="text" :value="msg" @input="f($event)">{{msg}} -->
+
+        <!-- v-model是:value+@input的一个语法糖 -->
+        <!-- <input type="text" v-model="msg">{{msg}} -->
+
+            <!-- 2 -->
+        <!-- 表单的双向数据绑定 -->
+        <!-- <select v-model="selectValue">
+            <option :value="0">请选择</option>
+           key尽量不绑index，有id尽量绑id -->
+            <!-- <option v-for="item in lists" :key="item.id" :value="item.id">{{item.value}}</option> -->
+        <!-- </select> -->
+        <!-- {{selectValue}} --> 
+
+        <hr>
+        男:<input v-model="valueRadio" type="radio" name="sex" value="男">
+        女:<input v-model="valueRadio" type="radio" name="sex" value="女">
+        <br>
+        {{valueRadio}}
+
+        <hr>
+        游泳：<input v-model="checksValue" type="checkbox" value="游泳">
+        学习：<input v-model="checksValue" type="checkbox" value="学习">
+        健身：<input v-model="checksValue" type="checkbox" value="健身">
+        <br>
+        {{checksValue}}
+    </div>
+    <!-- 1 -->
+    <!-- <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                msg:"hello"
+            },
+            methods:{
+                f(e){
+                    this.msg=e.target.value
+                }
+            }
+        }).$mount("#app")
+        // .$mount("#app")有没有都一样
+    </script> -->
+
+    <!-- 2 -->
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                selectValue:[],
+                lists:[{value:'菜单1',id:1},{value:"菜单2",id:2},{value:"菜单3",id:3},],
+                valueRadio:"女",
+                checksValue:[]
+            }
+        }).$mount('#app')
+    </script>
+
+</body>
+</html>

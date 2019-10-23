@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 直接渲染属性名 -->
+        {{hello}}   
+        <!-- 渲染字面量表达式 -->
+        {{1+1}}
+        <!-- 渲染对象，要注意两边必须有空格 -->
+        {{ {age:10} }}
+        <!-- 可以渲染数组 -->
+        {{[12,3,4]}}
+    </div>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            // 内部模板
+            // template:"<div>div</div>",
+            data:{
+                hello:"world",
+
+            }
+        })
+    </script>
+</body>
+</html>

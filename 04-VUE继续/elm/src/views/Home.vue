@@ -1,0 +1,279 @@
+<template>
+  <div class="home">
+    <div class="header">
+      <!-- 头部 -->
+      <div class="address_map" @click="$router.push({name: 'address',params: {city: city}})">
+        <i class="fa fa-map-marker"></i>
+        <span>{{address}}</span>
+        <i class="fa fa-sort-desc"></i>
+      </div>
+    </div>
+      <!-- 搜索框 -->
+      <div class="search_wrap" :class="{'fixedview':showFilter}" @click="$router.push('/search')">
+        <div class="shop_search">
+          <i class="fa fa-search"></i>
+          搜索商家 商家名称
+        </div>
+      </div>
+      <div id="container">
+        <!-- 轮播 -->
+        <mt-swipe :auto="4000" class="swiper">
+          <mt-swipe-item v-for="(img,index) in swipeImgs" :key="index">
+            <img :src="img" alt />
+          </mt-swipe-item>
+        </mt-swipe>
+        <!-- 商品入口与分类 -->
+        <mt-swipe :auto="4000" class="entries">
+          <mt-swipe-item v-for="(entry,i) in entries" :key="i" class="entry_wrap">
+            <div class="foodentry" v-for="(item,index) in entry" :key="index">
+              <div class="img_wrap">
+                <img :src="item.image" alt />
+              </div>
+              <span>{{item.name}}</span>
+            </div>
+          </mt-swipe-item>
+        </mt-swipe>
+      </div>
+      <!-- 推荐商家 -->
+      <div class="shoplist-title">推荐商家</div>
+      <!-- 导航 -->
+      <FilterView @update="update" @searchFixed="showFilterview" :filterData="filterData"></FilterView>
+      <!-- 商家信息 -->
+      <mt-loadmore 
+      :top-method="loadData" 
+      :bottom-method="loadMore"
+      :bottom-all-loaded="allLoaded"
+      :auto-fill="false"    
+      :bottomPullText="bottomPullText"
+      ref="loadmore"
+      >
+      <!-- :top-method="loadData" ，当手指下滑刷新；:bottom-method="loadMore"，下拉加载更多；auto-fill--自动加载 -->
+      <div class="shoplist">
+        <IndexShop v-for="(item,index) in restaurants" :key="index" :restaurant="item.restaurant"></IndexShop>
+      </div>
+      </mt-loadmore>
+  </div>
+</template>
+
+<script>
+// 从mint-ui中引入三个组件
+import { Swipe,SwipeItem,Loadmore} from "mint-ui"
+import FilterView from "../components/FilterView"
+import IndexShop from "../components/IndexShop"
+export default {
+  name: "home",
+  data() {
+    return {
+      swipeImgs: [],   //轮播图的数据
+      entries: [],    //商品入口的数据
+      filterData: null,   //包含了排序导航中的数据
+      showFilter: false,
+      page: 1,    //第几页
+      size: 5,   //每页有五个数据
+      restaurants: [],    //储存商家信息
+      allLoaded: false,   //一次性把所有的商家信息加载出来，默认不是
+      buttomPullText: "上拉加载更多",
+      data: null    //请求数据时带上条件
+    };
+  },
+  components:{
+    FilterView,IndexShop
+  },
+  created() {
+    this.getData();
+    this.loadData()
+  },
+  computed: {
+    address() {
+      return this.$store.getters.address;
+    },
+    city() {
+      return (
+        this.$store.getters.location.addressComponent.city ||
+        this.$store.getters.location.addressComponent.province
+      );
+    }
+  },
+  methods: {
+    // 获得轮播图的数据
+    getData() {
+      // 请求数据，get可以省略不写
+      this.$axios("/api/profile/shopping").then(res => {
+        // console.log(res.data);
+        this.swipeImgs = res.data.swipeImgs;
+        this.entries = res.data.entries;
+      });
+      this.$axios("/api/profile/filter")
+      .then(res=>{
+        // console.log(res.data);
+        this.filterData=res.data
+      })
+    },
+    // 商家信息列表
+    loadData(){
+      this.page=1,   //当前是第一页
+      this.allLoaded=false;   //默认不完全显示，一页显示五个
+      this.bottomPullText="上拉加载更多"
+      // 拉取商家信息
+      // 因为需要传递参数，this.page表示请求的是第几页，this.size表示一页有多少个，所以是post
+      this.$axios.post(`/api/profile/restaurants/${this.page}/${this.size}`,this.data)
+      .then(res=>{
+        console.log(res.data)
+        this.$refs.loadmore.onTopLoaded()
+        this.restaurants=res.data
+      })
+    },
+    loadMore(){
+      if(!this.allLoaded){  //还有数据没加载完
+        this.page++;
+        // 拉取商家信息
+        this.$axios.post(`/api/profile/restaurants/${this.page}/${this.size}`,this.data)  //this.data表示请求数据时把条件带过去
+        .then(res=>{
+        //  加载完之后重新渲染，用方法onBottomLoaded来渲染
+        this.$refs.loadmore.onBottomLoaded();
+        if(res.data.length>0){
+          res.data.forEach(item=>{
+            this.restaurants.push(item);
+          });
+          if(res.data.length<this.size){  //最后剩的不到5条
+            this.allLoaded=true;    //全部加载
+            this.bottomPullText="没有更多了哦"
+          }
+        }else{
+          // 数据为空
+          this.allLoaded=true;
+          this.bottomPullText="没有更多了哦"
+        }
+        })
+      }
+    },
+    // 显示蒙版时有一个样式
+    showFilterview(isShow){
+      this.showFilter=isShow
+    },
+    // 每点中一个综合排序里面的数据，更新数据
+    update(condation){
+      // console.log(condation)    //得到条件   {condition: "recent_order_num"}
+      this.data=condation;
+      this.loadData()
+    }
+  }
+};
+</script>
+
+
+<style scoped>
+.home {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.header,
+.search_wrap {
+  background-color: #009eef;
+  padding: 10px 16px;
+}
+.header .address_map {
+  color: #fff;
+  font-weight: bold;
+}
+.address_map i {
+  margin: 0 3px;
+  font-size: 18px;
+}
+.address_map span {
+  display: inline-block;
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.search_wrap .shop_search {
+  /* margin-top: 10px; */
+  background-color: #fff;
+  padding: 10px 0;
+  border-radius: 4px;
+  text-align: center;
+  color: #aaa;
+}
+
+.search_wrap {
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  box-sizing: border-box;
+}
+.swiper {
+  height: 100px;
+}
+.swiper img {
+  width: 100%;
+  height: 100px;
+}
+
+.entries {
+  background: #fff;
+  height: 47.2vw;
+  text-align: center;
+  overflow: hidden;
+}
+.foodentry {
+  width: 20%;
+  float: left;
+  position: relative;
+  margin-top: 2.933333vw;
+}
+.foodentry .img_wrap {
+  position: relative;
+  display: inline-block;
+  width: 12vw;
+  height: 12vw;
+}
+.img_wrap img {
+  width: 100%;
+  height: 100%;
+}
+.foodentry span {
+  display: block;
+  color: #666;
+  font-size: 0.32rem;
+}
+/* 推荐商家 */
+.shoplist-title {
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+  height: 9.6vw;
+  line-height: 9.6vw;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+}
+.shoplist-title:after,
+.shoplist-title:before {
+  display: block;
+  content: "一";
+  width: 5.333333vw;
+  height: 0.266667vw;
+  color: #999;
+}
+.shoplist-title:before {
+  margin-right: 3.466667vw;
+}
+.shoplist-title:after {
+  margin-left: 3.466667vw;
+}
+
+.fixedview {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+}
+
+.mint-loadmore {
+  height: calc(100% - 95px);
+  overflow: auto;
+}
+</style>

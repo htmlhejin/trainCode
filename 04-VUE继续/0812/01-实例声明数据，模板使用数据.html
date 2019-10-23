@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 模板 -->
+    <div id="app">
+        {{arr}}
+        {{info.xxx}}
+        <!-- 在这里可以直接使用msg，而不是data.msg，是因为vm代理data中的数据，可以直接用 -->
+        {{msg}} 
+        {{info.address}}
+    </div>
+    <!-- 实例 -->
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            created(){
+               this.f()
+            },
+            methods:{
+                f(){
+                    console.log(this)       //Vue {_uid: 0, _isVue: true, $options: {…}, _renderProxy: Proxy, _self: Vue, …}  this是vue实例
+                }
+            },
+            data:{
+                msg:"wangcai",
+                // info:{},
+                info:{xxx:"hello",address:"111"},
+                arr:[1,2,3]
+            }
+        });
+        // vm.info.xxx='hello'  //报错，要想在模板中使用数据，必须在实例的data中声明，也就是在vm中的info中声明;但是可以在这里修改
+        vm.info.xxx="world"
+        vm.$set(vm.info,"address","abc")    //把abc赋给info.address
+    </script>
+</body>
+</html>
