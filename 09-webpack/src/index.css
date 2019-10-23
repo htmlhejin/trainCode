@@ -1,0 +1,14 @@
+/* @import "./a.scss"; */
+@import "./a.css";
+
+body{
+    background: red;
+    transform:rotate(45deg) ;
+}
+
+
+/* body{
+    width: 100px;
+    height: 100px;
+    background: blue;
+} */
