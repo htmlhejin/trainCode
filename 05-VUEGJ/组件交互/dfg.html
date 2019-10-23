@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 @click="dispatch('hello', 'hello,world')"> msg </h1>
+    </div>
+</body>
+<script>
+        function dispatch(eventName, data) {
+        let parent = this.$parent
+        // 只要还存在父元素就继续往上查找
+        while (parent) {
+            // 父元素用$emit触发
+            parent.$emit(eventName,data)
+            // 递归查找父元素
+            parent = parent.$parent
+        }
+    }
+    
+    </script>
+</html>

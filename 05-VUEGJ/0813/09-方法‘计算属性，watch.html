@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+            {{fullName}}
+        <!-- {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}     -->
+        <!-- computed没有缓存，无论渲染多少个fullName，都只执行一个console.log -->
+        <!-- {{getfullName()}} -->
+        <!-- {{getfullName()}}
+        {{getfullName()}}
+        {{getfullName()}} -->
+        <!-- 方法没有缓存，执行多少次就打印多少次 -->
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                firstName: "张",
+                lastName: "三",
+                msg:"hello",
+                // fullName: ""
+            },
+            // mounted() {
+            //     this.getfullName()
+            // },
+            // methods: {
+            //     getfullName() {
+            //         console.log("haha")
+            //         return this.fullName = this.firstName + this.lastName
+            //     }
+            // },
+            computed:{  //通过计算属性得到fullName,data中不能有fullName
+                fullName(){
+                    console.log(this.msg)
+                    return this.firstName+this.lastName
+                }
+            }
+            // 通过监控在控制面板中可以修改数据，第一次没有触发，需要配合mounted使用
+            // watch: {
+            //     firstName() {
+            //         // 支持异步操作
+            //         setTimeout(() => {
+            //             this.getfullName()
+            //         }, 10000)
+            //         // this.getfullName()
+            //     },
+            //     lastName() {
+            //         this.getfullName()
+            //     }
+            // }
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    方法和computed的区别：
+    方法没有缓存调用多少次，console.log执行多少次
+    computed有缓存，无论调用多少次，console.log只执行一次
+
+    computed和watch的区别：
+    大多数情况下，computed和watch可以互换
+    watch中可以写异步
+    watch的写法要复杂一点
+    watch可以实现一些简单的功能
+    能使用computed就不要使用watch
+
+    方法和watch的区别：
+    方法里面写简单的方法
+    watch主要监控数据变化
+-->

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .title {
+            width: 100px;
+            border: 1px solid red;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <collopse>
+            <collopse-item title="vue">内容1</collopse-item>
+            <collopse-item title="react">内容2</collopse-item>
+            <collopse-item title="node">内容3</collopse-item>
+        </collopse>
+    </div>
+</body>
+<script>
+    // $children   获取索引的儿子
+    Vue.component('Collopse', {
+        data() { return {} },
+        methods:{
+            cut(childId){
+                this.$children.forEach(child=>{
+                    if(child._uid !== childId){
+                        // 不是当前点击的
+                        child.show=false
+                    }
+                })
+            }
+        },
+        template: `<div class="wrap"><slot></slot></div>`,
+    })
+    Vue.component('CollopseItem', {
+        data() { return { show: false } },
+        props: {
+            title: String
+        },
+        methods:{
+            change(){
+                // 每个组件中都有一个_uid
+                // $parent   获取父组件中的实例   .cut调用父组件中的方法
+                this.$parent.cut(this._uid)
+                this.show=!this.show
+            }
+        },
+        template: `<div class="title" @click="change">{{title}}
+            <div v-show="show">
+                <slot ></slot>            
+            </div>
+        </div>`,
+    })
+
+    let vm = new Vue({
+        el: "#app",
+        data: {},
+    })
+</script>
+
+</html>

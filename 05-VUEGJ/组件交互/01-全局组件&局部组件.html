@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <my-button></my-button> -->
+        <my></my>
+    </div>
+</body>
+<script>
+    // 全局组件
+    // Vue.component('my-button',{
+    //     data(){
+    //         return {
+    //             msg:"点击"
+    //         }
+    //     },
+    //     template:`<button>{{msg}}</button>`,
+    // })
+
+    let vm = new Vue({
+        el: "#app",
+        data:{},
+        // 局部组件
+        components: {
+            'my': {
+                data(){
+                    return {
+                        msg: "hello"
+                    }
+                },
+                template: "<h1>{{msg}}</h1>"
+            },
+        },
+    })
+</script>
+
+</html>

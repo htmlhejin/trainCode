@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my ref="com"></my>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data:{},
+        mounted(){
+            // 通过$refs接收my组件，可以使用里面的方法
+            console.log(this.$refs.com.show())
+        },
+        // 局部组件
+        components: {
+            'my': {
+                methods:{
+                    show(){
+                        alert(1)
+                    }
+                },
+                template: "<h1>my</h1>"
+            },
+        },
+    })
+</script>
+
+</html>

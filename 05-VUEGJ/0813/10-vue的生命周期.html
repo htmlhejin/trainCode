@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- `mounted` -->
+        <!-- {{timer}} -->
+        {{a}}
+    </div>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                a:1,
+                b:2,
+            },
+            //用的比较少，得不到数据， 初始化自己的生命周期，绑定自己的事件
+            // beforeCreated(){
+            //     console.log("beforeCreated...")
+            // },
+            // 用的比较多，能得到数据，发起ajax请求，ajax是异步的，不会中断；
+            // created(){
+            //     console.log("created...")   //created...
+            //     console.log(this.a) //1
+            // },
+            // 很少用，得不到数据，第一次调用渲染函数之前，也可以发起ajax请求，但一般不会在这里发
+            // beforeMounted(){
+            //     console.log("beforeMounted...")  
+            // },
+            // 用的比较多，获取真是的DOM
+            mounted(){
+                // console.log("mounted")  //mounted
+                // console.log(this.b)     //2
+                // console.log(this.$el.innerHTML) //`mounted`
+                this.timer=setInterval(()=>{
+                    console.log("p")
+                },1000)
+            },
+            // 基本不使用,得不到数据
+            // beforeUpdate(){
+            //     this.a=999
+            //     console.log("beforeUpdate...")  /
+            //     console.log(this.a)     //
+            // },
+            // 得不到数据，不能用updated操作钩子，可能会导致死循环
+            // updated(){
+            //     this.a=999
+            //     console.log("updated...")
+            // },
+            //可以得到数据
+            // beforeDestroy(){
+            //     console.log("销毁之前...")  //销毁之前...
+            //     // 销毁之前做一些清理工作
+            //     clearInterval(this.timer)
+            // },
+            // 可以得到数据
+            destroyed(){    //实例上的方法、监听等都被移除
+                console.log("真正销毁了...")    //真正销毁了...
+            }
+        })
+        vm.$destroy()
+    </script>
+</body>
+</html>

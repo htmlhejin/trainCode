@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <mybutton :msg="content" a="1" b="72"></mybutton>
+    </div>
+</body>
+<script>
+    // 父
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            content:"hello"
+        },
+        components:{
+            // 子组件
+            'mybutton':{
+                props:{
+                    a:String,
+                    b:{
+                        type:String,
+                        validator(value){
+                            return value>3        //不满足校验会报错
+                        }
+                    },
+                    msg:String
+                    // msg:Number  //msg不满足要求，报错
+                },
+                template: `<div>子组件---{{msg}}--{{a}}--{{b}}</div>`,   
+            }
+        }
+    })
+</script>
+</html>

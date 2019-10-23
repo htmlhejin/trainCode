@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 方法1：把@click.native当作正常方法，让子触发 -->
+        <!-- <mybutton @click.native="change"></mybutton> -->
+
+        <!-- 方法2：在模板中通过 v-on="$listeners" 绑定所有的方法 ,也就是v-on绑定的所有事件都会放到$listeners中-->
+        <!-- <mybutton @click="change" @keydown="change" :a="content"></mybutton> -->
+
+        <!-- 方法3：在模板中通过$emit触发 -->
+        <mybutton @click="change"></mybutton>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            content: "1"
+        },
+        methods:{
+            change(){
+                alert("hello")
+            }
+        },
+        components: {
+            // 子组件
+            'mybutton': {
+                mounted() {
+                    //    this.$attrs子接收的数据没有用到会保存在$attrs中
+                    console.log(this.$attrs)
+                },
+                props:{a:String},
+                inheritAttrs: false, //没有用到的元素不会显示在dom结构上
+                // 方法1
+                // template: `<button >子组件{{a}}</button>`,
+
+                 // 方法2  通过v-on="$listeners"触发父中所有的事件
+                // template: `<button v-on="$listeners">子组件{{a}}</button>`,
+
+                // 通过$listeners.触发父中的事件
+                // template: `<button @click="$listeners.click()">子组件{{a}}</button>`,
+
+                // 方法3:模板中通过 @属性="$emit(属性名')" 绑定
+                template: `<button @click="$emit('click')">子组件{{a}}</button>`,
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <mybutton :msg="content" a="1" b="2"></mybutton>
+    </div>
+    <!-- 结果是子组件---孙组件--1--2 -->
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            content: "hello"
+        },
+        components: {
+            // 子组件
+            'mybutton': {
+                mounted() {
+                    //    this.$attrs子接收的数据没有用到会保存在$attrs中
+                    console.log(this.$attrs)
+                },
+                inheritAttrs: false, //没有用到的元素不会显示在dom结构上
+                template: `<div>子组件---<my v-bind="$attrs"></my></div>`,
+                // 孙组件
+                components: {
+                    'my': {
+                        data() {
+                            return {}
+                        },
+                        props: ['a', 'b'],
+                        template: `<span>孙组件---{{a}}--{{b}}</span>`,
+                    }
+
+                }
+            }
+        }
+    })
+</script>
+
+</html>
