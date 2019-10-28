@@ -1,0 +1,14 @@
+// 入口文件
+import React from "react"   // 引入框架
+import ReactDOM from "react-dom"   //react-dom专门针对webapp
+// 引入根组件
+import App from "./App"
+
+// 把根组件渲染到页面中
+// ReactDOM.render(<App/>,document.getElementById("app"))
+
+
+// 无状态组件
+// ReactDOM.render(<App name="wangcai"/>,document.getElementById("app"))
+ReactDOM.render(<App />,document.getElementById("app"))   // 默认值的设置
+

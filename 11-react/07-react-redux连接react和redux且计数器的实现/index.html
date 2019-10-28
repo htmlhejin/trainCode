@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./redux.js"></script>  
+    <!-- 引入redux.js自动就有一个redux对象 -->
+</head>
+<body>
+    <script>
+        // console.log(Redux)
+        //redux中有 1、   2、  3、  4、
+        //1、 state
+        const initState={
+            count:0
+        }
+
+        // 2、action   放改变状态的动作  返回一个对象,这个对象就是action 
+        function increment(flag){
+            return {
+                type:"INCREMENT",
+                flag
+            }
+        }
+        function decrement(flag){
+            return {
+                type:"DECREMENT",
+                flag
+            }
+        }
+        // 3、reducer  管理员，用于改变状态，创建仓库时需要指定管理员
+        // reducer是纯函数，传递过来的值和返回的值的数据结构必须一致
+        function reducer(state=initState,action){
+            switch(action.type){
+                case "INCREMENT":
+                    return {count:state.count+action.flag}  // 传递过来的是{count:0}数据结构，返回的也是，只是数值0发生了改变
+                case "DECREMENT":
+                    return {count:state.count-action.flag}
+                default:
+                    return state    // 没有"动作"，把初始状态返回
+            }
+        }
+        // 4、store 仓库中放状态(数据)   创建仓库时指定一个管理员
+        let store = Redux.createStore(reducer);
+        console.log(store)
+        // 状态改变时触发subscribe中的回调函数
+        store.subscribe(()=>{   // subscribe 订阅
+            console.log("现在的状态为:",store.getState())
+        })
+        // 派发increment，管理员来修改状态,数据改变了，触发subscribe中的回调函数
+        store.dispatch(increment(1))   // 现在的状态为: {count: 1}
+        store.dispatch(increment(10))  // 现在的状态为: {count: 11}
+    </script>
+</body>
+</html>
+
+
+<!-- console.log(store) -->
+<!-- {dispatch: ƒ, subscribe: ƒ, getState: ƒ, replaceReducer: ƒ, Symbol(observable): ƒ}
+dispatch: ƒ dispatch(action)
+getState: ƒ getState()
+replaceReducer: ƒ replaceReducer(nextReducer)
+subscribe: ƒ subscribe(listener)
+Symbol(observable): ƒ observable() -->
