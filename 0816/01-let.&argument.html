@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/less.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // let a=10;
+    // // const a=10;
+    // console.log(window.a)       //undefined  let、const声明的变量不会挂在window上
+
+
+    // function f(){
+    //     console.log(arguments)
+    // }
+    // f(1,2,3,4,6,8,9)    //Arguments(7) [1, 2, 3, 4, 6, 8, 9, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+    // function f(a){
+    //     console.log(arguments)      //Arguments [{…}, callee: ƒ, Symbol(Symbol.iterator): ƒ]  ...=>{name:"oo",age:10}
+    // }
+    // f({name:"oo",age:10})
+
+    // function f(a){
+    //     a.name="pp"         //形参改变，arguments中的数据也改变
+    //     console.log(arguments)      //Arguments [{…}, callee: ƒ, Symbol(Symbol.iterator): ƒ]    ...=>{name:"pp",age:10}
+    // }
+    // f({name:"oo",age:10})
+
+    function f(a){
+        console.log(arguments[0].name)  //ff
+        arguments[0].name="aa"
+        console.log(a)  //{name: "aa", age: 10}  arguments中的数据改变,形参也改变
+    }
+    f({name:"ff",age:10})
+</script>
+</html>

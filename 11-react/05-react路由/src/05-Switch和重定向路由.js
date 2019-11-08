@@ -13,7 +13,7 @@ class App extends Component {
         return (
             <div>
                 app
-                {/* Switch通常用来包裹Redirect和Route组件，里面不能有其他元素，用来只显示一个路由 */}
+                {/* Switch通常用来包裹Redirect和Route组件，里面不能有其他元素，用来只显示一个路由，匹配到一个路由，就不再往下继续匹配 */}
                 <Switch>  
                     <Redirect from="/user" to="/list"></Redirect>
                     <Route path="/" exact component={Home}></Route>   

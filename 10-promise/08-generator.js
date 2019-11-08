@@ -5,7 +5,7 @@
 //     yield 3;
 //     yield 4;
 // }
-// // 调用生成器生成迭代器
+// // 调用生成器生成迭代器，迭代器是一个对象 ，里面有一个next函数，函数返回一个对象，对象中有一个value,done
 // let it=read()
 // // 通过next取值，next一下，取出一个值
 // console.log(it.next())  //{ value: 1, done: false } 

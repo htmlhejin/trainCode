@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 宽度为750的屏幕，fontsize是100px
+        // 宽度为fs的屏幕，fontsize是 ? 
+        window.onload=function(){
+            // document.documentElement.offsetWidth得到屏幕的宽度
+            let fs=document.documentElement.offsetWidth/750*100
+            //  得到根元素的fontSize,根据fontSize设置rem
+            document.documentElement.style.fontSize=fs+"px"
+        }
+    </script>
+
+    <style>
+        html{
+            font-size: 100px;
+        }
+        /* rem根据根元素的font-size属性设置 */
+        .box{
+            /* 1rem表示1*100=100px */
+            width: 1rem;  
+            height: 1rem;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

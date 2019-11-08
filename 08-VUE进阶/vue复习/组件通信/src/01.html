@@ -1,0 +1,11 @@
+<script>
+    var a=[1]
+    function f(a){
+        a[100]=3
+        // console.log(g)   // 不加var的变量不能提升
+        q=[1,2,3]
+    }
+    f(a)
+    console.log(q)
+    console.log(a)   // (101) [1, empty × 99, 3]
+</script>

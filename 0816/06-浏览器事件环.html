@@ -1,0 +1,133 @@
+<!-- 异步任务 -->
+<!--宏任务 macrotask:setTimeout、setInterval、setImmediate(仅ie浏览器支持这个api,node中也支持) -->
+<!--微任务 microtask:promise.then()、process.nextTick()(node的api) -->
+<!-- 注：promise是同步任务 -->
+<!-- 同步任务放入栈中，异步任务放入堆中 -->
+<!-- 先执行栈中的内容，执行完后清空微任务，微任务清空后执行宏任务，执行完后执行宏任务中的微任务，循环 -->
+<!-- <script>
+    // 宏任务  // 异步1号任务
+    setTimeout(() => {
+        console.log('setTimeout1');
+        Promise.resolve().then(data => {
+            console.log('then3');
+        });
+    }, 1000);
+    // 微的  异步2号任务
+    Promise.resolve().then(data => {
+        console.log('then1');
+    });
+    // 微的  异步3号任务
+    Promise.resolve().then(data => {
+        console.log('then2');
+        //   异步4号任务
+        setTimeout(() => {
+            console.log('setTimeout2');
+        }, 1000);
+    });
+    // 同步
+    console.log(2);
+    // 2 then1 then2 setTimeout1  then3  setTimeout2
+</script> -->
+
+<!-- <script>
+    setTimeout(() => {
+        console.log(2);
+        Promise.resolve().then(() => {
+            console.log(6);
+        });
+    }, 0);
+    Promise.resolve(3).then((data) => {
+        console.log(data);  	
+        return data + 1;
+    }).then((data) => {
+        console.log(data)		
+        setTimeout(() => {
+            console.log(data + 1)	
+            return data + 1;
+        }, 1000)
+    }).then((data) => {
+        console.log(data);		
+    });
+    // 3 4 undefined 2  6  5
+</script> -->
+
+<script>
+    // 一号异步任务
+    // setTimeout(() => {
+    //     console.log(1);
+    //     Promise.resolve().then(data => {
+    //         console.log(2);
+    //     });
+    // }, );
+    // // 二号异步任务
+    // Promise.resolve().then(data => {
+    //     console.log(3);
+    //     // 三号宏任务
+    //     setTimeout(() => {
+    //         console.log(4)
+    //     }, 0);
+    // });
+    // console.log('start');
+    // start 3 1 2 4    异步任务放入队列中，先进先出，一般情况下按顺序执行，但是如果前面的宏任务耗时较后面宏任务时间长，先执行后面的
+
+    // setTimeout(() => {
+    //     console.log(1);
+    //     Promise.resolve().then(data => {
+    //         console.log(2);
+    //     });
+    // },3000);    //耗时较三号宏任务长，先执行三号
+    // // 二号异步任务
+    // Promise.resolve().then(data => {
+    //     console.log(3);
+    //     // 三号宏任务
+    //     setTimeout(() => {
+    //         console.log(4)
+    //     }, 0);
+    // });
+    // console.log('start');
+    //  start 3 4 1 2
+</script>
+
+<script>
+    // 1 宏任务
+    // setTimeout(function () {
+    //     console.log(1);
+    //     Promise.resolve().then(function () {
+    //         console.log(2);
+    //     }); 
+    // }); 
+    // // 2 宏任务
+    // setTimeout(function () {
+    //     console.log(3);
+    // });  
+    // // 微任务
+    // Promise.resolve().then(function () {
+    //     console.log(4);
+    // }); 
+    // // 同步任务
+    // console.log(5)
+    // 5 4 1 2 3
+</script>
+
+<script>
+    setTimeout(() => {
+        console.log('A');
+    }, 0);
+    var obj = {
+        func: function () {
+            setTimeout(function () {
+                console.log('B')
+            }, 0);
+            // Promise是同步任务
+            return new Promise(function (resolve) {
+                console.log('C');
+                resolve();
+            })
+        }
+    };
+    obj.func().then(function () {
+        console.log('D')
+    });
+    console.log('E');
+    // C E D A B
+</script>
