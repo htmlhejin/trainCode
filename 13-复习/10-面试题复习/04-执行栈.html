@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+     // function a() {
+    //     console.log('a')
+    //     function b() {
+    //         console.log('b');
+    //         function c() {
+    //             console.log('c');
+    //         }
+    //         c();
+    //     }
+    //     b();
+    // }
+    // a()
+
+    // 结果是a,b,c,而作用域的销毁过程依次是c,b,a
+
+    // -----------------------------------
+    console.log('1');
+    function a() {
+        console.log('2');
+        function b() {
+            console.log('3')
+        }
+        b()
+    }
+    a()
+    // 结果是1 2 3
+    // 1、首先，我们执行代码时会有一个全局上下文，此时代码运行，全局上下文进入执行栈，位于栈底
+    // 2、我们遇到console.log('1'),这个函数在调用的时候进入执行栈，当这句话执行完毕也就是到了下一行的时候我们console这个函数就会出栈，此时栈中仍然只有全局上下文
+    // 3、接着运行代码，这里注意的是我们遇到的函数声明都不会进入执行栈，只有当我们的函数被调用被执行的时候才会进入，这个原理和我们执行栈的名字也就一模一样，接着我们遇到了a();这句代码这个时候我们的a函数就进入了执行栈，然后进入到我们a的函数内部中，此时我们的函数执行栈应该是  全局上下文 —— a
+    // 4、接着我运行console.log('2'),执行栈变成 全局上下文——a——console,接着我们的console运行完毕，我们执行栈恢复成全局上下文 —— a
+    // 5、接着我们遇到了b();那么b进入我们的执行栈，全局上下文——a——b,
+    // 6、接着进入b函数的内部，执行console.log('3')的时候执行栈为全局上下文——a——b——console，执行完毕之后回复成全局上下文——a——b
+    // 7、然后我们的b函数就执行完毕，然后就被弹出执行栈，那么执行栈就变成全局上下文——a
+    // 8、然后我们的a函数就执行完毕，然后就被弹出执行栈，那么执行栈就变成全局上下文
+    // 9、然后我们的全局上下文会在我们的浏览器关闭的时候出栈
+</script>
+</html>

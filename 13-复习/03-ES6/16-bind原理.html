@@ -1,0 +1,48 @@
+<!-- bind可以改变this指向，返回绑定后的函数，需要手动执行 -->
+<!-- <script>
+    function f(a,b,c,d,e){
+        console.log(this)    // {}
+        console.log(a,b,c,d,e)   // 1 2 3 "hello" "world"
+    }
+    Function.prototype.bind=function(context){
+        let that = this   // 改变this指向
+        // arguments是伪数组
+        // console.log(Array.prototype.slice.call(arguments,1))  // [1, 2, 3]
+        let newArr = Array.prototype.slice.call(arguments,1);
+        return function(str){   // 调用绑定后的函数，也可能传递参数   "hello","world"
+            let newArr2 = Array.prototype.slice.call(arguments)
+            // console.log(newArr.concat(newArr2))   // [1, 2, 3, "hello", "world"]
+            return that.apply(context,newArr.concat(newArr2))   // 把所有参数返回，如果不返回，前面的函数接收不到参数，无法使用
+        }
+    }
+    let obj={a:9999}
+    let r = f.bind(obj,1,2,3)    //bind 不会让bind前面的函数自动执行，需要手动执行
+    // r("hello","world")
+    let instance = new r()   // 绑定后的函数被new了，new时传递的参数会传递到bind前面的函数，this指向new后的变量
+</script> -->
+<!-- 
+    改变this指向，bind时可能传参，接收参数，经过处理之后把把参数返回，返回到了函数调用处，也就是bind前面的函数，否则函数将无法使用参数，
+    手动执行(执行的是bind前面的参数)时也可能传参，还是传到了bind前面的参数，把参数返回便于使用
+
+ -->
+
+
+<!--
+     把伪数组变成真实的数组
+    方法一、slice
+    方法二、Array.from()
+    方法三、[...obj]   // 前提是obj是可迭代的
+-->
+
+
+<!-- concat -->
+<script>
+    function f() {
+        console.log(arguments)
+
+    }
+    let obj1={}
+    let obj2={}
+    f.call(obj1,1,2,3)
+    f.call(obj2,'a','b','c')
+</script>

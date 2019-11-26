@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="a">1</li>
+        <li class="a">2</li>
+        <li class="a">3</li>
+        <li class="a">4</li>
+        <li class="a">5</li>
+    </ul>
+</body>
+
+<script>
+    // function f(arguments) {
+    //     console.log(...arguments)  // 1, 2, 3, 4, 5, 6
+    //     console.log(Object.prototype.toString.call(arguments))   // [object Array]
+    // }
+    // f([1, 2, 3, 4, 5, 6])
+
+    // ------------------------------------------
+        // ES5中的转换方法
+    // let ele = document.getElementsByClassName("a")
+    // // console.log(Object.prototype.toString.call(ele))   // [object HTMLCollection] 伪数组
+    // let ele2 = Array.prototype.slice.call(ele,0,2)
+    // console.log(ele2)   // [li.a, li.a]
+    // console.log(Object.prototype.toString.call(ele2))   //  [object Array]
+
+    // ES6中的转换方法
+    let ele = document.getElementsByClassName("a")
+    let ele2 = Array.from(ele)
+    console.log(Object.prototype.toString.call(ele2))   //  [object Array]
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+        }
+        section:before{
+            content: "哈喽，我是插入的第一个元素";
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            display: block;
+        }
+        section:after{
+            content: "哈喽，我是插入的最后的一个元素";
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+
+        <div>我是已有的盒子</div>
+    </section>
+</body>
+</html>

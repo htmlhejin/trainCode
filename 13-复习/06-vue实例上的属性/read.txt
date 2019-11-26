@@ -1,0 +1,7 @@
+vm.$watch('key',function(newValue,oldValue){
+    console.log(newValue)
+})
+
+只有vm.$watch能获取大更新后的dom元素  
+vm.$el获取到的是更新之前的数据，如果想要获取更新后的数据，需要放到下一个事件环中，并打个断点debugger
+通过setTimeout，并且打个断点，可以获取到更新后的数据

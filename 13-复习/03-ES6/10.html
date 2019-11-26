@@ -1,0 +1,14 @@
+<script>
+    function Person(name){
+        this.name=name
+    }
+    Person.prototype.say=function(){
+        console.log("say....")
+    }
+let p = new Person("wangcai")
+console.dir(p)  // Person  __proto__: Object
+console.log(p.constructor)  // ƒ Person(name){this.name=name}
+console.log(p.__proto__.constructor)  // ƒ Person(name){this.name=name}
+console.log(Person.prototype) // {say: ƒ, constructor: ƒ}
+console.log(Person.prototype.__proto__) // {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+</script>

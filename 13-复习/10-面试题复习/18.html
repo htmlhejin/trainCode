@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 在数组中找到指定的元素，如果找到就返回，如果有重复的，找的是最后一个元素对于的索引，如果没有重复的，则找的是第一个
+    //  let arr=[1,2,3,66,78,9,0]
+    // Array.prototype.getarrs=function(x){
+    //     var index;
+    //     for(let i=0;i<arr.length;i++){
+    //         if(x==arr[i]){
+    //             index=i
+    //         }
+    //     }
+    //     return index;
+    // }
+    // // console.dir(arr)
+    // console.log(arr.getarrs(3))   // 3
+
+    // --------------------------------
+    // let arr=[1,2,3,66,78,9,0,3]
+    // Array.prototype.getarrs=function(x){
+    //     var index;
+    //     for(let i=0;i<arr.length;i++){
+    //         if(x==arr[i]){
+    //             index=i
+    //         }
+    //     }
+    //     return index;
+    // }
+    // // console.dir(arr)
+    // console.log(arr.getarrs(3))   // 7
+
+    // ---------------------------------------
+    // 删除数组中的指定元素，如果有就删除，没有就不做操作
+    // let arr = [1, 2, 3, 66, 78, 9, 0, 3]
+    // Array.prototype.getarrs = function (x) {
+    //     var index;   //找不到
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (x == arr[i]) {
+    //             index = i
+    //         }
+    //     }
+    //     return index;
+    // }
+    // Array.prototype.deletearrs = function (x1) {
+    //     var index1 = this.getarrs(x1)
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (index1 != i) {   //找到了指定元素
+    //             this.splice(index1, 1)
+    //         }
+    //     }
+    // }
+    // arr.deletearrs(9)
+    // console.log(arr)   //[1, 2, 3, 66, 78]
+
+    //--------------------------------- 
+    let arr = [1, 2, 3, 66, 78, 9, 0, 3]
+    Array.prototype.getattrs = function(num){
+        let index ;
+        for(let i = 0 ; i < arr.length ; i++){
+            if(num == arr[i]){   // 找到对应的元素
+                index = i ;  // 找到对应的下标
+            }
+        }
+        return index ;
+    }
+    // console.log(arr.getattrs(66))   // 3
+    Array.prototype.deleteattrs = function(x){
+        let attidx = this.getattrs(x)  // 找到对应的元素的索引
+        for(let i = 0 ; i < arr.length ; i++){
+            if(attidx != i){
+                this.splice(attidx,1)   // splice返回一个新数组，数组中是被删除的项
+            }
+            else{
+                console.log("对应元素的索引等于i")
+            }
+        }
+    }
+    arr.deleteattrs(0)
+    console.log(arr)  // [1, 2, 3, 66, 78, 9]
+</script>
+</html>

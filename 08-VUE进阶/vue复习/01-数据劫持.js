@@ -8,6 +8,9 @@ var obj={
 
 // 定义一个方法监控数据，这样数据改变时会被监控到
 function observe(obj){
+	if(typeof obj !== 'object' || obj == null){
+		return obj;
+	} 
     // 如果监控的数据是一个对象，则把对象中的数据遍历出来
     if(typeof obj == "object"){
         for(let key in obj){
@@ -20,7 +23,7 @@ function observe(obj){
 // 修改对象的属性
 function defineReactive(obj,key,value){
     observe(value)   // 如果value是一个对象，继续监控，然后才能对value进行设置，如果不继续监控，则无法修改对象
-    Object.defineProperty(obj,key,{
+    Object.defineProperty(obj,key,{    // defineProperty默认只能侦测对象
         // 获取对象的属性时调用get
         get(){
             console.log("get")
@@ -32,14 +35,20 @@ function defineReactive(obj,key,value){
             // 如果设置的新值是一个对象，继续监控
             observe(val)
             console.log("set")
-            value=val   // 新值赋给value
-            console.log(val)  
+            if(value !==val){
+				value=val   // 新值赋给value
+				console.log(val)  
+			}
         }
     })
 }
 
 // 监控对象
 observe(obj)
+
+// 如果data中么有该对象，是劫持不到的，打印处undefined
+console.log(obj.abc)
+
 
 // 获取key
 // obj.name;   // get
@@ -85,3 +94,12 @@ arr.forEach((method)=>{
     }
 })
 arr.push(567890)   // 567890
+
+
+
+
+
+const arrayProto = Array.prototype
+arrayProto[method]=function(){
+	
+}

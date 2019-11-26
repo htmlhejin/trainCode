@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.box{
+    position: relative;
+
+}
+.son{
+    position: absolute;
+    left: 20px;
+}
+</style>
+
+<body>
+    <!-- <div class="box" style="width: 200px;height: 200px;background: gold;">
+        <div class="son" style="width: 100px;height: 100px;background: red;"></div>
+    </div> -->
+</body>
+<script>
+    // for( var i=0;i<5;i++){
+    //     setTimeout(()=>{
+    //         console.log(i)   // 5个5
+    //     },1000)
+    // }
+    // console.log(i)   // 5
+
+    // for( let i=0;i<5;i++){
+    //     setTimeout(()=>{
+    //         console.log(i)   // 1 2 3 4 5
+    //     },1000)
+    // }
+    // console.log(i)   //  i is not defined
+
+    // console.log(Object.assign({ a: 1, b: { c: { d: 4 } } }, { b: { c: { e: 5 } } }))
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // let result = arr.reduce(function (total, cur, index, arr) {
+    //     return total + cur
+    // })
+    // console.log(result)
+
+    var a=[1,4,2,4,5]
+    for(let i=0;i<a.length;i++){
+        if(a[i]%2==0){
+            a.splice(i,1)
+        }
+    }
+    console.log(a)   // [1,2,5]
+</script>
+
+</html>

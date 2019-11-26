@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="textarea" placeholder="holsfgc">
+
+</body>
+<script>
+    // b()
+    // a()
+    // var a = function (){
+    //     console.log("aaa")
+    // }
+    // function b(){
+    //     console.log("bbb")
+    // }
+
+    // ---------------------
+    // var name="global"
+    // var obj={
+    //     name:"obj",
+    //     dose:function(){
+    //         this.name="dose"
+    //         return function(){
+    //             return this.name
+    //         }
+    //     }
+    // }
+    // var r = obj.dose().call(this)
+    // console.log(r)
+
+    // ---------------------
+    // class Animal{
+    //     constructor(){
+
+    //     }
+    // }
+    // let a = new Animal()
+    // ------------------------  ???
+    // for(let i=0;i<5;i++){
+    //     setTimeout(function(){
+    //         console.log(i+'')
+    //     },100)
+    // }
+    // 结果是 0 1 2 3 4
+    // var的话结果是 5 5 5 5 5
+
+    // ----------------------------  ???
+    // var a='1' + 2 - '1'
+    // console.log(typeof a)   // 11  typeof是number
+    // var b= "1"+2
+    // console.log(typeof b)   // 12   typeof是string
+    // console.log(b-'1')
+    // console.log('b' - 'a')   // NaN
+
+    // ---------------------
+    // 创建一个随机数组，并对数组去重
+    // let arr = []
+    // for (let i = 0; i < 100; i++) {
+    //     let a = Math.ceil(Math.random() * 10)
+    //     // console.log(a)
+    //     arr.push(a)
+    // }
+    // // console.log(arr)
+    // let newArr = new Set(arr)
+    // console.log(newArr)
+
+    // ------------------------
+    // 用js定义一个animal类，然后实例化它(属性，方法各一个)
+    // function Animal(name){
+    //     this.name = name
+    // }
+    // Animal.prototype.eat=function(){
+    //     console.log("eat...")
+    // }
+    // let dog = new Animal("wangcai")
+    // console.log(dog.name)
+    // dog.eat()
+
+    // -------------------------------
+    // 伪数组转成真实的数组
+    // function f(){
+    //     return arguments
+    // }
+    // let arg = f(1,2,3,4)  // Arguments(4) [1, 2, 3, 4, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    // let newArg = Array.from(arg)
+    // console.log(newArg)
+
+    // --------------------------------
+    // var a = [1,2,3,4]
+    // i=0;
+    // a[i++] = a[i++] * 2
+    // console.log(a)  // [4,2,3,4]
+</script>
+
+</html>

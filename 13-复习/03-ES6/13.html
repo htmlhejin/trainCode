@@ -1,0 +1,41 @@
+<!-- <script>
+    var a = 110;
+    let obj = {
+    a : 666,
+    f(){
+        setTimeout(()=>{
+            console.log(this.a)  /// 666
+        },1000)
+    }
+}
+    obj.f();
+    箭头函数没有this，该例中跳出该作用域向f中找,f是有this的，obj调用了f,f中的this指向obj
+</script> -->
+
+<!-- <script>
+    // -----------------------------------
+var a = 110;
+let obj = {
+    a : 666,
+    f(){
+        setTimeout(function(){
+            console.log(this.a)  /// 110
+        },1000)
+    }
+}
+obj.f();
+</script> -->
+
+<script>
+    var a = 110;
+    let obj = {
+        a: 666,
+        f:()=>{
+            setTimeout(()=>{
+                console.log(this.a)  // 110   
+            }, 1000)
+        }
+    }
+    obj.f();
+    // setTimeout中是箭头函数，没有this,跳出{}向f找，f也是箭头函数，继续跳出{}向window中找，this就是110
+</script>

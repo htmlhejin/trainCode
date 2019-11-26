@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <!-- <style>
+        .el-button{
+            width: 100%;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-button type="success" @click="getFollowers">获取关注者</el-button>
+            <el-button type="success" @click="auth">微信登录</el-button>
+            <!-- <el-button type="success" @click="auth">a</el-button> -->
+        </el-row>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        methods: {
+            async getFollowers(){
+                // 调用接口获取关注者
+               const res = await axios.get("/getFollowers")
+               console.log(res)
+            },
+            async auth(){
+                window.location.href="/wxAuthrize"
+            }
+           
+        }
+    })
+</script>
+
+</html>

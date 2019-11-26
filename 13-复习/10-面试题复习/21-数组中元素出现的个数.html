@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let arr = [1, 2, 3, 4, 1, 2]
+    // function k(a) {
+    //     let m = {}
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let t = arr[i]
+    //         if (m.hasOwnProperty(t)) {
+    //             m[t] += 1
+    //         } else {
+    //             m[t] = 1
+    //             console.log(m[t])   // 1
+    //         }
+    //     }
+    //     return m
+    // }
+    // console.log(k(arr))
+
+    // ----------------------再来一遍
+    let arr = [1, 2, 3, 4, 5, 6, 5, 1, 3]
+    function k(arr) {
+        let m = {}
+        for (let i = 0; i < arr.length; i++) {
+            let t = arr[i]
+            if (m.hasOwnProperty(t)) {
+                m[t] += 1
+            } else {
+                m[t] = 1
+            
+            }
+        }
+        return m
+    }
+    console.log(k(arr))  // {1: 2, 2: 1, 3: 2, 4: 1, 5: 2, 6: 1}
+
+    // let m={name:"hello",age:10}
+    // m['score']=99
+    // m['score']=88
+    // console.log(m)  // {name: "hello", age: 10, score: 88}
+</script>
+
+</html>

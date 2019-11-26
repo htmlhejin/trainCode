@@ -1,0 +1,5 @@
+EventBus  
+1、首先在根组件中添加一个$bus挂载项，是vue实例  
+2、可以在父组件中注册一个事件 this.$bus.$on("change",callback)
+3、在子组件中触发事件 在this.$nextTick钩子中触发 this.$bus.$emit("change")
+            可以触发上一级中订阅的方法，也可以隔级触发

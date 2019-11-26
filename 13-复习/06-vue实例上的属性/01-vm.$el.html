@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{name}}</div>
+</body>
+
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data(){
+            return {
+                name:"wangcai"
+            }
+        },
+    })
+    // vm.name="xxx"
+    // console.log(vm.$el)  
+
+    // 在控制台修改数据后，vm.$el还是更新之前的数据，并不能获取最新数据
+    // 视图更新是异步的  如果想获取更新后的dom元素，需要在下一个事件环中获取
+    setTimeout(()=>{
+        console.log(vm.$el)  
+    })
+    debugger
+    // 刚开始setTimeout是没有执行的，此时在控制台更新数据，那么断点结束之后打印出的vm.$el是更新后的数据
+</script>
+</html>

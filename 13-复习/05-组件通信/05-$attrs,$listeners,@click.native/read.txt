@@ -1,0 +1,13 @@
+$attrs:
+    <Son1 v-bind="$attrs" :money="money" :counter="counter"></Son1>
+    <p>子组件的money是{{$attrs.money}}</p>
+    父组件向子组件传递数据，可以使用v-bind="$attrs",同时也需要普通的数据绑定，结果是以对象的形式显示出来，所有数据都保存在$attrs中，这样子组件可以通过$attrs.xxx获取数据
+    如果传递的数据很多时，可以避免子组件使用props接收，显得比较繁琐，直接通过$attrs.xxx直接就可以获取数据
+
+$listeners:
+    父组件向子组件传递了很多方法，子组件通过v-on="$listeners"可以得到传递过来的所有方法，修改状态时通过$listeners.change1(888)"即可
+
+
+
+
+

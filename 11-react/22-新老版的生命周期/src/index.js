@@ -50,7 +50,7 @@ class SubCounter extends Component{
             return{number:prevState.number+1}
         }
     }
-	// getSnapshotBeforeUpdate
+	// getSnapshotBeforeUpdate   
     render(){
         return(
             <>

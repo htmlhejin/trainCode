@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{name}}</div>
+</body>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                name: "wangcai"
+            }
+        },
+    })
+    // 视图更新是异步的，既然是异步的，获取到的数据可能是更新之前的，如果想要获取更新之后的数据，需要在下一个事件环中获取
+    // 当然，也可以在setTimeout, then等事件环中获取
+    // vm.$nextTick并不能获取到更新后的dom元素
+    vm.$nextTick(()=>{
+        console.log('--->',vm.$el.innerHTML)
+    })
+
+    // vm.$watch('name',(newV,oldV)=>{
+    //     console.log('--->',vm.$el.innerHTML)
+    // })
+</script>
+
+</html>

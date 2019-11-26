@@ -1,0 +1,133 @@
+<!-- 改变this指向 -->
+<!-- <script>
+    function f(){
+
+    }
+    Function.prototype.call=function(context){
+        // console.log(context)   // {name: "wangcai"}
+        console.log(this)   // f(){}
+        //一、 obj借用了f，让f中的this指向obj
+        context.fn = this;   // 给obj挂了一个函数，就是this 
+        console.log(context)  // {name: "wangcai", fn: ƒ}
+    }
+    let obj={name:"wangcai"}
+    f.call(obj)
+
+    // f.call(obj)
+</script> -->
+
+<!-- // 得到传递过来的参数，并赋给被借用者 -->
+<!-- <script>
+    function f(a,b,c) {
+        console.log(a,b,c)   // 1 2 3
+        console.dir(this)   里面已经删除掉了fn
+        return "hello"
+    }
+    Function.prototype.call = function (context) {
+        context.fn = this;   // 给obj挂了一个函数，就是this 
+        // console.log(context)  // {name: "wangcai", fn: ƒ}
+        // console.log(arguments)  // Arguments(4) [{…}, 1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        //二、 得到传递的参数
+        let args=[]
+        // for(let i=1;i<arguments.length;i++){
+        //     args[i] = arguments[i]
+        // }
+        // console.log(args)  //  [empty, 1, 2, 3]
+        for(let i=1;i<arguments.length;i++){
+            args.push(arguments[i])
+        }
+        // console.log(args)  // [1,2,3]
+        // eval() 函数会将传入的字符串当做 JavaScript 代码进行执行。
+        //四、 让call前面的函数自动执行
+        let r = eval('context.fn(' + args + ')')
+        // let r = eval(context.fn(args))
+        // 三、把参数返回，方便被借用函数使用
+        delete context.fn  
+        return r;   // 被借用函数中可能有return 值，所以需要把值返回
+    }
+    let obj = { name: "wangcai" }
+    console.log(f.call(obj,1,2,3))
+</script> -->
+
+<!-- 删除添加的fn -->
+<!-- <script>
+    function f(a,b,c) {
+        console.log(a,b,c)   // 1 2 3
+        console.log(this)  // {name: "wangcai", fn: ƒ}
+        // console.log(arguments)  // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        return "hello"
+    }
+    Function.prototype.call = function (context) {
+        //一、改变this指向
+        context.fn = this;   // 给obj挂了一个函数，就是this 
+        //二、 得到传递的参数
+        let args=[]
+        for(let i=1;i<arguments.length;i++){
+            args.push(arguments[i])
+        }
+        let r = context.fn(...args)
+        delete context.fn  
+        // 三、被借用函数中可能有return 值，所以需要把值返回
+        return r;   
+    }
+    let obj = { name: "wangcai" }
+    f.call(obj,1,2,3)
+</script> -->
+
+<!-- context可能为空 -->
+<!-- <script>
+    function f(a, b, c) {
+        // console.log(a, b, c)   // 1 2 3
+        // console.log(this)  // 原生的：Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+        // 经过处理
+        console.dir(this) // {fn: ƒ}
+    }
+    Function.prototype.call = function (context) {
+        //  Object(context)  强制转换contex类型，转换成对象
+        // console.log(Object(3))  // Number {3}/
+        // console.log(Array(3))   // [empty × 3]
+        context = context ? Object(context) : window
+        context.fn = this;   
+        let args = []
+        for (let i = 1; i < arguments.length; i++) {
+            args.push(arguments[i])
+        }
+        let r = context.fn(...args)
+        delete context.fn   // 
+        return r;
+    }
+    let obj ={};  // 默认是undefined   undefined上面不能挂fn
+    // f.call(obj)
+    f.call(obj, 1, 2, 3)
+</script> -->
+
+<!-- ------------------完整版 -->
+<script>
+    function f(a,b,c){
+        console.log(this)
+        console.log(a,b,c)  //用到了传递过来的参数
+    }
+    Function.prototype.call=function(context){
+        context = context ? Object(context) : window
+        context.fn=this    // 改变this指向
+        let args=[]
+        for(let i=1;i<arguments.length;i++){
+            args.push(arguments[i])
+        }
+        // 得到参数，传递参数并让函数执行
+        let r = context.fn(...args)   // 函数执行后 可能有return值，需要把该值返回
+        delete context.fn;
+        return r;
+    }
+    // let obj={name:"hello"}
+    let obj
+    f.call(obj,1,2,3)
+</script>
+
+<!-- 
+    一、改变this 指向，删除借用者中添加的属性
+    二、得到传递过来的参数
+    三、让被借用函数自动执行
+    四、处理借用者可能为空的情况
+
+ -->

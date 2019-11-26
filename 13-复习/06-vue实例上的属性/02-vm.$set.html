@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{name}}---{{age}}----{{score}}</div>
+</body>
+
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                name: "wangcai",
+                age:{},
+                score: {},
+            }
+        },
+        // mounted() {
+        //     window.console.log(this.$data)
+        //     // {__ob__: Observer}
+        //     // name: "wangcai"
+        //     // obj: Object
+        // },
+    })
+
+    // 如果想要把数据添加到data中，并且让vue能侦测到,通过vm.$set
+    // vm.$set(vm.$data, 'age', 100)
+    vm.$set(vm.$data, 'score', 888)
+    // 首先data中要有添加的键
+</script>
+
+</html>

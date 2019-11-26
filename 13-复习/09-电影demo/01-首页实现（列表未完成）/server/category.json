@@ -1,0 +1,93 @@
+    
+[{
+    "name": "动作片",
+    "id": 0,
+    "children": [{
+            "id": 1,
+            "title": "动作片一",
+            "price": 1,
+            "pic": "https://static.maizuo.com/v5/upload/b43a16925b3c56107bec4b866a2623ca.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是动作片一"
+        },
+        {
+            "id": 2,
+            "title": "动作片二",
+            "price": 1,
+            "pic": "https://static.maizuo.com/v5/upload/b43a16925b3c56107bec4b866a2623ca.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是动作片二"
+        },
+        {
+            "id": 3,
+            "title": "动作片三",
+            "price": 1,
+            "pic": "https://static.maizuo.com/v5/upload/b43a16925b3c56107bec4b866a2623ca.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是动作片三"
+        },
+        {
+            "id": 4,
+            "title": "动作片四",
+            "price": 1,
+            "pic": "https://static.maizuo.com/v5/upload/b43a16925b3c56107bec4b866a2623ca.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是动作片四"
+        }
+    ]
+},
+{
+    "name": "剧情片",
+    "id": 1,
+    "children": [{
+            "id": 5,
+            "title": "剧情片一",
+            "price": 2,
+            "pic": "https://static.maizuo.com/v5/upload/2fd9cd71b8b73608d28d38435f45ed48.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是剧情片一"
+        },
+        {
+            "id": 6,
+            "title": "剧情片二",
+            "price": 2,
+            "pic": "https://static.maizuo.com/v5/upload/2fd9cd71b8b73608d28d38435f45ed48.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是剧情片二"
+        },
+        {
+            "id": 7,
+            "title": "剧情片三",
+            "price": 2,
+            "pic": "https://static.maizuo.com/v5/upload/2fd9cd71b8b73608d28d38435f45ed48.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是剧情片三"
+        },
+        {
+            "id": 8,
+            "title": "剧情片四",
+            "price": 2,
+            "pic": "https://static.maizuo.com/v5/upload/2fd9cd71b8b73608d28d38435f45ed48.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是剧情片四"
+        }
+    ]
+},
+{
+    "name": "其他",
+    "id": 2,
+    "children": [{
+            "id": 9,
+            "title": "其它电影一",
+            "price": 3,
+            "pic": "https://static.maizuo.com/pc/v5/usr/movie/50cba71b01b16820d59a46445a512aeb.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是其它电影一"
+        },
+        {
+            "id": 10,
+            "title": "其它电影二",
+            "price": 3,
+            "pic": "https://static.maizuo.com/pc/v5/usr/movie/50cba71b01b16820d59a46445a512aeb.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是其它电影二"
+        }, {
+            "id": 11,
+            "title": "其它电影三",
+            "price": 3,
+            "pic": "https://static.maizuo.com/pc/v5/usr/movie/50cba71b01b16820d59a46445a512aeb.jpg?x-oss-process=image/quality,Q_70",
+            "info": "这是其它电影三"
+        }
+    ]
+}
+]

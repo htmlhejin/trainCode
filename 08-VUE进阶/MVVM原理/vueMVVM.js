@@ -11,7 +11,7 @@ class Watcher{
     get(){
         Dep.target=this;  // 观察者
         let value =CompilerUtil.getVal(this.vm,this.expr);
-        Dep.target=null;  //装填更新后再次获取时需要清除老的状态，如果不清除，再次获取时还是改变前的状态 
+        Dep.target=null;  //状态更新后再次获取时需要清除老的状态，如果不清除，再次获取时还是改变前的状态 
         return value;
     }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let arr = [1, 1, 2, 2, 3, 3]
+    let newArr = []   // 存放去重后的数组
+    let m = {}   // 用来判断数组中是否已经有要存放的值
+    for (let i = 0; i < arr.length; i++) {
+        let newV = arr[i]
+        if (m[newV]) {
+
+        } else {
+            newArr.push(newV)
+            m[newV] = true
+        }
+    }
+    console.log(newArr)  // [1, 2, 3]
+</script>
+
+</html>

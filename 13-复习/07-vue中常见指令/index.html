@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if控制元素是否存在,如果存在，Elements中显示该元素，如果没有直接不显示 -->
+        <!-- <p v-if="isShow">v-if控制dom元素有没有</p>
+        <button @click="isShow = !isShow">点击</button> -->
+
+        <!-- v-show控制是否显示，显示与否，Elements中都会有该元素 -->
+        <!-- <p v-show="!isShow">v-show控制display属性</p> -->
+        <!-- 如果显示的话，Elements中正常渲染dom元素，如果不显示，Elements中也有该dom元素，只不过多了一个style="display: none;" -->
+
+        <!-- v-once只渲染一次，再去改变数据时不会重新渲染 -->
+        <!-- <p v-once>{{name}}</p>
+        <button @click="change('xxx')">改变name</button> -->
+
+        <!-- v-html能自动解析html标签,但是尽量不用v-html,容易造成xss攻击，比如用户在Input中输入了js代码，比如里面有alert,那么就会执行alert,造成代码错乱，本来不可以执行alert的 -->
+        <!-- <p v-html="abc"></p> -->
+
+        <!-- v-for可以循环数字，数组，对象 -->
+        <!-- <ul> -->
+        <!-- 循环li,就把v-for写在li标签中 -->
+        <!-- <li v-for='(item,index) in stu' :key="index">{{item.name}}</li> -->
+        <!-- </ul> -->
+        <!-- 一般使用id作为索引，而不使用index,原因是，比如一组数据，如果要排序，使用唯一表示id作为索引，那么只需要交换元素的位置即可，如果使用index作为索引，可能会创建新的dom元素，会浪费性能 -->
+
+        <!-- template不会被渲染成任何标签，减小性能的浪费, template标签不能使用:key -->
+        <!-- <template v-for="(item,index) in stu">  
+            <li :key="index" >{{item.name}}</li>
+        </template> -->
+
+        <!-- v-if  v-for 不能混合使用  永远不要把 v-if 和 v-for 同时用在同一个元素上。 -->
+        <!-- 当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级 -->
+        <!-- v-for  v-if同时使用一般用于筛选出列表中符合条件的元素，因此即使只渲染一部分元素，每次渲染时都会重新遍历列表，浪费性能，可以使用计算属性来代替要遍历的对象或数组 -->
+        <!-- 掘金   https://juejin.im/post/5d3d745851882556d1684b16 -->
+        <!-- <p></p> -->
+
+        <!-- 多个li时让key唯一 -->
+        <div>
+            <div v-for="(fruit,index) in fruits">
+                <li :key="`name_${index}`">{{fruit.name}}</li>
+                <li :key="`color_${index}`">{{fruit.color}}</li>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                name: "hello",
+                isShow: true,
+                abc: '<span>hello world</span>',
+                stu: [
+                    { name: "hello1" },
+                    { name: "hello2" },
+                    { name: "hello3" },
+                ],
+                fruits: [{ name: "苹果", color: "red" }, { name: "香蕉", color: "yellow" }, { name: "橘子", color: "green" }],
+            }
+        },
+        methods: {
+            change(newValue) {
+                this.name = newValue
+            }
+        }
+    })
+</script>
+
+</html>

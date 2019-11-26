@@ -1,0 +1,18 @@
+<!-- <script>
+    function f(){
+    console.log(this)   // String {"hello"}   ,   typeof this是object
+}
+f.call(123)  //Number {123}
+f.call("hello") 
+</script> -->
+
+<!-- ---------------------- call的链式调用 -->
+<script>
+    function f(){
+        console.log(this)
+    }
+    function g(){
+        console.log(this)   // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+    }
+    f.call.call.call(g)
+</script>

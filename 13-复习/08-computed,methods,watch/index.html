@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <p>{{getFullname()}}</p> -->
+        <!-- <p>{{age}}</p> -->
+
+        <!-- <p>{{fullname}}</p>
+        <p>{{age}}</p> -->
+
+        <!-- <p>{{firstname }}{{lastname}}</p> -->
+        <p>{{firstname}}</p>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data(){
+            return {
+                firstname:"张",
+                lastname:"三",
+                age:100
+            }
+        },
+
+        // 方法没有缓存，每次修改数据时都会执行方法
+        // 控制台中每次修改数据都会执行方法 vm.$data.age=999
+        // methods:{
+        //     getFullname(){
+        //         console.log("方法被调用了...")
+        //         return this.firstname + this.lastname
+        //     }
+        // },
+
+        // 计算属性，本质还是函数，使用时当作属性用,
+        // 计算属性有缓存，修改数据时不会执行
+        // computed:{
+        //     fullname(){
+        //         console.log("计算属性被调用了...")
+        //         return this.firstname + this.lastname
+        //     }
+        // }
+
+        // watch 监控数据的变化,支持异步操作
+        methods:{
+            getFullname(){
+                console.log("监控数据...")
+                return this.firstname + this.lastname
+            }
+        },
+		// watch本质也是函数，监控谁，谁是函数，当然也可以监控一个对象
+        watch:{
+            firstname(){
+                setTimeout(()=>{
+                    this.getFullname()
+                },3000);
+            },
+            lastname(){
+                this.getFullname();
+            }
+			// 另一种写法
+			firstname：{
+				// handle会自动执行
+				handle(to,from){}
+			}	
+        }
+    })
+
+    // 一、 computed和mothods的区别 ?
+        // 1、computed有缓存，每次改变无关数据时都不会执行，mothods没有缓存，每次改变无关数据时都会执行，比较浪费性能
+        // 2、使用computed计算属性时当作属性来用，使用methods时需要调用
+    // 二、computed和watch的区别 ?
+        // 1、通常情况下，computed和watch可以互换
+        // 2、watch中可以写异步代码
+        // 3、watch的写法较computed复杂
+        // 4、watch可以实现一些简单的功能
+        // 5、能使用computed就不要使用watch
+
+        // methods和watch的区别?(一般不会问)
+        // 1、methods中放一些简单的方法
+        // 2、watch监控数据变化
+</script>
+
+</html>

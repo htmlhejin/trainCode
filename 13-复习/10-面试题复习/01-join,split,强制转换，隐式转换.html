@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function f(a,...arguments) {
+    //     console.log(arguments)  //  [2, 3, 4]
+    //     console.log(Array.isArray(arguments))  // true
+    //     console.log(arguments.length)  // 3
+    //     console.log(Object.prototype.toString.call(arguments))   //  [object Array]
+    //     // console.log(Object.values(arguments)) 
+    //     // Object(arguments)   // 强制转换
+    //     // console.log(typeof arguments)
+    //     // console.log(arguments)
+    //     // console.log(Object.keys(arguments))  // ["0", "1", "2"]
+    // }
+    // f(1,2,3,4)
+    // console.log(null == undefined)  // true   隐式转换
+    // console.log(null === undefined)  // false
+
+    // split   切割成数组的形式
+    // let string = 'abcAB0123'
+    // console.log(string.split("AB"))  //  ["abc", "0123"]
+
+    // join  将数组转换成字符串 
+    // let arr = [1,2,3]
+    // console.log(typeof arr.join())   //   1,2,3  string
+
+    // var a = new Object();
+    // a.value = 1;
+    // b = a; { value: 1 }
+    // b.value = 2;
+    // alert(a.value);   // 2
+
+    let foo = 'get-element-by-id'
+    // console.log(foo.split('-'))  // ["get", "element", "by", "id"]
+    function combo(foo) {
+        let a = foo.split('-')   // ["get", "element", "by", "id"]
+        for (let i = 0; i < a.length; i++) {
+            a[i] = a[i].charAt(0).toUpperCase() + a[i].substr(1, a[i].length - 1)
+        }
+        a = a.join("")
+        console.log(a)
+    }
+    combo(foo)
+</script>
+
+</html>

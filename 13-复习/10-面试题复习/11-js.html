@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function setName() {
+    //     name = "张三";
+    // }
+    // setName();
+    // console.log(window)
+    // console.log(name);  // 张三
+
+    // ----------------------------
+    // var b = 2;
+    // function test2() {
+    //     window.b = 3;
+    //     // b = 3;
+    //     console.log(b);   // 内部没有变量b，就访问全局变量b 两种情况b的值都是3
+    // }
+    // test2();
+
+    // ----------------------------------
+    // 变量的类型：内部变量，内部函数，形参，外部变量
+    // 变量的访问优先级：内部变量 > 内部函数 > 形参 > 外部变量
+    // 同名的变量和函数同时存在，变量会覆盖函数
+    // var yuyan = "html";  // 4 外部变量
+    // function f1(yuyan){  // 3 形参
+    //     var yuyan = "js"  // 1 内部变量
+    //     function yuyan(){  // 2 内部函数   
+    //         console.log(yuyan)
+    //     }
+    // }
+    // c = 5;
+    // function test() {
+    //     window.c = 3;
+    //     console.log(c)  // 3
+    //     console.log(window.c)   // 3
+    // }
+    // test()
+    // --------
+    // c = 5;
+    // console.log(window)
+    // function test() {
+    //     // var c   提升
+    //     window.c = 3;
+    //     console.log(c)  // undefined   var c提升，并未赋值  先访问内部变量
+    //     var c 
+    //     console.log(window.c)   // 3
+    // }
+    // test()
+
+    // ----------------------------------
+
+    // a = 10;
+    // function test(){
+    //     a=99
+    //     console.log(a) // 99 ,这里是把10修改成了99
+    // }
+    // test()
+
+    // ----------------------------------
+
+    // var a=1;
+    // console.log(a++)  // 1  
+    // console.log(++a)  // 3
+    // a++    先把a的值拿来用，然后a自增1，a变成2
+    // ++a    先把a加1，然后再用a的值
+    // ----------------------------------
+    // typeof 1; "number"
+    // typeof "hello"; "string"
+    // console.log(typeof /[0-9]/); "object"
+    // typeof {}; "object"
+    // typeof null; "object"
+    // typeof undefined; "undefined"
+    // console.log(typeof [1, 2, 3]); "object"
+    // console.log(Object.prototype.toString.call([1,2,3]))  // [object Array] 数组
+    // typeof function () { };
+
+    // ----------------------------------
+        console.log(parseFloat("3asdf"))  // 3
+        console.log(parseInt("1.23abc456"))  // 1
+        console.log(parseInt(true))  // NaN
+
+    // ----------------------------------
+    // ----------------------------------
+    // ----------------------------------
+</script>
+
+</html>

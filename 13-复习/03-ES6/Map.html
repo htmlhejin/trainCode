@@ -1,0 +1,18 @@
+ <script>
+    // class Dog{}
+    // let dog=new Dog;    // new时如果不传参，()可写可不写
+    // let m=new Map([["name","wagnacai"],['age',100]])
+    // m.set(dog,555)
+    // console.log(m)  // Map { 'name' => 'wagnacai', 'age' => 100, Dog {} => 555 }
+    // dog=null;
+    // console.log(m) 
+
+
+    class Dog{}
+    let dog=new Dog; 
+    let m=new WeakMap()
+    m.set(dog,666)
+    console.log(m)  // WeakMap {Dog => 666}
+    dog=null
+    console.log(m)  // WeakMap {Dog => 666}    常驻内存，内存泄漏
+</script>

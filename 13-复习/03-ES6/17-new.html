@@ -1,0 +1,72 @@
+<!-- <script>
+    function Person(name) {
+        this.name = name;
+        console.log(this)
+    }
+    Person.prototype.say=function(){
+        console.log("say...")
+    }
+    let p =new Person("hello")
+    console.log(p.name)
+    p.say()
+</script> -->
+
+
+
+<!-- <script>
+    function Person(name) {
+        this.name = name;
+        console.log(this)  // Person {name: "hello"}
+        return {age:10}
+    }
+    Person.prototype.say=function(){
+        console.log("say...")
+    }
+    function myNew(){
+        // shift用于把数组中第一个元素删除并返回第一个元素的值
+        let Constructor = [].shift.call(arguments)
+        let obj={}    
+        obj.__proto__ = Constructor.prototype   // obj可以访问公有属性
+        Constructor.apply(obj,arguments)    // apply通过数组传参，也可以是arguments,伪数组
+        return obj 
+    }
+    let p = myNew (Person,"hello")
+    // new后创建了一个对象，该对象可以使用构造器中的属性
+    console.log(p.name)
+    p.say()
+</script> -->
+
+
+
+<script>
+        function Person(name) {
+            this.name = name;
+            console.log(this)  // Person {name: "hello"}
+            return {age:10}    // 被借用的函数中可能返回一个对象
+        }
+        Person.prototype.say=function(){
+            console.log("say...")
+        }
+        function myNew(){
+            // shift用于把数组中第一个元素删除并返回第一个元素的值
+            let Constructor = [].shift.call(arguments)
+            let obj={}
+            obj.__proto__ = Constructor.prototype   // obj可以访问公有属性
+            let r = Constructor.apply(obj,arguments)
+            return r  instanceof Object ? r : obj  // 被借用的函数中可能返回一个对象,要想拿到对象，需要把对象返回
+        }
+        let p = myNew (Person,"hello")
+        // new后创建了一个对象，该对象可以使用构造器中的属性
+        console.log(p.age)
+    </script>
+
+
+<!-- 
+    new 后内部干了什么事?   
+	一、创建一个对象
+    二、改变this指向
+    三、执行方法中的代码
+    四、返回新的对象,此时新对象就可以访问构造器中的属性了
+ -->
+
+
