@@ -11,7 +11,7 @@ void main() {
 }
 
 // MaterialApp,AppBar,Container
-// 定义一个无状态的组件，又叫静态组件，通过stf
+// 定义一个无状态的组件，又叫静态组件，通过stl
 class MyApp extends StatelessWidget {
   @override // 重写build方法
   Widget build(BuildContext context) {
